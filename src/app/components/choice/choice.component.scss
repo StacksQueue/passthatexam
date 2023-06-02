@@ -1,0 +1,13 @@
+.card-container {
+  padding: 10px;
+}
+
+mat-card {
+  cursor: pointer;
+  padding: 25px 16px;
+
+  .choice {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

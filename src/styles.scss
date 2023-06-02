@@ -25,6 +25,7 @@ $passThatExam-warn: mat.define-palette(mat.$red-palette);
 //my custom color
 $primary: #b0bb9d;
 $accent: #c56a19;
+$warn: #F44336;
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -52,6 +53,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #dedfda;
 }
 
 :root {
@@ -60,4 +62,5 @@ body {
   --icon: #013832;
   --primary: $primary;
   --accent: $accent;
+  --warn: $warn;
 }
