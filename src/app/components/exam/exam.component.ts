@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
@@ -7,7 +8,14 @@ import { ExamService } from 'src/app/services/exam.service';
   styleUrls: ['./exam.component.scss'],
 })
 export class ExamComponent implements OnInit {
+  questionnaires: IQuestion[] = []
   constructor(private examService: ExamService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.questionnaires = this.examService.getExams()
+  }
+
+  onChoose(event: string) {
+    console.log(event)
+  }
 }

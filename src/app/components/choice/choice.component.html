@@ -1,5 +1,9 @@
-<div class="card-container">
+<div
+  class="card-container"
+  *ngFor="let choice of choices"
+  (click)="chooseAnswer(choice)"
+>
   <mat-card>
-    <div class="choice">choice works</div>
+    <div class="choice">{{ choice }}</div>
   </mat-card>
 </div>
