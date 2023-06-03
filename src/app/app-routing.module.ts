@@ -5,12 +5,17 @@ import { ExamComponent } from './components/exam/exam.component';
 const routes: Routes = [
   {
     path: '',
-    component: ExamComponent
-  }
+    component: ExamComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
