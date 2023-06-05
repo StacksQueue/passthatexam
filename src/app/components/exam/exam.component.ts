@@ -8,14 +8,13 @@ import { ExamService } from 'src/app/services/exam.service';
   styleUrls: ['./exam.component.scss'],
 })
 export class ExamComponent implements OnInit {
-  questionnaires: IQuestion[] = []
+  questionnaires: IQuestion[] = [];
+  current:IQuestion;
   constructor(private examService: ExamService) {}
 
   ngOnInit(): void {
-    this.questionnaires = this.examService.getExams()
+    this.questionnaires = this.examService.getExams();
+    this.current = this.questionnaires.pop()!
   }
 
-  onChoose(event: string) {
-    console.log(event)
-  }
 }

@@ -1,12 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { IQuestion } from '../models/Question';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExamService {
+  answerSubject: Subject<string> = new Subject<string>();
   constructor(private https: HttpClient) {}
 
   getExams(): IQuestion[] {
@@ -27,7 +28,21 @@ export class ExamService {
         answer:
           'Provide opportunities for the student teacher to acquire the skills and competencies of effective teachers.',
       },
+      {
+        source: 'actual-test-2018-gen-ed',
+        program: 'Licensure Exam for Teachers',
+        year: 2018,
+        major: 'Prof Ed',
+        question:
+          'Under what level would questions fall which require students to apply a rule or a process to a problem and thereby determine the single right answer to that problem?',
+        choices: ['analysis', 'application', 'evaluation', 'synthesis'],
+        answer: 'application',
+      },
     ];
+  }
+
+  onChoosenAnswer() {
+    return this.answerSubject.asObservable()
   }
 
   handleError(err: HttpErrorResponse) {

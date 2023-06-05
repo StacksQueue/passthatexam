@@ -1,9 +1,5 @@
-<div
-  class="card-container"
-  *ngFor="let choice of choices"
-  (click)="chooseAnswer(choice)"
->
-  <mat-card>
+<div class="card-container" (click)="chooseAnswer()">
+  <mat-card [class.correct]="isAnswer" [class.wrong]="isChoosen && !isAnswer">
     <div class="choice">{{ choice }}</div>
   </mat-card>
 </div>

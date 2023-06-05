@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
   selector: 'app-choice',
@@ -6,15 +7,25 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./choice.component.scss'],
 })
 export class ChoiceComponent implements OnInit {
-  @Input() choices: string[] = [];
-  @Output() choose: EventEmitter<string> = new EventEmitter();
-  constructor() {}
+  @Input() choice: string;
+  @Input() answer: string;
+
+  isAnswer: boolean = false;
+  isChoosen: boolean= false;
+  constructor(
+    private examService: ExamService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.choices);
+    this.examService.onChoosenAnswer().subscribe((resp: string)=> {
+      console.log(this.answer === resp, this.answer)
+      this.isAnswer = this.answer === this.choice;
+    })
+
   }
 
-  chooseAnswer(choice: string) {
-    this.choose.emit(choice);
+  chooseAnswer() {
+    this.examService.answerSubject.next(this.choice)
+    this.isChoosen = true;
   }
 }

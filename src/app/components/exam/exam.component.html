@@ -1,6 +1,11 @@
 <section>
   <div class="sec-container">
     <app-question> </app-question>
-    <app-choice *ngFor="let question of questionnaires" [choices]="question.choices" (choose)="onChoose($event)"> </app-choice>
+    <app-choice 
+      *ngFor="let choice of current.choices"
+      [choice]="choice"
+      [answer]="current.answer"
+    >
+    </app-choice>
   </div>
 </section>
