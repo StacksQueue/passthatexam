@@ -9,12 +9,15 @@ import { ExamService } from 'src/app/services/exam.service';
 })
 export class ExamComponent implements OnInit {
   questionnaires: IQuestion[] = [];
-  current:IQuestion;
+  current: IQuestion;
   constructor(private examService: ExamService) {}
 
   ngOnInit(): void {
     this.questionnaires = this.examService.getExams();
-    this.current = this.questionnaires.pop()!
+    this.current = this.questionnaires.pop()!;
   }
 
+  next() {
+    this.current = this.questionnaires.pop()!;
+  }
 }

@@ -1,11 +1,15 @@
 <section>
   <div class="sec-container">
-    <app-question> </app-question>
+    <app-question [question]="current.question"> </app-question>
     <app-choice 
       *ngFor="let choice of current.choices"
       [choice]="choice"
       [answer]="current.answer"
     >
     </app-choice>
+    <div class="actions">
+      <button mat-raised-button>Back</button>
+      <button mat-raised-button color="accent" (click)="next()">Next</button>
+    </div>
   </div>
 </section>

@@ -4,3 +4,10 @@
   padding: 0 5%;
   margin: auto;
 }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
