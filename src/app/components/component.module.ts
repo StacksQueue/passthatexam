@@ -5,9 +5,10 @@ import { ChoiceComponent } from './choice/choice.component';
 import { MaterialModule } from '../modules/material.module';
 import { QuestionComponent } from './question/question.component';
 import { ExamComponent } from './exam/exam.component';
+import { ScoreComponent } from './score/score.component';
 
 @NgModule({
-  declarations: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
+  declarations: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent, ScoreComponent],
   imports: [CommonModule, MaterialModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
 })

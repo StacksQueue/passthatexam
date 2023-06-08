@@ -1,5 +1,8 @@
-<section>
+<section *ngIf="questionnaires.length; else elseblock">
   <div class="sec-container">
+    <div class="score-container">
+      <span>{{'1'}}/{{'2'}}</span>
+    </div>
     <app-question [question]="current.question"> </app-question>
     <app-choice 
       *ngFor="let choice of current.choices"
@@ -13,3 +16,11 @@
     </div>
   </div>
 </section>
+
+<ng-template #elseblock>
+  <section>
+    <div class="sec-container">
+      <app-score></app-score>
+    </div>
+  </section>
+</ng-template>

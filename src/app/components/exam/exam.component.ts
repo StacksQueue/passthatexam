@@ -18,6 +18,7 @@ export class ExamComponent implements OnInit {
   }
 
   next() {
-    this.current = this.questionnaires.pop()!;
+    if (this.questionnaires.length == 0) console.log('end');
+    else this.current = this.questionnaires.pop()!;
   }
 }
