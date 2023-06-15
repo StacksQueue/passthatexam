@@ -14,9 +14,9 @@ export class ExamService {
     return [
       {
         source: 'actual-test-2018-gen-ed',
-        program: 'Licensure Exam for Teachers',
+        program: 'Education',
         year: 2018,
-        major: 'Prof Ed',
+        major: ['prof ed'],
         question:
           'What should a cooperating teacher do to help the student teacher who has been assigned to him/her?',
         choices: [
@@ -30,9 +30,9 @@ export class ExamService {
       },
       {
         source: 'actual-test-2018-gen-ed',
-        program: 'Licensure Exam for Teachers',
+        program: 'Education',
         year: 2018,
-        major: 'Prof Ed',
+        major: ['prof ed'],
         question:
           'Under what level would questions fall which require students to apply a rule or a process to a problem and thereby determine the single right answer to that problem?',
         choices: ['analysis', 'application', 'evaluation', 'synthesis'],
@@ -42,7 +42,7 @@ export class ExamService {
   }
 
   onChoosenAnswer() {
-    return this.answerSubject.asObservable()
+    return this.answerSubject.asObservable();
   }
 
   handleError(err: HttpErrorResponse) {
