@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, map, startWith } from 'rxjs';
+import { debounceTime, switchMap } from 'rxjs';
+import { ExamService } from 'src/app/services/exam.service';
+import { Category } from 'src/app/models/Category';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-exam-filter',
@@ -8,25 +11,32 @@ import { Observable, map, startWith } from 'rxjs';
   styleUrls: ['./exam-filter.component.scss'],
 })
 export class ExamFilterComponent implements OnInit {
-  majorControl = new FormControl('');
-  
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+  searchControl = new FormControl('');
+  categories: Category[];
+  categoryTags: string[] = ['eng'];
 
-  constructor() {}
+  constructor(private examService: ExamService) {}
 
   ngOnInit(): void {
-    this.filteredOptions = this.majorControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value || ''))
-    );
+    console.log(this.searchControl.value);
+    this.examService
+      .getExamCategories(this.searchControl.value!)
+      .subscribe((resp) => {
+        this.categories = resp['data'];
+        console.log({ category: this.categories });
+      });
+
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(600),
+        switchMap(() =>
+          this.examService.getExamCategories(this.searchControl.value!)
+        )
+      )
+      .subscribe((resp) => (this.categories = resp['data']));
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
+  displayFn(categ: Category): string {
+    return categ && categ.tagName ? categ.tagName : '';
   }
 }

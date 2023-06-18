@@ -1,22 +1,17 @@
 <form>
   <mat-form-field class="major-filter">
-    <mat-label>Number</mat-label>
+    <mat-label>Major</mat-label>
     <input
       type="text"
       matInput
-      [formControl]="majorControl"
+      [formControl]="searchControl"
       [matAutocomplete]="auto"
     />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option"
-      >
-        {{ option }}
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{ category.name }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <div class="timer-item-wrapper">
-
-  </div>
+  <div class="timer-item-wrapper"></div>
 </form>

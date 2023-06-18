@@ -13,7 +13,7 @@ export class ExamComponent implements OnInit {
   constructor(private examService: ExamService) {}
 
   ngOnInit(): void {
-    this.questionnaires = this.examService.getExams();
+    // this.questionnaires = this.examService.getExams();
     this.current = this.questionnaires.pop()!;
   }
 
