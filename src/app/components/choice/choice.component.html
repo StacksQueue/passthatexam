@@ -1,5 +1,5 @@
 <div class="card-container" (click)="chooseAnswer()">
-  <mat-card [class.correct]="isAnswer" [class.wrong]="isChoosen && !isAnswer">
+  <mat-card [class.correct]="isAnswer" [class.wrong]="(isChoosen && isFirstAnswer) && !isAnswer">
     <div class="choice">{{ choice }}</div>
   </mat-card>
 </div>

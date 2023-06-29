@@ -11,21 +11,23 @@ export class ChoiceComponent implements OnInit {
   @Input() answer: string;
 
   isAnswer: boolean = false;
-  isChoosen: boolean= false;
-  constructor(
-    private examService: ExamService
-  ) {}
+  isChoosen: boolean = false;
+  isFirstAnswer: boolean = false;
+  constructor(private examService: ExamService) {}
 
   ngOnInit(): void {
-    this.examService.onChoosenAnswer().subscribe((resp: string)=> {
-      console.log(this.answer === resp, this.answer)
+    this.examService.onFirstChoosenAnswer().subscribe((resp:boolean)=>{
+      this.isFirstAnswer = true;
       this.isAnswer = this.answer === this.choice;
     })
-
   }
 
   chooseAnswer() {
-    this.examService.answerSubject.next(this.choice)
-    this.isChoosen = true;
+    if(!this.isFirstAnswer) {
+      this.isChoosen = true;
+      // this.isAnswer = this.answer === this.choice;
+      console.log('here', this.answer === this.choice)
+      this.examService.firstChoiceSubject.next(this.answer === this.choice);
+    }
   }
 }
