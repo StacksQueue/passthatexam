@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { IQuestion } from '../models/Question';
 import { environment } from 'src/environments/environment';
-import { QuestionFilter } from '../models/QuestionFilter';
 
 @Injectable({
   providedIn: 'root',

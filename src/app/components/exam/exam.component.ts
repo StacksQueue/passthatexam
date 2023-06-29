@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IQuestion } from 'src/app/models/Question';
-import { QuestionFilter } from 'src/app/models/QuestionFilter';
 import { ExamService } from 'src/app/services/exam.service';
 
 export interface Score {
