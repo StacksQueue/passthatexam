@@ -1,16 +1,38 @@
 .major-filter {
-    width: 100%;
-    padding: 15px 50px;
+  width: 100%;
+  padding: 15px 50px;
 }
 
 .timer-item-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .item-wrapper {
+    width: 50%;
+    padding: 15px 15px 15px 50px;
+    display: grid;
+  }
 }
 
 .action-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  .major-filter {
+    width: -webkit-fill-available;
+    padding: 15px 10px;
+  }
+
+  .timer-item-wrapper {
+    flex-direction: column;
+
+    .item-wrapper {
+      width: -webkit-fill-available;
+      padding: 10px;
+    }
+  }
 }

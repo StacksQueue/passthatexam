@@ -30,7 +30,17 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <div class="timer-item-wrapper"></div>
+  <div class="timer-item-wrapper">
+    <div class="item-wrapper">
+      <mat-form-field>
+        <mat-label>Value</mat-label>
+        <input matInput type="number" [formControl]="itemControl" />
+      </mat-form-field>
+      <mat-slider min="0" max="100">
+        <input matSliderThumb [formControl]="itemControl" />
+      </mat-slider>
+    </div>
+  </div>
   <div class="action-wrapper">
     <button
       type="button"

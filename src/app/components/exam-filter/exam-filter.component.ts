@@ -14,11 +14,14 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 })
 export class ExamFilterComponent implements OnInit {
   searchControl = new FormControl('');
+  itemControl = new FormControl('50');
   categories: Category[];
   categoryTags: string[] = ['eng'];
   // matchips
   // separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedCategories: Category[] = [];
+  //
+  name: string = '';
 
   constructor(private examService: ExamService) {}
 

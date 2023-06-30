@@ -8,7 +8,7 @@ import { ExamComponent } from './exam/exam.component';
 import { ScoreComponent } from './score/score.component';
 import { ExamFilterComponent } from './exam-filter/exam-filter.component';
 import { CategoryComponent } from './category/category.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExamFilterComponent,
     CategoryComponent,
   ],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule],
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
 })
 export class ComponentModule {}
