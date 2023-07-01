@@ -6,6 +6,7 @@ import { Category } from 'src/app/models/Category';
 import { ThemePalette } from '@angular/material/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-exam-filter',
@@ -14,16 +15,18 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 })
 export class ExamFilterComponent implements OnInit {
   searchControl = new FormControl('');
-  itemControl = new FormControl('50');
+  item = 50;
+  timer = 0;
   categories: Category[];
   categoryTags: string[] = ['eng'];
   // matchips
   // separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedCategories: Category[] = [];
+  defaultCategories = ['General Education', 'Professional Education'];
   //
   name: string = '';
 
-  constructor(private examService: ExamService) {}
+  constructor(private examService: ExamService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(this.searchControl.value);
@@ -31,7 +34,7 @@ export class ExamFilterComponent implements OnInit {
       .getExamCategories(this.searchControl.value!)
       .subscribe((resp) => {
         this.categories = resp['data'];
-        console.log({ category: this.categories });
+        this.addDefaultCategories();
       });
 
     this.searchControl.valueChanges
@@ -46,16 +49,42 @@ export class ExamFilterComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent) {
     this.selectedCategories.push(event.option.value);
+    this.selectedCategories = this.selectedCategories.filter(
+      (val, ndx, arr) => arr.findIndex((val2) => val2._id == val._id) === ndx
+    );
+  }
+
+  addDefaultCategories() {
+    this.selectedCategories = this.categories.filter((categ) =>
+      this.defaultCategories.includes(categ.name)
+    );
+  }
+
+  removeChips(id: string) {
+    this.selectedCategories = this.selectedCategories.filter(
+      (categ) => categ._id != id
+    );
   }
 
   removeFromAutocomplete() {
     this.categories = this.categories.filter((categ) => {
-      console.log(
-        'wahaa',
-        this.selectedCategories.some((x) => x._id == categ._id)
-      );
       return this.selectedCategories.some((x) => x._id == categ._id);
     });
+  }
+
+  navigate() {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        category: this.selectedCategories.map((val) => val._id),
+        items: this.item,
+        timer: this.timer,
+      },
+      queryParamsHandling: 'merge',
+    };
+
+    console.log(navigationExtras)
+
+    this.router.navigate(['/exam'], navigationExtras);
   }
 
   displayFn(categ: Category): string {

@@ -1,5 +1,5 @@
 .major-filter {
-  width: 100%;
+  width: -webkit-fill-available;
   padding: 15px 50px;
 }
 
@@ -9,9 +9,16 @@
   align-items: center;
 
   .item-wrapper {
-    width: 50%;
+    width: 45%;
     padding: 15px 15px 15px 50px;
     display: grid;
+  }
+
+  .timer-wrapper {
+    width: 45%;
+    padding: 15px 50px 15px 15px;
+    display: grid;
+    place-self: baseline;
   }
 }
 
@@ -20,6 +27,18 @@
   justify-content: center;
   align-items: center;
 }
+
+mat-icon {
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+mat-hint {
+  font-size: 12px;
+  color: #00000099
+}
+
 
 @media screen and (max-width: 420px) {
   .major-filter {
@@ -36,3 +55,23 @@
     }
   }
 }
+
+:host ::ng-deep .mdc-fab {
+  width: 100px;
+  height: 100px;
+}
+
+:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent;
+}
+
+/** remove arrow input[number] */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+// input[type="number"] {
+//     -moz-appearance: textfield;
+// }
+

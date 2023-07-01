@@ -1,6 +1,6 @@
 <section *ngIf="questionnaires.length; else elseblock">
   <div class="score-container">
-    <span>{{ "1" }}/{{ "2" }}</span>
+    <span>{{ "1" }}/{{ questionnaires.length }}</span>
   </div>
   <app-question [question]="current.question"> </app-question>
   <app-choice

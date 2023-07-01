@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
+import { IQuestionFilter } from 'src/app/models/QuestionFilter';
 
 export interface Score {
   score: number;
@@ -16,7 +17,11 @@ export interface Score {
 export class ExamComponent implements OnInit {
   questionnaires: IQuestion[] = [];
   current: IQuestion;
-
+  filter: IQuestionFilter = {
+    category: [],
+    items: 50,
+    timer: 0
+  };
 
   constructor(
     private examService: ExamService,
@@ -44,6 +49,13 @@ export class ExamComponent implements OnInit {
   }
 
   queryParamsHandling(params: Params) {
+    this.filter.category = params['category'] && Array.isArray(params['category'])
+      ? params['category']
+      : params['category']
+      ? [params['category']]
+      : [];
+    this.filter.items = params['items']? params['items'] : 50;
+    this.filter.timer = params['timer']? params['timer'] : 0;
     this.getExamQuestionnaires();
   }
 }
