@@ -25,8 +25,6 @@ export class ChoiceComponent implements OnInit {
   chooseAnswer() {
     if(!this.isFirstAnswer) {
       this.isChoosen = true;
-      // this.isAnswer = this.answer === this.choice;
-      console.log('here', this.answer === this.choice)
       this.examService.firstChoiceSubject.next(this.answer === this.choice);
     }
   }

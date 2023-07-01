@@ -1,20 +1,24 @@
-<section *ngIf="questionnaires.length; else elseblock">
-  <div class="score-container">
-    <span>{{ "1" }}/{{ questionnaires.length }}</span>
-  </div>
-  <app-question [question]="current.question"> </app-question>
-  <app-choice
-    *ngFor="let choice of current.choices"
-    [choice]="choice"
-    [answer]="current.answer"
-  >
-  </app-choice>
-  <div class="actions">
-    <button mat-raised-button>Back</button>
-    <button mat-raised-button color="accent" (click)="next()">Next</button>
-  </div>
-</section>
+<!--  -->
 
-<ng-template #elseblock>
-  <app-score></app-score>
+<mat-spinner *ngIf="isloading; else display"></mat-spinner>
+<ng-template #display>
+  <section *ngIf="questionnaires.length; else elseblock">
+    <div class="score-container">
+      <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
+    </div>
+    <app-question [question]="current.question"> </app-question>
+    <app-choice
+      *ngFor="let choice of current.choices"
+      [choice]="choice"
+      [answer]="current.answer"
+    >
+    </app-choice>
+    <div class="actions">
+      <button mat-raised-button>Back</button>
+      <button mat-raised-button color="accent" (click)="next()">Next</button>
+    </div>
+  </section>
+  <ng-template #elseblock>
+    <app-score></app-score>
+  </ng-template>
 </ng-template>

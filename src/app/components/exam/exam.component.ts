@@ -20,8 +20,13 @@ export class ExamComponent implements OnInit {
   filter: IQuestionFilter = {
     category: [],
     items: 50,
-    timer: 0
+    timer: 0,
   };
+  score: Score = {
+    score: 0,
+    total: 0,
+  };
+  isloading: boolean = false;
 
   constructor(
     private examService: ExamService,
@@ -30,10 +35,14 @@ export class ExamComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.questionnaires = this.examService.getExams();
     this.activatedRoute.queryParams.subscribe((params: Params) =>
       this.queryParamsHandling(params)
     );
+    this.examService.onFirstChoosenAnswer().subscribe((resp: boolean) => {
+      this.score.score =
+        resp === true ? this.score.score + 1 : this.score.score;
+      console.log(this.score);
+    });
   }
 
   next() {
@@ -42,20 +51,27 @@ export class ExamComponent implements OnInit {
   }
 
   getExamQuestionnaires() {
-    this.examService.getExams('').subscribe((resp: any) => {
-      this.questionnaires = resp['data'];
-      this.current = this.questionnaires.pop()!;
+    this.isloading = true;
+    this.examService.getExams('').subscribe({
+      next: (resp: any) => {
+        this.questionnaires = resp['data'];
+        this.score.total = this.questionnaires.length;
+        this.current = this.questionnaires.pop()!;
+      },
+      error: (err: any) => console.log(err),
+      complete: () => (this.isloading = false)
     });
   }
 
   queryParamsHandling(params: Params) {
-    this.filter.category = params['category'] && Array.isArray(params['category'])
-      ? params['category']
-      : params['category']
-      ? [params['category']]
-      : [];
-    this.filter.items = params['items']? params['items'] : 50;
-    this.filter.timer = params['timer']? params['timer'] : 0;
+    this.filter.category =
+      params['category'] && Array.isArray(params['category'])
+        ? params['category']
+        : params['category']
+        ? [params['category']]
+        : [];
+    this.filter.items = params['items'] ? params['items'] : 50;
+    this.filter.timer = params['timer'] ? params['timer'] : 0;
     this.getExamQuestionnaires();
   }
 }
