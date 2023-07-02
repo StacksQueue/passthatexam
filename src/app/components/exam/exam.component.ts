@@ -41,7 +41,6 @@ export class ExamComponent implements OnInit {
     this.examService.onFirstChoosenAnswer().subscribe((resp: boolean) => {
       this.score.score =
         resp === true ? this.score.score + 1 : this.score.score;
-      console.log(this.score);
     });
   }
 

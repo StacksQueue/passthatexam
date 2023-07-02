@@ -1,1 +1,13 @@
-<span>score </span>
+<section id="score">
+  <div class="score-label">YOUR SCORE</div>
+  <div class="circle">
+    <div class="frac">
+      <span>{{score.score}}</span>
+      <span class="symbol">/</span>
+      <span class="bottom">{{score.total}}</span>
+    </div>
+  </div>
+  <div class="action-container">
+    <button mat-flat-button color="primary" (click)="navigate()">TAKE AGAIN</button>
+  </div>
+</section>

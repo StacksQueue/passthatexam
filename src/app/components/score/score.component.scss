@@ -1,0 +1,49 @@
+.frac {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  letter-spacing: 0.001em;
+  text-align: center;
+}
+.frac > span {
+  display: block;
+  padding: 0.1em;
+  font-size: 50px;
+  font-weight: 500;
+}
+.frac span.bottom {
+  border-top: thin solid black;
+}
+.frac span.symbol {
+  display: none;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  border: 10px solid #387a5c;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-label {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.action-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+
+#score {
+    padding: 50px 0;
+}

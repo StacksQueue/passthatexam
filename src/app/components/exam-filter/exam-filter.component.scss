@@ -61,7 +61,10 @@ mat-hint {
   height: 100px;
 }
 
-:host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+// :host ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+//   background-color: transparent;
+// }
+:host ::ng-deep .mdc-text-field--filled {
   background-color: transparent;
 }
 
