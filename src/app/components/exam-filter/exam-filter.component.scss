@@ -26,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 10px;
 }
 
 mat-icon {
@@ -49,7 +50,7 @@ mat-hint {
   .timer-item-wrapper {
     flex-direction: column;
 
-    .item-wrapper {
+    .item-wrapper, .timer-wrapper {
       width: -webkit-fill-available;
       padding: 10px;
     }
