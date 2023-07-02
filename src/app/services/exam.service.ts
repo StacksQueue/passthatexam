@@ -6,6 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { IQuestion } from '../models/Question';
+import { IQuestionFilter } from '../models/QuestionFilter';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,8 +16,10 @@ export class ExamService {
   firstChoiceSubject: Subject<boolean> = new Subject<boolean>();
   constructor(private https: HttpClient) {}
 
-  getExams(filter: any): Observable<IQuestion[]> {
-    let params = new HttpParams();
+  getExams(filter: IQuestionFilter): Observable<IQuestion[]> {
+    let params = new HttpParams({
+      fromObject: { limit: filter.items, major: filter.category },
+    });
     return this.https
       .get<IQuestion[]>(environment.api_url + '/question', { params })
       .pipe(catchError(this.handleError));
@@ -30,13 +33,9 @@ export class ExamService {
       .pipe(catchError(this.handleError));
   }
 
-
-
   onFirstChoosenAnswer() {
     return this.firstChoiceSubject.asObservable();
   }
-
-
 
   handleError(err: HttpErrorResponse) {
     return throwError(() => new Error(err.message));

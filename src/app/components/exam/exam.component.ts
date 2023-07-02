@@ -51,7 +51,7 @@ export class ExamComponent implements OnInit {
 
   getExamQuestionnaires() {
     this.isloading = true;
-    this.examService.getExams('').subscribe({
+    this.examService.getExams(this.filter).subscribe({
       next: (resp: any) => {
         this.questionnaires = resp['data'];
         this.score.total = this.questionnaires.length;
