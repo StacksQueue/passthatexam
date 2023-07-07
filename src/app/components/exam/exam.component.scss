@@ -1,4 +1,20 @@
 
+.program-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 50px 0;
+  span {
+    font-size: x-large;
+  }
+
+  mat-icon {
+    color: var(--header);
+    width: 70px;
+    height: 70px;
+    font-size: 70px;
+  }
+}
 
 .score-container {
   display: flex;

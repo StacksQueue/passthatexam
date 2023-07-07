@@ -1,11 +1,9 @@
-<!--  -->
-
 <mat-spinner *ngIf="isloading; else display"></mat-spinner>
 <ng-template #display>
   <section *ngIf="questionnaires.length; else elseblock">
-    <div class="score-container">
+    <!-- <div class="score-container">
       <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
-    </div>
+    </div> -->
     <app-question [question]="current.question"> </app-question>
     <app-choice
       *ngFor="let choice of current.choices"

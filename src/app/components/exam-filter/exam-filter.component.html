@@ -1,3 +1,7 @@
+<div class="program-title">
+  <span>Licensure Exam for Teachers</span>
+  <mat-icon>school</mat-icon>
+</div>
 <mat-form-field class="major-filter">
   <mat-label>Major</mat-label>
   <mat-chip-grid #chipGrid aria-label="category chips">
@@ -37,13 +41,19 @@
       <input matInput type="number" [(ngModel)]="item" />
     </mat-form-field>
     <mat-slider min="0" max="100">
-      <input matSliderThumb [(ngModel)]="item"  />
+      <input matSliderThumb [(ngModel)]="item" />
     </mat-slider>
   </div>
   <div class="timer-wrapper">
     <mat-form-field>
       <mat-label>Timer</mat-label>
-      <input matInput placeholder="" type="number" [(ngModel)]="timer" disabled/>
+      <input
+        matInput
+        placeholder=""
+        type="number"
+        [(ngModel)]="timer"
+        disabled
+      />
       <mat-hint>Timer disabled for now</mat-hint>
     </mat-form-field>
   </div>
