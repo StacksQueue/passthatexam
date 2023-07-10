@@ -1,0 +1,35 @@
+<div class="filter-container">
+  <!-- category filter-->
+  <mat-form-field class="major-filter">
+    <mat-label>Major</mat-label>
+    <mat-chip-grid #chipGrid aria-label="category chips">
+      <mat-chip-row
+        *ngFor="let category of selectedCategories"
+        color="primary"
+        (removed)="removeChips(category._id)"
+        highlighted
+      >
+        {{ category.tagName }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+    <input
+      type="text"
+      matInput
+      [formControl]="searchControl"
+      [matChipInputFor]="chipGrid"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      [displayWith]="displayFn"
+      (optionSelected)="selected($event)"
+    >
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{ category.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

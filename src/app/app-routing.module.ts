@@ -6,7 +6,7 @@ import { ExamFilterComponent } from './components/exam-filter/exam-filter.compon
 const routes: Routes = [
   {
     path: '',
-    component: ExamFilterComponent,
+    component: ExamComponent,
   },
   {
     path:'exam',
