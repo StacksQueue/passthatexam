@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
 import { IQuestionFilter } from 'src/app/models/QuestionFilter';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
 
 export interface Score {
   score: number;
@@ -31,7 +33,8 @@ export class ExamComponent implements OnInit {
   constructor(
     private examService: ExamService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _bottomSheet: MatBottomSheet
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +63,10 @@ export class ExamComponent implements OnInit {
       error: (err: any) => console.log(err),
       complete: () => (this.isloading = false)
     });
+  }
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(ExamFilterComponent);
   }
 
   queryParamsHandling(params: Params) {

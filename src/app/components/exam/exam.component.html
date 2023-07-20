@@ -4,7 +4,7 @@
     <div class="score-container">
       <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
     </div>
-    <!-- <app-filter></app-filter> -->
+    <button mat-raised-button (click)="openBottomSheet()">Open file</button>
     <app-question [question]="current.question"> </app-question>
     <app-choice
       *ngFor="let choice of current.choices"

@@ -6,7 +6,8 @@ import { ExamFilterComponent } from './components/exam-filter/exam-filter.compon
 const routes: Routes = [
   {
     path: '',
-    component: ExamComponent,
+    redirectTo: 'exam',
+    pathMatch: 'full'
   },
   {
     path:'exam',
