@@ -29,6 +29,7 @@ export class ExamComponent implements OnInit {
     total: 0,
   };
   isloading: boolean = false;
+  isEnd: boolean = false;
 
   constructor(
     private examService: ExamService,
@@ -48,8 +49,9 @@ export class ExamComponent implements OnInit {
   }
 
   next() {
-    if (this.questionnaires.length == 0) console.log('end');
+    if (this.questionnaires.length == 0) this.isEnd = true;
     else this.current = this.questionnaires.pop()!;
+
   }
 
   getExamQuestionnaires() {

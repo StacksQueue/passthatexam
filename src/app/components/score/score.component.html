@@ -1,13 +1,16 @@
 <section id="score">
+  <!-- <mat-icon>emoji_events</mat-icon> -->
   <div class="score-label">YOUR SCORE</div>
   <div class="circle">
     <div class="frac">
-      <span>{{score.score}}</span>
+      <span>{{ score.score }}</span>
       <span class="symbol">/</span>
-      <span class="bottom">{{score.total}}</span>
+      <span class="bottom">{{ score.total }}</span>
     </div>
   </div>
   <div class="action-container">
-    <button mat-flat-button color="primary" (click)="navigate()">TAKE AGAIN</button>
+    <button mat-flat-button color="primary" (click)="openBottomSheet()">
+      Start Over
+    </button>
   </div>
 </section>

@@ -1,10 +1,13 @@
 <mat-spinner *ngIf="isloading; else display"></mat-spinner>
 <ng-template #display>
-  <section *ngIf="questionnaires.length; else elseblock">
+  <section *ngIf="!isEnd; else elseblock">
     <div class="score-container">
+      <button mat-flat-button color="primary" (click)="openBottomSheet()">
+        Start Over
+      </button>
       <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
     </div>
-    <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+    <mat-divider></mat-divider>
     <app-question [question]="current.question"> </app-question>
     <app-choice
       *ngFor="let choice of current.choices"

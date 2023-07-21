@@ -7,6 +7,7 @@ import { ThemePalette } from '@angular/material/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { NavigationExtras, Router } from '@angular/router';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-exam-filter',
@@ -26,7 +27,11 @@ export class ExamFilterComponent implements OnInit {
   //
   name: string = '';
 
-  constructor(private examService: ExamService, private router: Router) {}
+  constructor(
+    private examService: ExamService,
+    private router: Router,
+    private _bottomSheetRef: MatBottomSheetRef<ExamFilterComponent>
+  ) {}
 
   ngOnInit(): void {
     console.log(this.searchControl.value);
@@ -82,9 +87,11 @@ export class ExamFilterComponent implements OnInit {
       queryParamsHandling: 'merge',
     };
 
-    console.log(navigationExtras)
+    console.log(navigationExtras);
 
     this.router.navigate(['/exam'], navigationExtras);
+
+    this._bottomSheetRef.dismiss();
   }
 
   displayFn(categ: Category): string {
