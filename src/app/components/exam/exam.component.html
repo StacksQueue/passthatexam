@@ -16,8 +16,12 @@
     >
     </app-choice>
     <div class="actions">
-      <button mat-raised-button>Back</button>
-      <button mat-raised-button color="accent" (click)="next()">Next</button>
+      <button mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button mat-icon-button (click)="next()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
     </div>
   </section>
   <ng-template #elseblock>

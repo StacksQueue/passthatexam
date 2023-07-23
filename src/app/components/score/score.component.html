@@ -1,16 +1,18 @@
 <section id="score">
-  <!-- <mat-icon>emoji_events</mat-icon> -->
-  <div class="score-label">YOUR SCORE</div>
-  <div class="circle">
-    <div class="frac">
-      <span>{{ score.score }}</span>
-      <span class="symbol">/</span>
-      <span class="bottom">{{ score.total }}</span>
+  <div class="score-container">
+    <div class="score-label">YOUR SCORE</div>
+    <mat-icon>emoji_events</mat-icon>
+    <div class="circle">
+      <div class="frac">
+        <span>{{ score.score }}</span>
+        <span class="symbol">/</span>
+        <span class="bottom">{{ score.total }}</span>
+      </div>
     </div>
-  </div>
-  <div class="action-container">
-    <button mat-flat-button color="primary" (click)="openBottomSheet()">
-      Start Over
-    </button>
+    <div class="action-container">
+      <button mat-flat-button color="primary" (click)="openBottomSheet()">
+        Start Over
+      </button>
+    </div>
   </div>
 </section>
