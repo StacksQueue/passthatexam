@@ -12,46 +12,80 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $md-greenpalette: (
-    50 : #e7efeb,
-    100 : #c3d7ce,
-    200 : #9cbdae,
-    300 : #74a28d,
-    400 : #568e74,
-    500 : #387a5c,
-    600 : #327254,
-    700 : #2b674a,
-    800 : #245d41,
-    900 : #174a30,
-    A100 : #88ffbe,
-    A200 : #55ffa3,
-    A400 : #22ff87,
-    A700 : #08ff79,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #e7efeb,
+  100: #c3d7ce,
+  200: #9cbdae,
+  300: #74a28d,
+  400: #568e74,
+  500: #387a5c,
+  600: #327254,
+  700: #2b674a,
+  800: #245d41,
+  900: #174a30,
+  A100: #88ffbe,
+  A200: #55ffa3,
+  A400: #22ff87,
+  A700: #08ff79,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
+$md-pinkpalette: (
+  50: #f6f4f9,
+  100: #e9e3ef,
+  200: #dbd0e4,
+  300: #cdbdd9,
+  400: #c2afd1,
+  500: #b7a1c9,
+  600: #b099c3,
+  700: #a78fbc,
+  800: #9f85b5,
+  900: #9074a9,
+  A100: #ffffff,
+  A200: #fbf6ff,
+  A400: #e2c3ff,
+  A700: #d6a9ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
 
 $passThatExam-primary: mat.define-palette($md-greenpalette);
-$passThatExam-accent: mat.define-palette(
-  mat.$deep-orange-palette,
-  A200,
-  A100,
-  A400
-);
+$passThatExam-accent: mat.define-palette($md-pinkpalette);
+
+// $passThatExam-accent: mat.define-palette(
+//   mat.$deep-orange-palette,
+//   A200,
+//   A100,
+//   A400
+// );
 
 // The warn palette is optional (defaults to red).
 $passThatExam-warn: mat.define-palette(mat.$red-palette);
@@ -59,7 +93,7 @@ $passThatExam-warn: mat.define-palette(mat.$red-palette);
 //my custom color
 $primary: #b0bb9d;
 $accent: #c56a19;
-$warn: #F44336;
+$warn: #f44336;
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -86,15 +120,21 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #dedfda;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Inter, sans-serif;
+  background-color: #e3f7ee;
 }
 
 :root {
-  --bg: #dedfda;
+  // --bg: #dedfda;
+  --text: #030c08;
+  --secondary: #f0cdcb;
+  --accent: #bb35b4;
+  --bg: #e3f7ee;
   --header: #387a5c;
   --icon: #013832;
   --primary: #b0bb9d;
-  --accent: #c56a19;
-  --warn: #F44336;
+  // --accent: #c56a19;
+  --warn: #f44336;
+  // https://realtimecolors.com/?colors=030c08-e3f7ee-387a5c-f0cdcb-bb35b4
 }

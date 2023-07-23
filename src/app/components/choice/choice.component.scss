@@ -5,10 +5,24 @@
 mat-card {
   cursor: pointer;
   padding: 25px 16px;
+  background-color: #c9e4d9;
+}
 
+mat-icon {
+  margin-right: 10px;
+}
+
+.choice-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   .choice {
     font-size: 18px;
     font-weight: 500;
+  }
+  .letter {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -19,7 +33,7 @@ mat-card:hover {
 }
 
 .correct {
-  background-color: var(--primary) !important;
+  background-color: var(--header) !important;
 }
 
 .wrong {
