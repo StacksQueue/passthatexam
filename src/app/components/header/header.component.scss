@@ -3,6 +3,10 @@
   background-color: var(--header);
 }
 
+a {
+  text-decoration: none;
+}
+
 .header-container {
   max-width: 1400px;
   width: 90%;
@@ -22,4 +26,6 @@
   font-family: "Bebas Neue";
   font-size: 24px;
   color: wheat;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
+
 }

@@ -9,6 +9,8 @@ import { ScoreComponent } from './score/score.component';
 import { ExamFilterComponent } from './exam-filter/exam-filter.component';
 import { CategoryComponent } from './category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { PolicyComponent } from './policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScoreComponent,
     ExamFilterComponent,
     CategoryComponent,
+    PolicyComponent,
   ],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule, RouterModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
 })
 export class ComponentModule {}
