@@ -1,5 +1,5 @@
 #header {
-  height: 80px;
+  height: 64px;
   background-color: var(--header);
 }
 
@@ -8,8 +8,18 @@
   width: 90%;
   padding: 0 5%;
   margin: auto;
+
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 .logo {
-  font-family: "Satisfy";
+  font-family: "Bebas Neue";
+  font-size: 24px;
+  color: wheat;
 }
