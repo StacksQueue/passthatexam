@@ -57,7 +57,8 @@
 button.mat-primary {
   font-family: "Bebas Neue";
   font-size: 18px;
-  color: wheat;
+  // color: wheat;
+  color: white;
   border-radius: 0;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
 }
@@ -65,6 +66,17 @@ button.mat-primary {
 mat-hint {
   font-size: 12px;
   color: #00000099;
+}
+
+// .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected,
+// .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
+//   --mdc-chip-label-text-color: wheat;
+// }
+
+.mat-mdc-standard-chip {    
+  height: var(--mdc-chip-container-height, 28px);
+  /* height: 24px; */
+  font-size: 14px;
 }
 
 .mat-button-toggle-checked {
