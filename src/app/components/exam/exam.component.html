@@ -1,30 +1,31 @@
 <mat-spinner *ngIf="isloading; else display"></mat-spinner>
 <ng-template #display>
-  <section *ngIf="!isEnd; else elseblock">
-    <div class="score-container">
-      <button mat-flat-button color="primary" (click)="openBottomSheet()">
-        START OVER
-      </button>
-      <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
-    </div>
-    <mat-divider></mat-divider>
-    <app-question [question]="current.question"> </app-question>
-    <app-choice
-      *ngFor="let choice of current.choices"
-      [choice]="choice"
-      [answer]="current.answer"
-    >
-    </app-choice>
-    <div class="actions">
-      <button mat-icon-button>
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      <button mat-icon-button (click)="next()">
-        <mat-icon>arrow_forward</mat-icon>
-      </button>
+  <section>
+    <div class="sec-container">
+      <div class="score-container">
+        <button mat-flat-button color="primary" (click)="openBottomSheet()">
+          START OVER
+        </button>
+        <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
+      </div>
+      <mat-divider></mat-divider>
+      <app-question [question]="current.question"> </app-question>
+      <app-choice
+        *ngFor="let choice of current.choices"
+        [choice]="choice"
+        [answer]="current.answer"
+      >
+      </app-choice>
+      <div class="actions">
+        <button mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button mat-icon-button (click)="next()"
+        [disabled]="questionnaires.length == 0"
+        >
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
     </div>
   </section>
-  <ng-template #elseblock>
-    <app-score [score]="score"></app-score>
-  </ng-template>
 </ng-template>

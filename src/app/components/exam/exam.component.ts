@@ -5,6 +5,8 @@ import { ExamService } from 'src/app/services/exam.service';
 import { IQuestionFilter } from 'src/app/models/QuestionFilter';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ScoreComponent } from '../score/score.component';
 
 export interface Score {
   score: number;
@@ -35,7 +37,8 @@ export class ExamComponent implements OnInit {
     private examService: ExamService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private _bottomSheet: MatBottomSheet
+    private _bottomSheet: MatBottomSheet,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -45,13 +48,14 @@ export class ExamComponent implements OnInit {
     this.examService.onFirstChoosenAnswer().subscribe((resp: boolean) => {
       this.score.score =
         resp === true ? this.score.score + 1 : this.score.score;
+
+      if (this.questionnaires.length == 0) this.openDialog()
     });
   }
 
   next() {
     if (this.questionnaires.length == 0) this.isEnd = true;
     else this.current = this.questionnaires.pop()!;
-
   }
 
   getExamQuestionnaires() {
@@ -63,12 +67,19 @@ export class ExamComponent implements OnInit {
         this.current = this.questionnaires.pop()!;
       },
       error: (err: any) => console.log(err),
-      complete: () => (this.isloading = false)
+      complete: () => (this.isloading = false),
     });
   }
 
   openBottomSheet(): void {
     this._bottomSheet.open(ExamFilterComponent);
+  }
+
+  openDialog() {
+    const dialogref = this.dialog.open(ScoreComponent, {
+      data: this.score,
+      width: '400px'
+    });
   }
 
   queryParamsHandling(params: Params) {
@@ -78,7 +89,8 @@ export class ExamComponent implements OnInit {
         : params['category']
         ? [params['category']]
         : [];
-    this.filter.items = params['items'] ? params['items'] : 50;
+    this.filter.items =
+      params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
     this.getExamQuestionnaires();
   }
