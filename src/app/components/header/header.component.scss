@@ -16,6 +16,7 @@ a {
   display: flex;
   align-items: center;
   height: inherit;
+  gap: 20px;
 }
 
 .spacer {
@@ -23,9 +24,18 @@ a {
 }
 
 .logo {
-  font-family: "Bebas Neue";
-  font-size: 24px;
+  font-family: "Caveat";
+  font-size: 28px;
+  font-weight: 500;
   // color: wheat;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
+
+}
+
+.menu {
+  font-family: "Bebas Neue";
+  font-size: 20px;
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
 

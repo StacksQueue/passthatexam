@@ -1,9 +1,14 @@
 <section id="header">
   <div class="header-container">
-    <div class="logo">Pass That Exam</div>
+    <a [routerLink]="['/']">
+      <div class="logo">Pass That Exam</div>
+    </a>
     <span class="spacer"></span>
+    <a [routerLink]="['/']">
+      <div class="menu">EXAM</div>
+    </a>
     <a [routerLink]="['/policy']">
-      <div class="logo">POLICIES</div>
+      <div class="menu">POLICIES</div>
     </a>
   </div>
 </section>
