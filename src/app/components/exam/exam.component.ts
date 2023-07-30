@@ -33,6 +33,8 @@ export class ExamComponent implements OnInit {
   isloading: boolean = false;
   isEnd: boolean = false;
 
+  ishome:boolean = false;
+
   constructor(
     private examService: ExamService,
     private activatedRoute: ActivatedRoute,
@@ -51,6 +53,8 @@ export class ExamComponent implements OnInit {
 
       if (this.questionnaires.length == 0) this.openDialog()
     });
+
+    this.ishome = this.router.url === "/";
   }
 
   next() {

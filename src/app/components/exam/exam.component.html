@@ -9,11 +9,12 @@
         <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
       </div>
       <mat-divider></mat-divider>
-      <app-question [question]="current.question"> </app-question>
+      <app-question [question]="current.question" [ishome]="ishome"> </app-question>
       <app-choice
         *ngFor="let choice of current.choices"
         [choice]="choice"
         [answer]="current.answer"
+        [ishome]="ishome"
       >
       </app-choice>
       <div class="actions">

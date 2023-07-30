@@ -1,0 +1,75 @@
+.wrapper {
+  position: relative;
+  padding: 35px;
+  max-width: 1000px;
+  overflow-x: hidden;
+  border-radius: 13px;
+  background: #ffffff;
+}
+
+.wrapper .icon {
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 120px;
+}
+
+.icon:first-child {
+  display: none;
+  left: 0;
+  background: linear-gradient(90deg, #fff 70%, transparent);
+}
+
+.icon:last-child {
+  right: 0;
+  background: linear-gradient(-90deg, #fff 70%, transparent);
+  justify-content: flex-end;
+}
+
+.icon span {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  background: #e5d3b3;
+  cursor: pointer;
+}
+
+.icon:first-child span {
+  margin-left: 15px;
+}
+
+.icon:last-child span {
+  margin-right: 15px;
+}
+
+.wrapper .tabs-box {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.tabs-box.dragging {
+  scroll-behavior: auto;
+  cursor: grab;
+}
+
+.tabs-box .tab {
+  white-space: nowrap;
+  background: #e5d3b3;
+  font-size: 1.18rem;
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: 1px solid #987554;
+  cursor: pointer;
+}
+
+.tabs-box.dragging .tab {
+  user-select: none;
+}

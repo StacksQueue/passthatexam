@@ -9,6 +9,7 @@ import { ExamService } from 'src/app/services/exam.service';
 export class ChoiceComponent implements OnInit {
   @Input() choice: string;
   @Input() answer: string;
+  @Input() ishome: boolean;
 
   isAnswer: boolean = false;
   isChoosen: boolean = false;

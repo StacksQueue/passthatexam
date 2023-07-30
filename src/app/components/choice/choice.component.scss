@@ -8,6 +8,8 @@ mat-card {
   background-color: #c9e4d9;
 }
 
+
+
 mat-icon {
   margin-right: 10px;
 }
@@ -38,4 +40,12 @@ mat-card:hover {
 
 .wrong {
   background-color: var(--warn) !important;
+}
+
+.home {
+  padding: 15px 8px;
+
+  .choice {
+    font-size: 16px;
+  }
 }

@@ -11,6 +11,8 @@ import { CategoryComponent } from './category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PolicyComponent } from './policy/policy.component';
+import { HomeComponent } from './home/home.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { PolicyComponent } from './policy/policy.component';
     ExamFilterComponent,
     CategoryComponent,
     PolicyComponent,
+    HomeComponent,
+    SliderComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule, RouterModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
