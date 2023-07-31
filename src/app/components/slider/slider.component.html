@@ -1,6 +1,17 @@
 <div class="wrapper">
-  <mat-icon class="icon">arrow_back_ios</mat-icon>
-  <ul class="tabs-box">
+  <div class="icon">
+    <!-- <span id="back-arrow" class="material-symbols-outlined">
+      arrow_back_ios
+    </span> -->
+    <mat-icon id="back-arrow">arrow_back_ios</mat-icon>
+  </div>
+  <ul
+    class="tabs-box"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseup)="onMouseUp()"
+    #tabsbox
+  >
     <li class="tab">Coding</li>
     <li class="tab">Javascript</li>
     <li class="tab">Podcast</li>
@@ -22,5 +33,13 @@
     <li class="tab">Smartphones</li>
     <li class="tab">Data Structure</li>
   </ul>
-  <mat-icon class="icon">arrow_forward_ios</mat-icon>
+  <div class="icon">
+    <mat-icon id="forward-arrow">arrow_forward_ios</mat-icon>
+  </div>
+</div>
+
+<div class="draggable-container" (mousedown)="onMouseDown($event)">
+  <div class="draggable-element" #draggableElement>
+    <!-- Your draggable content goes here -->
+  </div>
 </div>

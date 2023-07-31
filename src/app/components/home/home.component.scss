@@ -12,7 +12,8 @@
 
 .content {
   padding: 25px 0;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 2;
 }
 
 h2 {
@@ -59,4 +60,13 @@ h2 {
     background: linear-gradient(to left, rgba(240, 240, 240, 0), #387a5c);
     margin-left: 4vh;
   }
+}
+
+.logo {
+  font-family: "Caveat";
+  font-size: 28px;
+  font-weight: 500;
+  // color: wheat;
+  color: var(--header);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
 }

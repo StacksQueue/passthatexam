@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,16 +12,20 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements AfterViewInit {
+  // @ViewChild('tabsbox') tabsbox: ElementRef;
+  @ViewChild('tabsbox', { static: true }) tabsbox: ElementRef;
+
+  private isDragging = false;
+  startX: number;
+  startScrollLeft: number;
+
   constructor(private elementRef: ElementRef) {}
 
   ngAfterViewInit() {
-    // const tabsBox = document.querySelector('.tabs-box');
-    // const arrowIcons = document.querySelectorAll('.icon');
-    const tabsBox = this.elementRef.nativeElement.querySelector('.tabs-box');
-
-    // const arrowIcons = this.elementRef.nativeElement.querySelector('.icon');
-
-    let isDragging = false;
+    // let tabsBox = this.elementRef.nativeElement.querySelector('.tabs-box');
+    // const arrowIcons =
+    //   this.elementRef.nativeElement.querySelectorAll('.icon mat-icon');
+    // let isDragging = false;
 
     // arrowIcons.forEach((icon: any) => {
     //   icon.addEventListener('click', () => {
@@ -35,20 +45,46 @@ export class SliderComponent implements AfterViewInit {
     //     maxScrollableWidth > scrollval ? 'flex' : 'none';
     // };
 
-    const dragging = (e: any) => {
-      console.log('aha');
-      if (!isDragging) return;
-      tabsBox.classList.add('dragging');
-      tabsBox.scrollLeft -= e.movementX;
-      // handleIcons();
-    };
+    // const dragging = (e: any) => {
+    //   if (!isDragging) {
+    //     console.log('drag stop');
+    //     return;
+    //   }
+
+    //   tabsBox.classList.add('dragging');
+    //   tabsBox.scrollLeft += e.movementX > 0 ? -350 : 350;
+    //   handleIcons();
+    // };
 
     // const dragStop = () => {
     //   isDragging = false;
     //   tabsBox.classList.remove('dragging');
     // };
-    tabsBox.addEventListener('mousedown', () => (isDragging = true));
-    tabsBox.addEventListener('mousemove', dragging);
+    // tabsBox.addEventListener('mousedown', () => (isDragging = true));
+    // tabsBox.addEventListener('mousemove', dragging);
     // document.addEventListener('mouseup', dragStop);
+  }
+
+  onMouseDown(event: MouseEvent) {
+    this.isDragging = true;
+    this.startX = event.clientX;
+    this.startScrollLeft = this.tabsbox.nativeElement.scrollLeft;
+    console.log('mousedown')
+  }
+
+  onMouseMove(event: MouseEvent) {
+    if (!this.isDragging) return;
+    this.tabsbox.nativeElement.classList.add('dragging')
+    const offsetX = event.clientX - this.startX;
+    console.log('dragging', offsetX)
+
+    this.tabsbox.nativeElement.scrollLeft = this.startScrollLeft - offsetX;
+    // this.tabsbox.nativeElement.scrollLeft = this.tabsbox.nativeElement.scrollLeft - offsetX;
+
+  }
+
+  onMouseUp() {
+    this.isDragging = false;
+    console.log('false')
   }
 }
