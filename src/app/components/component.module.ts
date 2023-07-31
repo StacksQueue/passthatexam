@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { PolicyComponent } from './policy/policy.component';
 import { HomeComponent } from './home/home.component';
 import { SliderComponent } from './slider/slider.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SliderComponent } from './slider/slider.component';
     PolicyComponent,
     HomeComponent,
     SliderComponent,
+    FooterComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule, RouterModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
