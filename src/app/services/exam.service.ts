@@ -8,12 +8,14 @@ import { Observable, Subject, catchError, map, throwError } from 'rxjs';
 import { IQuestion } from '../models/Question';
 import { IQuestionFilter } from '../models/QuestionFilter';
 import { environment } from 'src/environments/environment';
+import { History } from '../models/History';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExamService {
-  firstChoiceSubject: Subject<boolean> = new Subject<boolean>();
+  firstChoiceSubject: Subject<History> = new Subject<History>();
   constructor(private https: HttpClient) {}
 
   getExams(filter: IQuestionFilter): Observable<IQuestion[]> {

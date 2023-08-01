@@ -6,23 +6,27 @@
         <button mat-flat-button color="primary" (click)="openBottomSheet()">
           START OVER
         </button>
-        <span>{{ score.total - questionnaires.length }}/{{ score.total }}</span>
+        <span>{{ current_item }}/{{ questionnaires.length }}</span>
       </div>
       <mat-divider></mat-divider>
-      <app-question [question]="current.question" [ishome]="ishome"> </app-question>
+      <app-question [question]="current.question" [ishome]="ishome">
+      </app-question>
       <app-choice
         *ngFor="let choice of current.choices"
         [choice]="choice"
         [answer]="current.answer"
         [ishome]="ishome"
+        [itemNo]="history.length"
       >
       </app-choice>
       <div class="actions">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="back()">
           <mat-icon>arrow_back</mat-icon>
         </button>
-        <button mat-icon-button (click)="next()"
-        [disabled]="questionnaires.length == 0"
+        <button
+          mat-icon-button
+          (click)="next()"
+          [disabled]="questionnaires.length == history.length"
         >
           <mat-icon>arrow_forward</mat-icon>
         </button>

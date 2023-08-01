@@ -7,6 +7,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ScoreComponent } from '../score/score.component';
+import { History } from 'src/app/models/History';
 
 export interface Score {
   score: number;
@@ -26,14 +27,13 @@ export class ExamComponent implements OnInit {
     items: 50,
     timer: 0,
   };
-  score: Score = {
-    score: 0,
-    total: 0,
-  };
+
   isloading: boolean = false;
   isEnd: boolean = false;
+  ishome: boolean = false;
 
-  ishome:boolean = false;
+  history: History[] = [];
+  current_item: number = 1;
 
   constructor(
     private examService: ExamService,
@@ -47,19 +47,30 @@ export class ExamComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params: Params) =>
       this.queryParamsHandling(params)
     );
-    this.examService.onFirstChoosenAnswer().subscribe((resp: boolean) => {
-      this.score.score =
-        resp === true ? this.score.score + 1 : this.score.score;
+    this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
+      this.history.push({
+        isCorrect: resp.isCorrect === true,
+        itemNo: resp.itemNo,
+        choosenAnswer: resp.choosenAnswer,
+      });
 
-      if (this.questionnaires.length == 0) this.openDialog()
+      console.log(this.history);
+
+      if (this.questionnaires.length == this.history.length) this.openDialog();
     });
 
-    this.ishome = this.router.url === "/";
+    this.ishome = this.router.url === '/';
   }
 
   next() {
-    if (this.questionnaires.length == 0) this.isEnd = true;
-    else this.current = this.questionnaires.pop()!;
+    if (this.questionnaires.length == this.history.length) this.isEnd = true;
+    else this.current = this.questionnaires[this.history.length]!;
+
+    this.current_item += 1;
+  }
+
+  back() {
+    
   }
 
   getExamQuestionnaires() {
@@ -67,8 +78,7 @@ export class ExamComponent implements OnInit {
     this.examService.getExams(this.filter).subscribe({
       next: (resp: any) => {
         this.questionnaires = resp['data'];
-        this.score.total = this.questionnaires.length;
-        this.current = this.questionnaires.pop()!;
+        this.current = this.questionnaires[this.history.length]!;
       },
       error: (err: any) => console.log(err),
       complete: () => (this.isloading = false),
@@ -81,8 +91,8 @@ export class ExamComponent implements OnInit {
 
   openDialog() {
     const dialogref = this.dialog.open(ScoreComponent, {
-      data: this.score,
-      width: '400px'
+      data: this.history,
+      width: '400px',
     });
   }
 

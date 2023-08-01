@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ExamService } from 'src/app/services/exam.service';
+import { History } from 'src/app/models/History';
 
 @Component({
   selector: 'app-choice',
@@ -10,6 +11,7 @@ export class ChoiceComponent implements OnInit {
   @Input() choice: string;
   @Input() answer: string;
   @Input() ishome: boolean;
+  @Input() itemNo: number;
 
   isAnswer: boolean = false;
   isChoosen: boolean = false;
@@ -17,16 +19,22 @@ export class ChoiceComponent implements OnInit {
   constructor(private examService: ExamService) {}
 
   ngOnInit(): void {
-    this.examService.onFirstChoosenAnswer().subscribe((resp:boolean)=>{
+    this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
       this.isFirstAnswer = true;
       this.isAnswer = this.answer === this.choice;
-    })
+    });
   }
 
   chooseAnswer() {
-    if(!this.isFirstAnswer) {
+    if (!this.isFirstAnswer) {
       this.isChoosen = true;
-      this.examService.firstChoiceSubject.next(this.answer === this.choice);
+      // console.log({ answer: this.answer, choise: this.choice });
+
+      this.examService.firstChoiceSubject.next({
+        isCorrect: this.answer === this.choice,
+        itemNo: this.itemNo, 
+        choosenAnswer: this.choice
+      });
     }
   }
 }
