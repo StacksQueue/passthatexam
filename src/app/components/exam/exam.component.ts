@@ -32,8 +32,9 @@ export class ExamComponent implements OnInit {
   isEnd: boolean = false;
   ishome: boolean = false;
 
-  history: History[] = [];
+  histories: History[] = [];
   current_item: number = 1;
+  history: History;
 
   constructor(
     private examService: ExamService,
@@ -48,29 +49,47 @@ export class ExamComponent implements OnInit {
       this.queryParamsHandling(params)
     );
     this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
-      this.history.push({
-        isCorrect: resp.isCorrect === true,
-        itemNo: resp.itemNo,
-        choosenAnswer: resp.choosenAnswer,
-      });
+      if (!this.histories.length || !this.isAlreadyInHistory()) {
+        this.histories.push({
+          isCorrect: resp.isCorrect,
+          itemNo: resp.itemNo,
+          choosenAnswer: resp.choosenAnswer,
+        });
+      }
+      // console.log(this.histories);
 
-      console.log(this.history);
-
-      if (this.questionnaires.length == this.history.length) this.openDialog();
+      if (this.questionnaires.length == this.histories.length)
+        this.openDialog();
     });
 
     this.ishome = this.router.url === '/';
   }
 
   next() {
-    if (this.questionnaires.length == this.history.length) this.isEnd = true;
-    else this.current = this.questionnaires[this.history.length]!;
+    if (this.questionnaires.length == this.histories.length) this.isEnd = true;
 
+    if (!this.histories.length || !this.isAlreadyInHistory()) {
+      this.histories.push({
+        isCorrect: null,
+        itemNo: this.current_item,
+        choosenAnswer: '',
+      });
+    }
     this.current_item += 1;
+    this.current = this.questionnaires[this.current_item - 1];
   }
 
   back() {
-    
+    this.current_item -= 1;
+    this.current = this.questionnaires[this.current_item - 1];
+
+    this.history = this.histories.filter(
+      (x) => x.itemNo == this.current_item
+    )[0];
+  }
+
+  isAlreadyInHistory() {
+    return this.histories.some((x) => x.itemNo == this.current_item);
   }
 
   getExamQuestionnaires() {
@@ -78,7 +97,7 @@ export class ExamComponent implements OnInit {
     this.examService.getExams(this.filter).subscribe({
       next: (resp: any) => {
         this.questionnaires = resp['data'];
-        this.current = this.questionnaires[this.history.length]!;
+        this.current = this.questionnaires[this.current_item - 1];
       },
       error: (err: any) => console.log(err),
       complete: () => (this.isloading = false),
@@ -91,7 +110,7 @@ export class ExamComponent implements OnInit {
 
   openDialog() {
     const dialogref = this.dialog.open(ScoreComponent, {
-      data: this.history,
+      data: this.histories,
       width: '400px',
     });
   }

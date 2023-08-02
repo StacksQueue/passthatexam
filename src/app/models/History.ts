@@ -1,5 +1,5 @@
 export interface History {
     itemNo: number;
-    isCorrect: boolean;
+    isCorrect: boolean | null;
     choosenAnswer: string;
   }

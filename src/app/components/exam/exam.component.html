@@ -16,7 +16,8 @@
         [choice]="choice"
         [answer]="current.answer"
         [ishome]="ishome"
-        [itemNo]="history.length"
+        [itemNo]="current_item"
+        [history]="history"
       >
       </app-choice>
       <div class="actions">
@@ -26,7 +27,7 @@
         <button
           mat-icon-button
           (click)="next()"
-          [disabled]="questionnaires.length == history.length"
+          [disabled]="questionnaires.length == histories.length"
         >
           <mat-icon>arrow_forward</mat-icon>
         </button>
