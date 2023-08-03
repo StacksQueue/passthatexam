@@ -1,8 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ExamService } from 'src/app/services/exam.service';
 import { History } from 'src/app/models/History';
 
@@ -28,10 +24,8 @@ export class ChoiceComponent implements OnInit {
       this.isAnswer = this.answer === this.choice;
     });
 
-    if (
-      (this.history && this.history.choosenAnswer === this.choice) ||
-      (this.history && this.answer === this.choice)
-    ) {
+    if (this.hasAnsweredHistory()) {
+      console.log('here');
       this.isChoosen = true;
       this.isAnswer = this.answer === this.choice;
       this.isFirstAnswer = true;
@@ -39,7 +33,12 @@ export class ChoiceComponent implements OnInit {
   }
 
   chooseAnswer() {
-    if (!this.isFirstAnswer && !this.history) {
+    console.log('can choose', this.canChoose(), {
+      isCorrect: this.answer === this.choice,
+      itemNo: this.itemNo,
+      choosenAnswer: this.choice,
+    });
+    if (this.canChoose()) {
       this.isChoosen = true;
       this.examService.firstChoiceSubject.next({
         isCorrect: this.answer === this.choice,
@@ -47,5 +46,20 @@ export class ChoiceComponent implements OnInit {
         choosenAnswer: this.choice,
       });
     }
+  }
+
+  hasAnsweredHistory(): boolean {
+    return (
+      this.history &&
+      this.history.isCorrect != null &&
+      ((this.history && this.history.choosenAnswer === this.choice) ||
+        (this.history && this.answer === this.choice))
+    );
+  }
+
+  canChoose(): boolean {
+    return (
+      !this.isFirstAnswer && (!this.history || this.history.isCorrect == null)
+    );
   }
 }

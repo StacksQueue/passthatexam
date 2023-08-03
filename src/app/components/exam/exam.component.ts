@@ -49,25 +49,35 @@ export class ExamComponent implements OnInit {
       this.queryParamsHandling(params)
     );
     this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
+      const index = this.answeredSkippedQuestion(resp.itemNo);
       if (!this.histories.length || !this.isAlreadyInHistory()) {
+        console.log('push');
         this.histories.push({
           isCorrect: resp.isCorrect,
           itemNo: resp.itemNo,
           choosenAnswer: resp.choosenAnswer,
         });
       }
-      // console.log(this.histories);
+      if (this.isAlreadyInHistory() && index != -1) {
+        this.histories[index] = {
+          isCorrect: resp.isCorrect,
+          itemNo: resp.itemNo,
+          choosenAnswer: resp.choosenAnswer,
+        };
+      }
 
       if (this.questionnaires.length == this.histories.length)
         this.openDialog();
     });
+
+    console.log(this.histories);
 
     this.ishome = this.router.url === '/';
   }
 
   next() {
     if (this.questionnaires.length == this.histories.length) this.isEnd = true;
-
+    console.log(this.isAlreadyInHistory());
     if (!this.histories.length || !this.isAlreadyInHistory()) {
       this.histories.push({
         isCorrect: null,
@@ -75,6 +85,7 @@ export class ExamComponent implements OnInit {
         choosenAnswer: '',
       });
     }
+    console.log(this.histories);
     this.current_item += 1;
     this.current = this.questionnaires[this.current_item - 1];
   }
@@ -88,7 +99,11 @@ export class ExamComponent implements OnInit {
     )[0];
   }
 
-  isAlreadyInHistory() {
+  answeredSkippedQuestion(itemNo: number): number {
+    return this.histories.findIndex((x) => x.itemNo === itemNo);
+  }
+
+  isAlreadyInHistory(): boolean {
     return this.histories.some((x) => x.itemNo == this.current_item);
   }
 
