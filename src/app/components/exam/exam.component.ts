@@ -45,8 +45,10 @@ export class ExamComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params: Params) =>
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      this.resetValues()
       this.queryParamsHandling(params)
+    }
     );
 
     this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
@@ -63,7 +65,6 @@ export class ExamComponent implements OnInit {
   }
 
   next() {
-    console.log(this.current_item > this.questionnaires.length)
     if (this.questionnaires.length == this.histories.length) this.isEnd = true;
     this.current_item += 1;
     this.current = this.questionnaires[this.current_item - 1];
@@ -77,6 +78,7 @@ export class ExamComponent implements OnInit {
   }
 
   getExamQuestionnaires() {
+
     this.isloading = true;
     this.examService.getExams(this.filter).subscribe({
       next: (resp: any) => {
@@ -101,6 +103,11 @@ export class ExamComponent implements OnInit {
       data: this.histories,
       width: '400px',
     });
+  }
+
+  resetValues() {
+    this.histories = [];
+    this.current_item = 1;
   }
 
   queryParamsHandling(params: Params) {

@@ -21,7 +21,7 @@
       >
       </app-choice>
       <div class="actions">
-        <button mat-icon-button (click)="back()">
+        <button mat-icon-button (click)="back()" [disabled]="current_item <= 1">
           <mat-icon>arrow_back</mat-icon>
         </button>
         <button

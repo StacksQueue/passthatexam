@@ -20,11 +20,8 @@ export class ExamFilterComponent implements OnInit {
   timer = 0;
   categories: Category[];
   categoryTags: string[] = ['eng'];
-  // matchips
-  // separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedCategories: Category[] = [];
   defaultCategories = ['General Education', 'Professional Education'];
-  //
   name: string = '';
 
   constructor(
@@ -34,7 +31,6 @@ export class ExamFilterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.searchControl.value);
     this.examService
       .getExamCategories(this.searchControl.value!)
       .subscribe((resp) => {
@@ -86,11 +82,7 @@ export class ExamFilterComponent implements OnInit {
       },
       queryParamsHandling: 'merge',
     };
-
-    console.log(navigationExtras);
-
     this.router.navigate(['/exam'], navigationExtras);
-
     this._bottomSheetRef.dismiss();
   }
 
