@@ -27,7 +27,7 @@
         <button
           mat-icon-button
           (click)="next()"
-          [disabled]="questionnaires.length == histories.length"
+          [disabled]="current_item + 1 > questionnaires.length"
         >
           <mat-icon>arrow_forward</mat-icon>
         </button>

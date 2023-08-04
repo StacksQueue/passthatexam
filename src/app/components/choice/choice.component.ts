@@ -23,21 +23,24 @@ export class ChoiceComponent implements OnInit {
       this.isFirstAnswer = true;
       this.isAnswer = this.answer === this.choice;
     });
-
-    if (this.hasAnsweredHistory()) {
-      console.log('here');
+    if (
+      this.hasAnsweredHistory() &&
+      this.history.choosenAnswer === this.choice
+    ) {
+      this.isFirstAnswer = true;
       this.isChoosen = true;
       this.isAnswer = this.answer === this.choice;
+    } else if (
+      this.hasAnsweredHistory() &&
+      this.answer === this.choice
+    ) {
       this.isFirstAnswer = true;
+      this.isChoosen = true;
+      this.isAnswer = this.answer === this.choice;
     }
   }
 
   chooseAnswer() {
-    console.log('can choose', this.canChoose(), {
-      isCorrect: this.answer === this.choice,
-      itemNo: this.itemNo,
-      choosenAnswer: this.choice,
-    });
     if (this.canChoose()) {
       this.isChoosen = true;
       this.examService.firstChoiceSubject.next({
@@ -49,17 +52,10 @@ export class ChoiceComponent implements OnInit {
   }
 
   hasAnsweredHistory(): boolean {
-    return (
-      this.history &&
-      this.history.isCorrect != null &&
-      ((this.history && this.history.choosenAnswer === this.choice) ||
-        (this.history && this.answer === this.choice))
-    );
+    return this.history && this.history.isCorrect != null;
   }
 
   canChoose(): boolean {
-    return (
-      !this.isFirstAnswer && (!this.history || this.history.isCorrect == null)
-    );
+    return !this.isFirstAnswer;
   }
 }

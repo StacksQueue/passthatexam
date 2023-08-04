@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
@@ -48,63 +48,32 @@ export class ExamComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params: Params) =>
       this.queryParamsHandling(params)
     );
-    this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
-      const index = this.answeredSkippedQuestion(resp.itemNo);
-      if (!this.histories.length || !this.isAlreadyInHistory()) {
-        console.log('push');
-        this.histories.push({
-          isCorrect: resp.isCorrect,
-          itemNo: resp.itemNo,
-          choosenAnswer: resp.choosenAnswer,
-        });
-      }
-      if (this.isAlreadyInHistory() && index != -1) {
-        this.histories[index] = {
-          isCorrect: resp.isCorrect,
-          itemNo: resp.itemNo,
-          choosenAnswer: resp.choosenAnswer,
-        };
-      }
 
-      if (this.questionnaires.length == this.histories.length)
+    this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
+      this.histories.push({
+        isCorrect: resp.isCorrect,
+        itemNo: resp.itemNo,
+        choosenAnswer: resp.choosenAnswer,
+      });
+      if (this.questionnaires.length === this.histories.length)
         this.openDialog();
     });
-
-    console.log(this.histories);
 
     this.ishome = this.router.url === '/';
   }
 
   next() {
+    console.log(this.current_item > this.questionnaires.length)
     if (this.questionnaires.length == this.histories.length) this.isEnd = true;
-    console.log(this.isAlreadyInHistory());
-    if (!this.histories.length || !this.isAlreadyInHistory()) {
-      this.histories.push({
-        isCorrect: null,
-        itemNo: this.current_item,
-        choosenAnswer: '',
-      });
-    }
-    console.log(this.histories);
     this.current_item += 1;
     this.current = this.questionnaires[this.current_item - 1];
+    this.history = this.getHistory();
   }
 
   back() {
     this.current_item -= 1;
     this.current = this.questionnaires[this.current_item - 1];
-
-    this.history = this.histories.filter(
-      (x) => x.itemNo == this.current_item
-    )[0];
-  }
-
-  answeredSkippedQuestion(itemNo: number): number {
-    return this.histories.findIndex((x) => x.itemNo === itemNo);
-  }
-
-  isAlreadyInHistory(): boolean {
-    return this.histories.some((x) => x.itemNo == this.current_item);
+    this.history = this.getHistory();
   }
 
   getExamQuestionnaires() {
@@ -117,6 +86,10 @@ export class ExamComponent implements OnInit {
       error: (err: any) => console.log(err),
       complete: () => (this.isloading = false),
     });
+  }
+
+  getHistory(): History {
+    return this.histories.filter((x) => x.itemNo == this.current_item)[0];
   }
 
   openBottomSheet(): void {
