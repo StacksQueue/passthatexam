@@ -37,6 +37,7 @@ export class ExamComponent implements OnInit {
   histories: History[] = [];
   current_item: number = 1;
   history: History;
+  nextskipped: number = 1;
 
   constructor(
     private examService: ExamService,
@@ -70,15 +71,32 @@ export class ExamComponent implements OnInit {
     if (this.current_item > this.histories.length && !this.isPrompted) {
       console.log('prompt');
       this.isPrompted = true;
-      this.openDialog(SkipPromptComponent)
+      this.openDialog(SkipPromptComponent);
     }
-    this.current_item += 1;
-    this.current = this.questionnaires[this.current_item - 1];
-    this.history = this.getHistory();
+    this.getQuestion(this.current_item + 1);
   }
 
   back() {
-    this.current_item -= 1;
+    this.getQuestion(this.current_item - 1);
+  }
+
+  gotoSkippedQuestion() {
+    const total: number = this.questionnaires.length;
+    const answeredNos: number[] = this.histories.map((x) => x.itemNo);
+    let skippedNos: number[] = [];
+    for (let x = this.nextskipped; x <= total; x++) {
+      if (!answeredNos.includes(x)) skippedNos.push(x);
+    }
+
+    skippedNos.sort((a, b) => b - a);
+    let skipped = skippedNos.pop();
+    this.nextskipped = skippedNos.length ? skippedNos.pop()! : 1;
+    
+    if (skipped) this.getQuestion(skipped);
+  }
+
+  getQuestion(itemNo: number) {
+    this.current_item = itemNo;
     this.current = this.questionnaires[this.current_item - 1];
     this.history = this.getHistory();
   }

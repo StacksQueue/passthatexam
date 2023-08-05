@@ -24,7 +24,11 @@
         <button mat-icon-button (click)="back()" [disabled]="current_item <= 1">
           <mat-icon>arrow_back</mat-icon>
         </button>
-        <button mat-icon-button *ngIf="isPrompted">
+        <button
+          mat-icon-button
+          *ngIf="isPrompted"
+          (click)="gotoSkippedQuestion()"
+        >
           <mat-icon>move_up</mat-icon>
         </button>
         <button
