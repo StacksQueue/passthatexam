@@ -44,7 +44,7 @@ export class ExamComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private _bottomSheet: MatBottomSheet,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {

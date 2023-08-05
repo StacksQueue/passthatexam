@@ -1,30 +1,62 @@
 .divider {
-    // font-family: "Share Tech Mono", monospace;
-    // color: #fff;
-    font-family: "Bebas Neue";
-    font-size: 2vh;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      height: 0.09em;
-      min-width: 30vw;
-    }
-    
-    &::before {
-      background: linear-gradient(to right, rgba(240,240,240,0), #387a5c);
-      margin-right: 4vh;
-    }
-    
-    &::after {
-      background: linear-gradient(to left, rgba(240,240,240,0), #387a5c);
-      margin-left: 4vh;
-    } 
+  // font-family: "Share Tech Mono", monospace;
+  // color: #fff;
+  font-family: "Bebas Neue";
+  font-size: 26px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 0.09em;
+    min-width: 30vw;
   }
+
+  &::before {
+    background: linear-gradient(to right, rgba(240, 240, 240, 0), #387a5c);
+    margin-right: 4vh;
+  }
+
+  &::after {
+    background: linear-gradient(to left, rgba(240, 240, 240, 0), #387a5c);
+    margin-left: 4vh;
+  }
+}
+
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+  text-align: justify;
+}
+
+.content {
+  padding: 25px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.subtitle {
+  font-family: "Bebas Neue";
+  font-size: 23px;
+}
+
+.logo {
+  font-family: "Caveat";
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--header);
+  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+#educational-purpose,
+#policy {
+  padding: 25px 0;
+}
