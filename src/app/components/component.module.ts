@@ -14,6 +14,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { HomeComponent } from './home/home.component';
 import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
+import { SkipPromptComponent } from './skip-prompt/skip-prompt.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     SliderComponent,
     FooterComponent,
+    SkipPromptComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule, RouterModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],

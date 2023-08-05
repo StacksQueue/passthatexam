@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Type } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
@@ -8,6 +8,7 @@ import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ScoreComponent } from '../score/score.component';
 import { History } from 'src/app/models/History';
+import { SkipPromptComponent } from '../skip-prompt/skip-prompt.component';
 
 export interface Score {
   score: number;
@@ -31,6 +32,7 @@ export class ExamComponent implements OnInit {
   isloading: boolean = false;
   isEnd: boolean = false;
   ishome: boolean = false;
+  isPrompted: boolean = false;
 
   histories: History[] = [];
   current_item: number = 1;
@@ -46,10 +48,9 @@ export class ExamComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      this.resetValues()
-      this.queryParamsHandling(params)
-    }
-    );
+      this.resetValues();
+      this.queryParamsHandling(params);
+    });
 
     this.examService.onFirstChoosenAnswer().subscribe((resp: History) => {
       this.histories.push({
@@ -58,7 +59,7 @@ export class ExamComponent implements OnInit {
         choosenAnswer: resp.choosenAnswer,
       });
       if (this.questionnaires.length === this.histories.length)
-        this.openDialog();
+        this.openDialog(ScoreComponent);
     });
 
     this.ishome = this.router.url === '/';
@@ -66,6 +67,11 @@ export class ExamComponent implements OnInit {
 
   next() {
     if (this.questionnaires.length == this.histories.length) this.isEnd = true;
+    if (this.current_item > this.histories.length && !this.isPrompted) {
+      console.log('prompt');
+      this.isPrompted = true;
+      this.openDialog(SkipPromptComponent)
+    }
     this.current_item += 1;
     this.current = this.questionnaires[this.current_item - 1];
     this.history = this.getHistory();
@@ -78,7 +84,6 @@ export class ExamComponent implements OnInit {
   }
 
   getExamQuestionnaires() {
-
     this.isloading = true;
     this.examService.getExams(this.filter).subscribe({
       next: (resp: any) => {
@@ -98,8 +103,8 @@ export class ExamComponent implements OnInit {
     this._bottomSheet.open(ExamFilterComponent);
   }
 
-  openDialog() {
-    const dialogref = this.dialog.open(ScoreComponent, {
+  openDialog(component: Type<ScoreComponent | SkipPromptComponent>) {
+    const dialogref = this.dialog.open(component, {
       data: this.histories,
       width: '400px',
     });
