@@ -36,7 +36,7 @@ export class ExamFilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.examService
-      .getExamCategories(this.searchControl.value!)
+      .getExamCategories(this.searchControl.value!, this.selectedPrograms)
       .subscribe((resp) => {
         this.categories = resp['data'];
         this.addDefaultCategories();
@@ -50,10 +50,16 @@ export class ExamFilterComponent implements OnInit {
       .pipe(
         debounceTime(600),
         switchMap(() =>
-          this.examService.getExamCategories(this.searchControl.value!)
+          this.examService.getExamCategories(
+            this.searchControl.value!,
+            this.selectedPrograms
+          )
         )
       )
-      .subscribe((resp) => (this.categories = resp['data']));
+      .subscribe((resp) => {
+        this.categories = resp['data'];
+        console.log(this.categories);
+      });
   }
 
   selected(event: MatAutocompleteSelectedEvent) {
@@ -81,8 +87,14 @@ export class ExamFilterComponent implements OnInit {
     });
   }
 
-  onButtonToggleChange(event:MatButtonToggleChange) {
-    this.selectedPrograms = event.value;
+  onButtonToggleChange(event: MatButtonToggleChange) {
+    this.selectedPrograms = [event.value];
+    this.examService
+      .getExamCategories(this.searchControl.value!, this.selectedPrograms)
+      .subscribe((resp) => {
+        this.categories = resp['data'];
+        this.addDefaultCategories();
+      });
   }
 
   navigate() {
@@ -91,7 +103,7 @@ export class ExamFilterComponent implements OnInit {
         category: this.selectedCategories.map((val) => val),
         items: this.item,
         timer: this.timer,
-        programs: this.selectedPrograms
+        programs: this.selectedPrograms,
       },
       queryParamsHandling: 'merge',
     };
