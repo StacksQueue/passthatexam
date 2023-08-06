@@ -4,9 +4,7 @@
       <div class="logo">Pass That Board</div>
     </a>
     <span class="spacer"></span>
-    <a [routerLink]="['/']">
-      <div class="menu">EXAM</div>
-    </a>
+    <div class="menu" (click)="openBottomSheet()">TAKE EXAM</div>
     <a [routerLink]="['/policy']">
       <div class="menu">POLICIES</div>
     </a>
