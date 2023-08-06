@@ -20,10 +20,17 @@ export class ExamService {
 
   getExams(filter: IQuestionFilter): Observable<IQuestion[]> {
     let params = new HttpParams({
-      fromObject: { limit: filter.items, major: filter.category },
+      fromObject: { limit: filter.items, major: filter.category, programs: filter.programs },
     });
     return this.https
       .get<IQuestion[]>(environment.api_url + '/question', { params })
+      .pipe(catchError(this.handleError));
+  }
+
+  getExamPrograms() : Observable<any>{
+    let params = new HttpParams();
+    return this.https
+      .get(environment.api_url + '/question/program', { params })
       .pipe(catchError(this.handleError));
   }
 
@@ -31,7 +38,7 @@ export class ExamService {
     let params = new HttpParams();
     params = params.append('search', search);
     return this.https
-      .get(environment.api_url + '/category', { params })
+      .get(environment.api_url + '/question/category', { params })
       .pipe(catchError(this.handleError));
   }
 

@@ -15,6 +15,16 @@
   }
 }
 
+.program-wrapper {
+  padding: 0 10px;
+  display: inline-grid;
+  mat-label {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 5px;
+  }
+}
+
 .major-filter {
   width: -webkit-fill-available;
   padding: 20px 0;

@@ -1,14 +1,26 @@
 <section id="exam-filter">
+  <div class="program-wrapper">
+    <mat-label>Exam Type</mat-label>
+    <mat-button-toggle-group
+      multiple
+      [value]="selectedPrograms"
+      (change)="onButtonToggleChange($event)"
+    >
+      <mat-button-toggle *ngFor="let program of programs" [value]="program">
+        {{ program }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
   <mat-form-field class="major-filter">
     <mat-label>Major</mat-label>
     <mat-chip-grid #chipGrid aria-label="category chips">
       <mat-chip-row
         *ngFor="let category of selectedCategories"
         color="primary"
-        (removed)="removeChips(category._id)"
+        (removed)="removeChips(category)"
         highlighted
       >
-        {{ category.tagName }}
+        {{ category }}
         <button matChipRemove>
           <mat-icon>cancel</mat-icon>
         </button>
@@ -27,7 +39,7 @@
       (optionSelected)="selected($event)"
     >
       <mat-option *ngFor="let category of categories" [value]="category">
-        {{ category.name }}
+        {{ category }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
