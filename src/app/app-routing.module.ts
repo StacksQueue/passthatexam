@@ -9,15 +9,18 @@ const routes: Routes = [
     path: '',
     // redirectTo: 'exam',
     // pathMatch: 'full'
-    component: HomeComponent
+    component: HomeComponent,
+    title: 'PassThatBoard - Home'
   },
   {
     path:'exam',
-    component: ExamComponent
+    component: ExamComponent,
+    title: 'PassThatBoard - Exam'
   },
   {
     path:'policy',
-    component: PolicyComponent
+    component: PolicyComponent,
+    title: 'PassThatBoard - Policy'
   },
   {
     path: '**',
