@@ -22,7 +22,7 @@ export class ExamFilterComponent implements OnInit {
   categories: string[];
   categoryTags: string[] = ['eng'];
   selectedCategories: string[] = [];
-  defaultCategories = ['English', 'Civil Service', 'Professional Education'];
+  defaultCategories = ['English', 'Civil Service'];
   name: string = '';
 
   programs: string[] = [];
@@ -67,6 +67,7 @@ export class ExamFilterComponent implements OnInit {
     this.selectedCategories = this.selectedCategories.filter(
       (val, ndx, arr) => arr.findIndex((val2) => val2 == val) === ndx
     );
+    this.searchControl.setValue('');
   }
 
   addDefaultCategories() {
