@@ -1,0 +1,13 @@
+<div class="sec-container" (ngSubmit)="onSubmit()">
+  <form action="">
+    <mat-form-field>
+      <mat-label>Issue Type</mat-label>
+      <mat-select formControlName="selectedIssue">
+        <mat-option *ngFor="let issue of issues" [value]="issue">
+          {{ issue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button mat-flat-button color="primary">SEND</button>
+</div>
