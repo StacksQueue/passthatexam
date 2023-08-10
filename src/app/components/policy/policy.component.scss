@@ -60,3 +60,19 @@
 #policy {
   padding: 25px 0;
 }
+
+
+//
+.spacer {
+  flex: 1 1 auto;
+}
+
+.example-icon {
+  display: none;
+}
+
+@media screen and (max-width: 420px) {
+  .example-icon {
+    display: block;
+  }
+}
