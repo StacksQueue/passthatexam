@@ -10,17 +10,17 @@ const routes: Routes = [
     // redirectTo: 'exam',
     // pathMatch: 'full'
     component: HomeComponent,
-    title: 'PassThatBoard - Free LET and Civil Service Exam Reviewer'
+    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer'
   },
   {
     path:'exam',
     component: ExamComponent,
-    title: 'PassThatBoard - Exam'
+    title: 'Pass That Board - Exam'
   },
   {
     path:'policy',
     component: PolicyComponent,
-    title: 'PassThatBoard - Policy'
+    title: 'Pass That Board - Policy'
   },
   {
     path: '**',
