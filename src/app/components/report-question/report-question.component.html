@@ -11,12 +11,16 @@
         <mat-option *ngFor="let issue of issues" [value]="issue">
           {{ issue }}
         </mat-option>
-        <mat-option value="other">Other</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Leave a note / Specify your answer</mat-label>
-      <textarea matInput rows="2" placeholder=""></textarea>
+      <textarea
+        matInput
+        rows="2"
+        placeholder=""
+        formControlName="remarks"
+      ></textarea>
     </mat-form-field>
     <button type="submit" mat-flat-button color="primary">SEND</button>
   </div>

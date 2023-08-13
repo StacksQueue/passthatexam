@@ -1,25 +1,49 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { IQuestion } from 'src/app/models/Question';
+import { IReport } from 'src/app/models/Report';
+import { ExamService } from 'src/app/services/exam.service';
 
 @Component({
   selector: 'app-report-question',
   templateUrl: './report-question.component.html',
-  styleUrls: ['./report-question.component.scss']
+  styleUrls: ['./report-question.component.scss'],
 })
 export class ReportQuestionComponent {
+  reportForm: FormGroup;
+  issues: string[] = ['Incorrect Answer', 'Missing Content', 'Others'];
 
+  constructor(
+    private formbuilder: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public question: IQuestion,
+    private examService: ExamService,
+    public dialogRef: MatDialogRef<ReportQuestionComponent>,
 
-  reportForm: FormGroup
-  issues: string[] = ["Incorrect Answer", "Missing Content"]
-
-  constructor(private formbuilder: FormBuilder) {
+  ) {
     this.reportForm = this.formbuilder.group({
+      questionId: new FormControl(question._id),
       selectedIssue: new FormControl('', [Validators.required]),
-      answer: new FormControl('')
-    })
+      remarks: new FormControl(''),
+    });
   }
 
   onSubmit() {
-    console.log('haha')
+    // console.log('haha',this.reportForm.value)
+    let report: IReport = {
+      questionId: this.reportForm.value.questionId,
+      type: this.reportForm.value.selectedIssue,
+      remarks: this.reportForm.value.remarks,
+    };
+    console.log(report);
+    if (this.reportForm.valid) {
+
+      this.dialogRef.close()
+    }
   }
 }

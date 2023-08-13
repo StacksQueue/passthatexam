@@ -1,4 +1,5 @@
 export interface IQuestion {
+    _id: string;
     source: string;
     program: string;
     year: number;
