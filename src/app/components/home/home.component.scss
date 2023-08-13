@@ -43,23 +43,23 @@ h2 {
   align-items: center;
   text-align: center;
 
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    height: 0.09em;
-    min-width: 30vw;
-  }
+  // &::before,
+  // &::after {
+  //   content: "";
+  //   display: block;
+  //   height: 0.09em;
+  //   min-width: 30vw;
+  // }
 
-  &::before {
-    background: linear-gradient(to right, rgba(240, 240, 240, 0), #387a5c);
-    margin-right: 4vh;
-  }
+  // &::before {
+  //   background: linear-gradient(to right, rgba(240, 240, 240, 0), #387a5c);
+  //   margin-right: 4vh;
+  // }
 
-  &::after {
-    background: linear-gradient(to left, rgba(240, 240, 240, 0), #387a5c);
-    margin-left: 4vh;
-  }
+  // &::after {
+  //   background: linear-gradient(to left, rgba(240, 240, 240, 0), #387a5c);
+  //   margin-left: 4vh;
+  // }
 }
 
 .logo {

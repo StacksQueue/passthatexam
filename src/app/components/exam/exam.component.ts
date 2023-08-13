@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ScoreComponent } from '../score/score.component';
 import { History } from 'src/app/models/History';
 import { SkipPromptComponent } from '../skip-prompt/skip-prompt.component';
+import { ReportQuestionComponent } from '../report-question/report-question.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Score {
   score: number;
@@ -27,7 +29,7 @@ export class ExamComponent implements OnInit {
     category: [],
     items: 50,
     timer: 0,
-    programs: []
+    programs: [],
   };
 
   isloading: boolean = false;
@@ -45,7 +47,8 @@ export class ExamComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private _bottomSheet: MatBottomSheet,
-    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -61,7 +64,7 @@ export class ExamComponent implements OnInit {
         choosenAnswer: resp.choosenAnswer,
       });
       if (this.questionnaires.length === this.histories.length)
-        this.openDialog(ScoreComponent);
+        this.openDialog(ScoreComponent, this.histories);
     });
 
     this.ishome = this.router.url === '/';
@@ -72,7 +75,7 @@ export class ExamComponent implements OnInit {
     if (this.current_item > this.histories.length && !this.isPrompted) {
       console.log('prompt');
       this.isPrompted = true;
-      this.openDialog(SkipPromptComponent);
+      this.openDialog(SkipPromptComponent, null);
     }
     this.getQuestion(this.current_item + 1);
   }
@@ -92,7 +95,7 @@ export class ExamComponent implements OnInit {
     skippedNos.sort((a, b) => b - a);
     let skipped = skippedNos.pop();
     this.nextskipped = skippedNos.length ? skippedNos.pop()! : 1;
-    
+
     if (skipped) this.getQuestion(skipped);
   }
 
@@ -122,10 +125,26 @@ export class ExamComponent implements OnInit {
     this._bottomSheet.open(ExamFilterComponent);
   }
 
-  openDialog(component: Type<ScoreComponent | SkipPromptComponent>) {
+  openReportQuestionDialog() {
+    this.openDialog(ReportQuestionComponent, this.current);
+  }
+
+  openDialog(
+    component: Type<
+      ScoreComponent | SkipPromptComponent | ReportQuestionComponent
+    >,
+    data: any
+  ) {
     const dialogref = this.dialog.open(component, {
-      data: this.histories,
+      data: data,
       width: '400px',
+    });
+
+    dialogref.afterClosed().subscribe((resp) => {
+      if (component === ReportQuestionComponent && resp === 'close')
+        this._snackBar.open('Success sending Report. Thank you', '', {
+          duration: 3000,
+        });
     });
   }
 
@@ -144,11 +163,12 @@ export class ExamComponent implements OnInit {
     this.filter.items =
       params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
-    this.filter.programs = params['programs'] && Array.isArray(params['programs'])
-    ? params['programs']
-    : params['programs']
-    ? [params['programs']]
-    : [];
+    this.filter.programs =
+      params['programs'] && Array.isArray(params['programs'])
+        ? params['programs']
+        : params['programs']
+        ? [params['programs']]
+        : [];
     this.getExamQuestionnaires();
   }
 }
