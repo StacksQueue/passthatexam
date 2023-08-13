@@ -9,6 +9,7 @@ import { IQuestion } from '../models/Question';
 import { IQuestionFilter } from '../models/QuestionFilter';
 import { environment } from 'src/environments/environment';
 import { History } from '../models/History';
+import { IReport } from '../models/Report';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +48,12 @@ export class ExamService {
     // params = params.append('search', search);
     return this.https
       .get(environment.api_url + '/question/category', { params })
+      .pipe(catchError(this.handleError));
+  }
+
+  createIssueReport(report: IReport) {
+    return this.https
+      .post(environment.api_url + '/report', report)
       .pipe(catchError(this.handleError));
   }
 

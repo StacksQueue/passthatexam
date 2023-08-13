@@ -1,0 +1,27 @@
+<form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
+  <div class="sec-container">
+    <p>
+      Thank you for providing the report. We are committed to enhancing our
+      question data with your assistance. Your contribution is greatly
+      appreciated in this endeavor.
+    </p>
+    <mat-form-field>
+      <mat-label>Issue Type</mat-label>
+      <mat-select formControlName="selectedIssue">
+        <mat-option *ngFor="let issue of issues" [value]="issue">
+          {{ issue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Leave a note / Specify your answer</mat-label>
+      <textarea
+        matInput
+        rows="2"
+        placeholder=""
+        formControlName="remarks"
+      ></textarea>
+    </mat-form-field>
+    <button type="submit" mat-flat-button color="primary">SEND</button>
+  </div>
+</form>

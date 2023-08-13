@@ -1,0 +1,35 @@
+.sec-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button.mat-primary,
+button.mat-warn {
+  font-family: "Bebas Neue";
+  font-size: 18px;
+  color: white;
+  border-radius: 0;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  width: 64px;
+}
+
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+
