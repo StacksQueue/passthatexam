@@ -62,7 +62,7 @@ export class ExamComponent implements OnInit {
         choosenAnswer: resp.choosenAnswer,
       });
       if (this.questionnaires.length === this.histories.length)
-        this.openDialog(ScoreComponent);
+        this.openDialog(ScoreComponent, this.histories);
     });
 
     this.ishome = this.router.url === '/';
@@ -73,7 +73,7 @@ export class ExamComponent implements OnInit {
     if (this.current_item > this.histories.length && !this.isPrompted) {
       console.log('prompt');
       this.isPrompted = true;
-      this.openDialog(SkipPromptComponent);
+      this.openDialog(SkipPromptComponent, null);
     }
     this.getQuestion(this.current_item + 1);
   }
@@ -124,16 +124,17 @@ export class ExamComponent implements OnInit {
   }
 
   openReportQuestionDialog() {
-    this.openDialog(ReportQuestionComponent)
+    this.openDialog(ReportQuestionComponent, this.current)
   }
 
   openDialog(
     component: Type<
       ScoreComponent | SkipPromptComponent | ReportQuestionComponent
-    >
+    >, data: any
   ) {
+
     const dialogref = this.dialog.open(component, {
-      data: this.histories,
+      data: data,
       width: '400px',
     });
   }

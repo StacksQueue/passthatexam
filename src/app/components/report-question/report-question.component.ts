@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-report-question',
@@ -8,8 +8,16 @@ import { FormControl } from '@angular/forms';
 })
 export class ReportQuestionComponent {
 
-  selectedIssue = new FormControl('');
+
+  reportForm: FormGroup
   issues: string[] = ["Incorrect Answer", "Missing Content"]
+
+  constructor(private formbuilder: FormBuilder) {
+    this.reportForm = this.formbuilder.group({
+      selectedIssue: new FormControl('', [Validators.required]),
+      answer: new FormControl('')
+    })
+  }
 
   onSubmit() {
     console.log('haha')
