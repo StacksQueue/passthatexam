@@ -62,13 +62,19 @@ button.mat-warn {
   --mdc-dialog-container-color: #c9e4d9;
 }
 
+::ng-deep .mat-mdc-snack-bar-container {
+  // --mdc-snackbar-container-color: #bb35b4;
+  --mdc-snackbar-container-color: var(--header);
+
+}
+
 .spacer {
   flex: 1 1 auto;
 }
 
-@media  screen and (max-width: 420px) {
+@media screen and (max-width: 420px) {
   button.mat-primary,
-button.mat-warn {
-  font-size: 14px;
-}
+  button.mat-warn {
+    font-size: 14px;
+  }
 }

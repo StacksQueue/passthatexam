@@ -10,6 +10,7 @@ import { ScoreComponent } from '../score/score.component';
 import { History } from 'src/app/models/History';
 import { SkipPromptComponent } from '../skip-prompt/skip-prompt.component';
 import { ReportQuestionComponent } from '../report-question/report-question.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Score {
   score: number;
@@ -46,6 +47,7 @@ export class ExamComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private _bottomSheet: MatBottomSheet,
+    private _snackBar: MatSnackBar,
     public dialog: MatDialog
   ) {}
 
@@ -124,18 +126,25 @@ export class ExamComponent implements OnInit {
   }
 
   openReportQuestionDialog() {
-    this.openDialog(ReportQuestionComponent, this.current)
+    this.openDialog(ReportQuestionComponent, this.current);
   }
 
   openDialog(
     component: Type<
       ScoreComponent | SkipPromptComponent | ReportQuestionComponent
-    >, data: any
+    >,
+    data: any
   ) {
-
     const dialogref = this.dialog.open(component, {
       data: data,
       width: '400px',
+    });
+
+    dialogref.afterClosed().subscribe((resp) => {
+      if (component === ReportQuestionComponent && resp === 'close')
+        this._snackBar.open('Success sending Report. Thank you', '', {
+          duration: 3000,
+        });
     });
   }
 

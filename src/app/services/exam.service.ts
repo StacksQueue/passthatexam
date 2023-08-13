@@ -52,8 +52,9 @@ export class ExamService {
   }
 
   createIssueReport(report: IReport) {
-    
-    return this.https.post(environment.api_url + '/report', report)
+    return this.https
+      .post(environment.api_url + '/report', report)
+      .pipe(catchError(this.handleError));
   }
 
   onFirstChoosenAnswer() {

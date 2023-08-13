@@ -23,8 +23,7 @@ export class ReportQuestionComponent {
     private formbuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public question: IQuestion,
     private examService: ExamService,
-    public dialogRef: MatDialogRef<ReportQuestionComponent>,
-
+    public dialogRef: MatDialogRef<ReportQuestionComponent>
   ) {
     this.reportForm = this.formbuilder.group({
       questionId: new FormControl(question._id),
@@ -34,16 +33,16 @@ export class ReportQuestionComponent {
   }
 
   onSubmit() {
-    // console.log('haha',this.reportForm.value)
     let report: IReport = {
       questionId: this.reportForm.value.questionId,
       type: this.reportForm.value.selectedIssue,
       remarks: this.reportForm.value.remarks,
     };
-    console.log(report);
     if (this.reportForm.valid) {
-
-      this.dialogRef.close()
+      this.examService
+        .createIssueReport(report)
+        .subscribe((resp) => console.log(resp));
+      this.dialogRef.close('close');
     }
   }
 }
