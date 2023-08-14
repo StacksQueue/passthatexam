@@ -11,6 +11,7 @@ import { History } from 'src/app/models/History';
 import { SkipPromptComponent } from '../skip-prompt/skip-prompt.component';
 import { ReportQuestionComponent } from '../report-question/report-question.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ExplainPromptComponent } from '../explain-prompt/explain-prompt.component';
 
 export interface Score {
   score: number;
@@ -125,13 +126,20 @@ export class ExamComponent implements OnInit {
     this._bottomSheet.open(ExamFilterComponent);
   }
 
+  openExplainDialog() {
+    this.openDialog(ExplainPromptComponent, this.current.explanation);
+  }
+
   openReportQuestionDialog() {
     this.openDialog(ReportQuestionComponent, this.current);
   }
 
   openDialog(
     component: Type<
-      ScoreComponent | SkipPromptComponent | ReportQuestionComponent
+      | ScoreComponent
+      | SkipPromptComponent
+      | ReportQuestionComponent
+      | ExplainPromptComponent
     >,
     data: any
   ) {
