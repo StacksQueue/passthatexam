@@ -30,7 +30,11 @@
       >
       </app-choice>
       <div class="actions">
-        <button mat-icon-button (click)="openExplainDialog()">
+        <button
+          mat-icon-button
+          (click)="openExplainDialog()"
+          [disabled]="!isShowExplanation"
+        >
           <mat-icon>question_answer</mat-icon>
         </button>
         <div class="spacer"></div>
