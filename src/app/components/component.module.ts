@@ -16,6 +16,7 @@ import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { SkipPromptComponent } from './skip-prompt/skip-prompt.component';
 import { ReportQuestionComponent } from './report-question/report-question.component';
+import { ExplainPromptComponent } from './explain-prompt/explain-prompt.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ReportQuestionComponent } from './report-question/report-question.compo
     FooterComponent,
     SkipPromptComponent,
     ReportQuestionComponent,
+    ExplainPromptComponent,
   ],
   imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule, RouterModule],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],

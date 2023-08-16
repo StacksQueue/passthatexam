@@ -11,6 +11,7 @@ import { History } from 'src/app/models/History';
 import { SkipPromptComponent } from '../skip-prompt/skip-prompt.component';
 import { ReportQuestionComponent } from '../report-question/report-question.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ExplainPromptComponent } from '../explain-prompt/explain-prompt.component';
 
 export interface Score {
   score: number;
@@ -36,6 +37,7 @@ export class ExamComponent implements OnInit {
   isEnd: boolean = false;
   ishome: boolean = false;
   isPrompted: boolean = false;
+  isShowExplanation: boolean = false;
 
   histories: History[] = [];
   current_item: number = 1;
@@ -63,6 +65,7 @@ export class ExamComponent implements OnInit {
         itemNo: resp.itemNo,
         choosenAnswer: resp.choosenAnswer,
       });
+      this.isShowExplanation = true;
       if (this.questionnaires.length === this.histories.length)
         this.openDialog(ScoreComponent, this.histories);
     });
@@ -103,6 +106,7 @@ export class ExamComponent implements OnInit {
     this.current_item = itemNo;
     this.current = this.questionnaires[this.current_item - 1];
     this.history = this.getHistory();
+    this.isShowExplanation = this.history ? true : false;
   }
 
   getExamQuestionnaires() {
@@ -125,13 +129,20 @@ export class ExamComponent implements OnInit {
     this._bottomSheet.open(ExamFilterComponent);
   }
 
+  openExplainDialog() {
+    this.openDialog(ExplainPromptComponent, this.current.explanation);
+  }
+
   openReportQuestionDialog() {
     this.openDialog(ReportQuestionComponent, this.current);
   }
 
   openDialog(
     component: Type<
-      ScoreComponent | SkipPromptComponent | ReportQuestionComponent
+      | ScoreComponent
+      | SkipPromptComponent
+      | ReportQuestionComponent
+      | ExplainPromptComponent
     >,
     data: any
   ) {

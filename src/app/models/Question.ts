@@ -7,4 +7,5 @@ export interface IQuestion {
     question: string;
     choices: string[];
     answer: string;
+    explanation: string;
 }
