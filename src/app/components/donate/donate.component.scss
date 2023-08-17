@@ -1,0 +1,52 @@
+#donate {
+  padding: 25px 0;
+}
+
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+  text-align: justify;
+}
+
+.content {
+  // padding: 25px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.logo {
+  font-family: "Caveat";
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--header);
+}
+
+.title {
+  font-size: 23px;
+  text-align: center;
+  font-family: "Bebas Neue";
+}
+
+.donate-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Bebas Neue";
+}
+
+.clipboard {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: var(--header);
+  width: max-content;
+  gap: 10px;
+  cursor: pointer;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #7abe8c;
+}

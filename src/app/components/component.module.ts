@@ -17,6 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SkipPromptComponent } from './skip-prompt/skip-prompt.component';
 import { ReportQuestionComponent } from './report-question/report-question.component';
 import { ExplainPromptComponent } from './explain-prompt/explain-prompt.component';
+import { DonateComponent } from './donate/donate.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,16 @@ import { ExplainPromptComponent } from './explain-prompt/explain-prompt.componen
     SkipPromptComponent,
     ReportQuestionComponent,
     ExplainPromptComponent,
+    DonateComponent,
   ],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule,
+    ClipboardModule,
+  ],
   exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
 })
 export class ComponentModule {}
