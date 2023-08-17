@@ -4,6 +4,8 @@
   line-height: 2;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
+  max-height: 80vh;
 }
 
 button.mat-primary,
