@@ -95,6 +95,7 @@ export class ExamFilterComponent implements OnInit {
       .getExamCategories(this.searchControl.value!, this.selectedPrograms)
       .subscribe((resp) => {
         this.categories = resp['data'];
+        this.defaultCategories = this.categories;
         this.addDefaultCategories();
       });
   }
