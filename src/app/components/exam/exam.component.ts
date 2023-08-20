@@ -76,9 +76,8 @@ export class ExamComponent implements OnInit {
   next() {
     if (this.questionnaires.length == this.histories.length) this.isEnd = true;
     if (this.current_item > this.histories.length && !this.isPrompted) {
-      console.log('prompt');
       this.isPrompted = true;
-      this.openDialog(SkipPromptComponent, null);
+      // this.openDialog(SkipPromptComponent, null);
     }
     this.getQuestion(this.current_item + 1);
   }
