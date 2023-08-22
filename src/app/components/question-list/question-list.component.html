@@ -1,3 +1,6 @@
 <div class="sec-container">
-  <app-question-tab></app-question-tab>
+  <app-question-tab
+    *ngFor="let question of questionnaires"
+    [question]="question"
+  ></app-question-tab>
 </div>

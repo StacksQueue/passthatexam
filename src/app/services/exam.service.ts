@@ -38,6 +38,14 @@ export class ExamService {
       .pipe(catchError(this.handleError));
   }
 
+  getQuestionList(keyword: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('keyword', keyword);
+    return this.https
+      .get(environment.api_url + '/question/search', { params })
+      .pipe(catchError(this.handleError));
+  }
+
   getExamCategories(search: string, program: string[]): Observable<any> {
     let params = new HttpParams({
       fromObject: {
