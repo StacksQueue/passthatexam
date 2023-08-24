@@ -1,3 +1,46 @@
+mat-expansion-panel {
+  background-color: #c9e4d9;
+}
+
+mat-icon {
+    color: var(--icon);
+}
+
 .mat-expansion-panel-header {
-    padding: 24px;
+  padding: 10px 24px;
+}
+
+.mat-expansion-panel-header-description {
+  //   background-color: #b1d5b5;
+  background-color: #c9e4d9;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000000;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qtab-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.choice {
+  padding: 10px;
+  //   background-color: #b1d5b5;
+  background-color: rgba(197, 106, 25, 0.4);
+
+  border-radius: 5px;
+}
+
+.correct {
+  background-color: var(--header);
 }
