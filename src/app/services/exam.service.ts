@@ -16,6 +16,7 @@ import { IReport } from '../models/Report';
 })
 export class ExamService {
   firstChoiceSubject: Subject<History> = new Subject<History>();
+  showAllAnswerSubject: Subject<boolean> = new Subject<boolean>();
   constructor(private https: HttpClient) {}
 
   getExams(filter: IQuestionFilter): Observable<IQuestion[]> {
@@ -67,6 +68,10 @@ export class ExamService {
 
   onFirstChoosenAnswer() {
     return this.firstChoiceSubject.asObservable();
+  }
+
+  onShowAllAnswer() {
+    return this.showAllAnswerSubject.asObservable()
   }
 
   handleError(err: HttpErrorResponse) {

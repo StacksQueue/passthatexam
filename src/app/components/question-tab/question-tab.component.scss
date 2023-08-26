@@ -3,7 +3,7 @@ mat-expansion-panel {
 }
 
 mat-icon {
-    color: var(--icon);
+  color: var(--icon);
 }
 
 .mat-expansion-panel-header {
@@ -37,10 +37,20 @@ mat-icon {
   padding: 10px;
   //   background-color: #b1d5b5;
   background-color: rgba(197, 106, 25, 0.4);
-
   border-radius: 5px;
 }
 
 .correct {
   background-color: var(--header);
+}
+
+.report {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
+    .mat-expansion-panel-header:hover {
+    background-color: #c9e4d9;
+  }
 }

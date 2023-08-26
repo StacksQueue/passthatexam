@@ -21,6 +21,7 @@ import { DonateComponent } from './donate/donate.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionTabComponent } from './question-tab/question-tab.component';
+import { QuestionSearchComponent } from './question-search/question-search.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { QuestionTabComponent } from './question-tab/question-tab.component';
     DonateComponent,
     QuestionListComponent,
     QuestionTabComponent,
+    QuestionSearchComponent,
   ],
   imports: [
     CommonModule,

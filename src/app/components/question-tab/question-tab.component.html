@@ -1,10 +1,15 @@
 <div class="qtab-wrapper">
   <div class="qtab-actions">
-    <mat-slide-toggle color="primary"></mat-slide-toggle>
+    <mat-slide-toggle
+      [(ngModel)]="isChecked"
+      color="primary"
+    ></mat-slide-toggle>
     <mat-icon
       aria-hidden="false"
       aria-label="report button"
       fontIcon="flag"
+      class="report"
+      (click)="openReportQuestionDialog()"
     ></mat-icon>
   </div>
   <mat-accordion>
