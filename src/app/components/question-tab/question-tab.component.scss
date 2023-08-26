@@ -48,6 +48,10 @@ mat-icon {
   cursor: pointer;
 }
 
+.mat-expansion-panel-header {
+  height: max-content;
+}
+
 @media screen and (max-width: 420px) {
   .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
     .mat-expansion-panel-header:hover {

@@ -13,6 +13,8 @@ import { ExamService } from 'src/app/services/exam.service';
 export class QuestionTabComponent implements OnInit {
   @Input() question: IQuestion;
   isChecked: boolean = false;
+  question_shortened: string = '';
+  panelOpenState: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -21,9 +23,13 @@ export class QuestionTabComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.examService.onShowAllAnswer().subscribe(resp => {
+    this.examService.onShowAllAnswer().subscribe((resp) => {
       this.isChecked = resp;
-    })
+    });
+    const max = window.innerWidth > 420 ? 180 : 60;
+    const q = this.question.question;
+    this.question_shortened = q.length > max ? q.slice(0, max) + '...' : q;
+    console.log(this.question.question.length);
   }
 
   openReportQuestionDialog() {
