@@ -22,7 +22,7 @@ export class QuestionTabComponent implements OnInit {
 
   ngOnInit(): void {
     this.examService.onShowAllAnswer().subscribe(resp => {
-      this.isChecked === resp;
+      this.isChecked = resp;
     })
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
@@ -15,18 +16,17 @@ export class QuestionListComponent implements OnInit {
 
   constructor(
     private examService: ExamService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {
-    
-  }
+    private activatedRoute: ActivatedRoute
+  ) {}
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.queryParamsHandling(params);
     });
   }
 
-
+  toggle(event: MatSlideToggleChange) {
+    this.examService.showAllAnswerSubject.next(event.checked);
+  }
 
   getQuestionList() {
     this.examService.getQuestionList(this.keyword).subscribe((resp) => {

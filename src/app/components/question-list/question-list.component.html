@@ -1,9 +1,11 @@
 <div class="sec-container">
-  <!-- <mat-slide-toggle
-    [formControlName]="showAllAnswer"
-    color="primary"
-  ></mat-slide-toggle> -->
   <app-question-search></app-question-search>
+  <div class="action-wrapper">
+    <mat-slide-toggle
+      (change)="toggle($event)"
+      color="primary"
+    >Show All Answers</mat-slide-toggle>
+  </div>
   <app-question-tab
     *ngFor="let question of questionnaires"
     [question]="question"

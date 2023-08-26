@@ -23,7 +23,7 @@
       <div
         class="choice"
         *ngFor="let choice of question.choices"
-        [class.correct]="choice === question.answer"
+        [class.correct]="isChecked && choice === question.answer"
       >
         {{ choice }}
       </div>
