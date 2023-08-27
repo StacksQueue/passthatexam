@@ -17,8 +17,6 @@ import { Pagination } from '../models/Pagination';
 })
 export class ExamService {
   firstChoiceSubject: Subject<History> = new Subject<History>();
-  showAllAnswerSubject: Subject<boolean> = new Subject<boolean>();
-  showQuestionTabSubject: Subject<boolean> = new Subject<boolean>();
   constructor(private https: HttpClient) {}
 
   getExams(filter: IQuestionFilter): Observable<IQuestion[]> {
@@ -47,8 +45,6 @@ export class ExamService {
     params = params.append('page', pagination.page);
     params = params.append('limit', pagination.limit);
 
-
-
     return this.https
       .get(environment.api_url + '/question/search', { params })
       .pipe(catchError(this.handleError));
@@ -75,14 +71,6 @@ export class ExamService {
 
   onFirstChoosenAnswer() {
     return this.firstChoiceSubject.asObservable();
-  }
-
-  onShowAllAnswer() {
-    return this.showAllAnswerSubject.asObservable()
-  }
-
-  onExpandQuestionTab() {
-    return this.showQuestionTabSubject.asObservable()
   }
 
   handleError(err: HttpErrorResponse) {

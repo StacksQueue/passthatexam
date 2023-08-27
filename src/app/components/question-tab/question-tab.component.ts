@@ -12,6 +12,8 @@ import { ExamService } from 'src/app/services/exam.service';
 })
 export class QuestionTabComponent implements OnInit {
   @Input() question: IQuestion;
+  @Input() isShow: boolean;
+  @Input() isExpand: boolean;
   isChecked: boolean = false;
   question_shortened: string = '';
   panelOpenState: boolean = false;
@@ -19,16 +21,9 @@ export class QuestionTabComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private examService: ExamService
   ) {}
 
   ngOnInit(): void {
-    this.examService.onShowAllAnswer().subscribe((resp) => {
-      this.isChecked = resp;
-    });
-    this.examService.onExpandQuestionTab().subscribe(resp => {
-      this.panelOpenState = resp;
-    })
     const max = window.innerWidth > 420 ? 180 : 60;
     const q = this.question.question;
     this.question_shortened = q.length > max ? q.slice(0, max) + '...' : q;

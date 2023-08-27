@@ -1,7 +1,7 @@
 <div class="qtab-wrapper">
   <div class="qtab-actions">
     <mat-slide-toggle
-      [(ngModel)]="isChecked"
+      [(ngModel)]="isShow"
       color="primary"
     ></mat-slide-toggle>
     <mat-icon
@@ -14,20 +14,20 @@
   </div>
   <mat-accordion>
     <mat-expansion-panel
-      [expanded]="panelOpenState"
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
+      [expanded]="isExpand"
+      (opened)="isExpand = true"
+      (closed)="isExpand = false"
     >
       <mat-expansion-panel-header>
         <!-- <mat-panel-title> Self aware panel </mat-panel-title> -->
         <mat-panel-description>
-          {{ panelOpenState ? question.question : question_shortened }}
+          {{ isExpand ? question.question : question_shortened }}
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div
         class="choice"
         *ngFor="let choice of question.choices"
-        [class.correct]="isChecked && choice === question.answer"
+        [class.correct]="isShow && choice === question.answer"
       >
         {{ choice }}
       </div>

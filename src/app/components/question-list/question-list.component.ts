@@ -21,6 +21,8 @@ export class QuestionListComponent implements OnInit {
   keyword: string = '';
   questionnaires: IQuestion[] = [];
   isloading: boolean = false;
+  isShow: boolean = false;
+  isExpand: boolean = false;
   pagination: Pagination = {
     length: 100,
     page: 1,
@@ -36,16 +38,10 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
+      console.log('show', this.isShow);
+
       this.queryParamsHandling(params);
     });
-  }
-
-  toggleShowAllAnswer(event: MatSlideToggleChange) {
-    this.examService.showAllAnswerSubject.next(event.checked);
-  }
-
-  toggleExpandQuestion(event: MatSlideToggleChange) {
-    this.examService.showQuestionTabSubject.next(event.checked);
   }
 
   getQuestionList() {

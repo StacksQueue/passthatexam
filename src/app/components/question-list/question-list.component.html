@@ -2,10 +2,10 @@
   <div class="sec-container">
     <app-question-search></app-question-search>
     <div class="action-wrapper">
-      <mat-slide-toggle (change)="toggleExpandQuestion($event)" color="primary"
+      <mat-slide-toggle (change)="isExpand = $event.checked" color="primary"
         >Expand All Question Tabs</mat-slide-toggle
       >
-      <mat-slide-toggle (change)="toggleShowAllAnswer($event)" color="primary"
+      <mat-slide-toggle (change)="isShow = $event.checked" color="primary"
         >Show All Answers</mat-slide-toggle
       >
     </div>
@@ -20,6 +20,8 @@
     <app-question-tab
       *ngFor="let question of questionnaires"
       [question]="question"
+      [isShow]="isShow"
+      [isExpand]="isExpand"
     ></app-question-tab>
   </div>
   <ng-template #nodisplay>
