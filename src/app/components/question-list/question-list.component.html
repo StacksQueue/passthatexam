@@ -35,7 +35,9 @@
     <mat-paginator
       [length]="pagination.length"
       [pageSize]="pagination.limit"
+      [pageIndex]="pagination.page - 1"
       [pageSizeOptions]="pagination.pageSizeOption"
+      [showFirstLastButtons]="true"
       (page)="paginate($event)"
     >
     </mat-paginator>

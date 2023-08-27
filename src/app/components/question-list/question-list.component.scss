@@ -51,10 +51,14 @@ mat-paginator {
   background: #e3f7ee;
 }
 
+// #display {
+//   min-height:calc(100vh - 60px);
+// }
+
 #pagination {
-  // position: absolute;
-  // bottom: 0;
-  // width: 100%;
+  position: absolute;
+  // bottom: 1;
+  width: 100%;
   padding-top: 20px;
 }
 

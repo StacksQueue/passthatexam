@@ -36,7 +36,6 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
-      console.log('activatedrout');
       this.queryParamsHandling(params);
     });
   }
@@ -76,6 +75,7 @@ export class QuestionListComponent implements OnInit {
     this.pagination.page = params['page'] ? params['page'] : 1;
     this.pagination.limit = params['limit'] ? params['limit'] : 25;
     this.keyword = params['keyword'] ? params['keyword'] : '';
+    console.log('query', this.pagination.page);
     this.getQuestionList();
   }
 }
