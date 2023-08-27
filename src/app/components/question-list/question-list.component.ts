@@ -74,12 +74,12 @@ export class QuestionListComponent implements OnInit {
     this.pagination.page = params['page'] ? params['page'] : 1;
     this.pagination.limit = params['limit'] ? params['limit'] : 25;
     this.keyword = params['keyword'] ? params['keyword'] : '';
-    this.selectedPrograms =
-      params['programs'] && Array.isArray(params['programs'])
+    this.selectedPrograms = params['programs']
+      ? Array.isArray(params['programs'])
         ? params['programs']
-        : params['programs']
-        ? [params['programs']]
-        : [];
+        : [params['programs']]
+      : [];
+
     this.getQuestionList();
   }
 }
