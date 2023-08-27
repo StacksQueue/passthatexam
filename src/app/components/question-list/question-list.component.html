@@ -1,15 +1,31 @@
-<div class="sec-container">
-  <app-question-search></app-question-search>
-  <div class="action-wrapper">
-    <mat-slide-toggle (change)="toggleExpandQuestion($event)" color="primary"
-      >Expand All Question Tabs</mat-slide-toggle
-    >
-    <mat-slide-toggle (change)="toggleShowAllAnswer($event)" color="primary"
-      >Show All Answers</mat-slide-toggle
-    >
+<section id="actions">
+  <div class="sec-container">
+    <app-question-search></app-question-search>
+    <div class="action-wrapper">
+      <mat-slide-toggle (change)="toggleExpandQuestion($event)" color="primary"
+        >Expand All Question Tabs</mat-slide-toggle
+      >
+      <mat-slide-toggle (change)="toggleShowAllAnswer($event)" color="primary"
+        >Show All Answers</mat-slide-toggle
+      >
+    </div>
   </div>
-  <app-question-tab
-    *ngFor="let question of questionnaires"
-    [question]="question"
-  ></app-question-tab>
-</div>
+</section>
+
+<section id="display">
+  <div class="loader" *ngIf="isloading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="sec-container" *ngIf="questionnaires.length; else nodisplay">
+    <app-question-tab
+      *ngFor="let question of questionnaires"
+      [question]="question"
+    ></app-question-tab>
+  </div>
+  <ng-template #nodisplay>
+    <div class="no-display">
+      <span>No Records Found</span>
+      <mat-icon>search</mat-icon>
+    </div>
+  </ng-template>
+</section>

@@ -13,6 +13,7 @@ import { ExamService } from 'src/app/services/exam.service';
 export class QuestionListComponent implements OnInit {
   keyword: string = '';
   questionnaires: IQuestion[] = [];
+  isloading: boolean = false;
 
   constructor(
     private examService: ExamService,
@@ -33,8 +34,10 @@ export class QuestionListComponent implements OnInit {
   }
 
   getQuestionList() {
+    this.isloading = true;
     this.examService.getQuestionList(this.keyword).subscribe((resp) => {
       this.questionnaires = resp['data'];
+      this.isloading = false;
     });
   }
 
