@@ -32,7 +32,6 @@ export class QuestionTabComponent implements OnInit {
     const max = window.innerWidth > 420 ? 180 : 60;
     const q = this.question.question;
     this.question_shortened = q.length > max ? q.slice(0, max) + '...' : q;
-    console.log(this.question.question.length);
   }
 
   openReportQuestionDialog() {

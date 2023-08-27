@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationExtras,
+  Params,
+  Router,
+} from '@angular/router';
+import { Pagination } from 'src/app/models/Pagination';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
 
@@ -14,13 +21,22 @@ export class QuestionListComponent implements OnInit {
   keyword: string = '';
   questionnaires: IQuestion[] = [];
   isloading: boolean = false;
+  pagination: Pagination = {
+    length: 100,
+    page: 1,
+    limit: 10,
+    pageSizeOption: [5, 10, 25, 100],
+  };
 
   constructor(
+    private router: Router,
     private examService: ExamService,
     private activatedRoute: ActivatedRoute
   ) {}
+
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
+      console.log('activatedrout');
       this.queryParamsHandling(params);
     });
   }
@@ -35,13 +51,30 @@ export class QuestionListComponent implements OnInit {
 
   getQuestionList() {
     this.isloading = true;
-    this.examService.getQuestionList(this.keyword).subscribe((resp) => {
-      this.questionnaires = resp['data'];
-      this.isloading = false;
-    });
+    this.examService
+      .getQuestionList(this.keyword, this.pagination)
+      .subscribe((resp) => {
+        this.questionnaires = resp['data'];
+        this.pagination.length = resp['total'];
+        this.isloading = false;
+      });
+  }
+
+  paginate(event: PageEvent) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        page: event.pageIndex + 1,
+        limit: event.pageSize,
+      },
+      queryParamsHandling: 'merge',
+    };
+    console.log(event.pageIndex);
+    this.router.navigate(['/questions'], navigationExtras);
   }
 
   queryParamsHandling(params: Params) {
+    this.pagination.page = params['page'] ? params['page'] : 1;
+    this.pagination.limit = params['limit'] ? params['limit'] : 25;
     this.keyword = params['keyword'] ? params['keyword'] : '';
     this.getQuestionList();
   }

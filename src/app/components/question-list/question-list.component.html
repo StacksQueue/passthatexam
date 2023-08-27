@@ -29,3 +29,15 @@
     </div>
   </ng-template>
 </section>
+
+<section id="pagination">
+  <div class="sec-container">
+    <mat-paginator
+      [length]="pagination.length"
+      [pageSize]="pagination.limit"
+      [pageSizeOptions]="pagination.pageSizeOption"
+      (page)="paginate($event)"
+    >
+    </mat-paginator>
+  </div>
+</section>
