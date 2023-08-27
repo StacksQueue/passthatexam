@@ -1,10 +1,12 @@
 <div class="sec-container">
   <app-question-search></app-question-search>
   <div class="action-wrapper">
-    <mat-slide-toggle
-      (change)="toggle($event)"
-      color="primary"
-    >Show All Answers</mat-slide-toggle>
+    <mat-slide-toggle (change)="toggleExpandQuestion($event)" color="primary"
+      >Expand All Question Tabs</mat-slide-toggle
+    >
+    <mat-slide-toggle (change)="toggleShowAllAnswer($event)" color="primary"
+      >Show All Answers</mat-slide-toggle
+    >
   </div>
   <app-question-tab
     *ngFor="let question of questionnaires"

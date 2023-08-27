@@ -24,8 +24,12 @@ export class QuestionListComponent implements OnInit {
     });
   }
 
-  toggle(event: MatSlideToggleChange) {
+  toggleShowAllAnswer(event: MatSlideToggleChange) {
     this.examService.showAllAnswerSubject.next(event.checked);
+  }
+
+  toggleExpandQuestion(event: MatSlideToggleChange) {
+    this.examService.showQuestionTabSubject.next(event.checked);
   }
 
   getQuestionList() {
