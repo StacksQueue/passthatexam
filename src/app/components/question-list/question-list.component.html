@@ -1,6 +1,6 @@
 <section id="actions">
   <div class="sec-container">
-    <app-question-search></app-question-search>
+    <app-question-search [programs]="selectedPrograms"></app-question-search>
     <div class="action-wrapper">
       <mat-slide-toggle (change)="isExpand = $event.checked" color="primary"
         >Expand All Question Tabs</mat-slide-toggle
@@ -8,6 +8,16 @@
       <mat-slide-toggle (change)="isShow = $event.checked" color="primary"
         >Show All Answers</mat-slide-toggle
       >
+      <div class="spacer"></div>
+      <mat-button-toggle-group
+        [value]="selectedPrograms"
+        (change)="selectedPrograms = $event.value"
+        multiple
+      >
+        <mat-button-toggle *ngFor="let program of programs" [value]="program">
+          {{ program }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
   </div>
 </section>

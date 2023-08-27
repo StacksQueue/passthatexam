@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./question-search.component.scss'],
 })
 export class QuestionSearchComponent {
+  @Input() programs: string[] = [];
   questionForm: FormGroup;
 
   constructor(private formbuilder: FormBuilder, private router: Router) {
@@ -25,10 +26,10 @@ export class QuestionSearchComponent {
   onSubmit() {
     const keyword = this.questionForm.value.search;
     const navigationExtras: NavigationExtras = {
-      queryParams: { keyword: keyword },
-      queryParamsHandling: 'merge'
+      queryParams: { keyword, programs: this.programs },
+      queryParamsHandling: "merge",
     };
 
-    this.router.navigate(['/questions'], navigationExtras)
+    this.router.navigate(['/questions'], navigationExtras);
   }
 }

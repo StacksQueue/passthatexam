@@ -39,11 +39,19 @@ export class ExamService {
       .pipe(catchError(this.handleError));
   }
 
-  getQuestionList(keyword: string, pagination: Pagination): Observable<any> {
-    let params = new HttpParams();
-    params = params.append('keyword', keyword);
-    params = params.append('page', pagination.page);
-    params = params.append('limit', pagination.limit);
+  getQuestionList(
+    keyword: string,
+    programs: string[],
+    pagination: Pagination
+  ): Observable<any> {
+    let params = new HttpParams({
+      fromObject: {
+        keyword: keyword,
+        page: pagination.page,
+        limit: pagination.limit,
+        programs: programs,
+      },
+    });
 
     return this.https
       .get(environment.api_url + '/question/search', { params })

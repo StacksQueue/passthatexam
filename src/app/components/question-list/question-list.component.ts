@@ -20,6 +20,8 @@ import { ExamService } from 'src/app/services/exam.service';
 export class QuestionListComponent implements OnInit {
   keyword: string = '';
   questionnaires: IQuestion[] = [];
+  programs: string[] = [];
+  selectedPrograms: string[] = [];
   isloading: boolean = false;
   isShow: boolean = false;
   isExpand: boolean = false;
@@ -38,16 +40,18 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
-      console.log('show', this.isShow);
-
       this.queryParamsHandling(params);
+    });
+    this.examService.getExamPrograms().subscribe((resp) => {
+      this.programs = resp['data'];
+      if (!this.selectedPrograms.length) this.selectedPrograms = resp['data'];
     });
   }
 
   getQuestionList() {
     this.isloading = true;
     this.examService
-      .getQuestionList(this.keyword, this.pagination)
+      .getQuestionList(this.keyword, this.selectedPrograms, this.pagination)
       .subscribe((resp) => {
         this.questionnaires = resp['data'];
         this.pagination.length = resp['total'];
@@ -63,7 +67,6 @@ export class QuestionListComponent implements OnInit {
       },
       queryParamsHandling: 'merge',
     };
-    console.log(event.pageIndex);
     this.router.navigate(['/questions'], navigationExtras);
   }
 
@@ -71,7 +74,12 @@ export class QuestionListComponent implements OnInit {
     this.pagination.page = params['page'] ? params['page'] : 1;
     this.pagination.limit = params['limit'] ? params['limit'] : 25;
     this.keyword = params['keyword'] ? params['keyword'] : '';
-    console.log('query', this.pagination.page);
+    this.selectedPrograms =
+      params['programs'] && Array.isArray(params['programs'])
+        ? params['programs']
+        : params['programs']
+        ? [params['programs']]
+        : [];
     this.getQuestionList();
   }
 }
