@@ -19,6 +19,9 @@ import { ReportQuestionComponent } from './report-question/report-question.compo
 import { ExplainPromptComponent } from './explain-prompt/explain-prompt.component';
 import { DonateComponent } from './donate/donate.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { QuestionListComponent } from './question-list/question-list.component';
+import { QuestionTabComponent } from './question-tab/question-tab.component';
+import { QuestionSearchComponent } from './question-search/question-search.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ReportQuestionComponent,
     ExplainPromptComponent,
     DonateComponent,
+    QuestionListComponent,
+    QuestionTabComponent,
+    QuestionSearchComponent,
   ],
   imports: [
     CommonModule,

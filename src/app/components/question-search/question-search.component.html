@@ -1,0 +1,15 @@
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+  <div class="search-wrapper">
+    <mat-form-field class="full-width">
+      <mat-label>Questions</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        matInput
+        placeholder="Search any keywords"
+        formControlName="search"
+        (keydown)="onEnterKey($event)"
+      />
+    </mat-form-field>
+    <button type="submit" mat-flat-button color="primary">Search</button>
+  </div>
+</form>

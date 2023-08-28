@@ -1,31 +1,27 @@
-.sec-container {
-  text-align: center;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  p {
-    color: rgba(0, 0, 0, 0.87);
-  }
-}
-
-mat-form-field {
+.full-width {
   width: 100%;
 }
 
-button.mat-primary,
-button.mat-warn {
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button.mat-primary {
   font-family: "Bebas Neue";
   font-size: 18px;
+  // color: wheat;
   color: white;
   border-radius: 0;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
-  width: 64px;
 }
 
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
 
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: transparent !important;
 }
-

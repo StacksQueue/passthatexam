@@ -164,21 +164,19 @@ export class ExamComponent implements OnInit {
   }
 
   queryParamsHandling(params: Params) {
-    this.filter.category =
-      params['category'] && Array.isArray(params['category'])
+    this.filter.category = params['category']
+      ? Array.isArray(params['category'])
         ? params['category']
-        : params['category']
-        ? [params['category']]
-        : [];
+        : [params['category']]
+      : [];
     this.filter.items =
       params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
-    this.filter.programs =
-      params['programs'] && Array.isArray(params['programs'])
+    this.filter.programs = params['programs']
+      ? Array.isArray(params['programs'])
         ? params['programs']
-        : params['programs']
-        ? [params['programs']]
-        : [];
+        : [params['programs']]
+      : [];
     this.getExamQuestionnaires();
   }
 }
