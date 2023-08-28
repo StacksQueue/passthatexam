@@ -15,8 +15,9 @@ a {
 
   display: flex;
   align-items: center;
-  height: inherit;
+  // height: inherit;
   gap: 20px;
+  box-sizing: content-box;
 }
 
 .spacer {
@@ -29,20 +30,38 @@ a {
   font-weight: 500;
   // color: wheat;
   color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
-
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
 }
 
 .menu {
   font-family: "Bebas Neue";
   font-size: 20px;
   color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
   cursor: pointer;
 }
 
-@media screen and (max-width: 420px) {
-  .toggle-icon {
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+mat-toolbar-row:not(:first-child) {
+  height: 40px;
+}
+
+mat-toolbar-row:not(:first-child):focus,
+mat-toolbar-row:not(:first-child):active,
+mat-toolbar-row:not(:first-child):hover {
+  background-color: green;
+}
+
+@media screen and (max-width: 599px) {
+  .menu-icon {
     display: block;
+  }
+
+  .menu {
+    display: none;
   }
 }
