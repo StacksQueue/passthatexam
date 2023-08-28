@@ -8,7 +8,7 @@ import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  toolbarVisible = true;
+  toolbarVisible = false;
 
   constructor(private _bottomSheet: MatBottomSheet) {}
 
