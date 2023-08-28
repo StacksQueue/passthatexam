@@ -11,6 +11,7 @@ import { History } from 'src/app/models/History';
 import { SkipPromptComponent } from '../skip-prompt/skip-prompt.component';
 import { ReportQuestionComponent } from '../report-question/report-question.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ExplainPromptComponent } from '../explain-prompt/explain-prompt.component';
 
 export interface Score {
   score: number;
@@ -36,6 +37,7 @@ export class ExamComponent implements OnInit {
   isEnd: boolean = false;
   ishome: boolean = false;
   isPrompted: boolean = false;
+  isShowExplanation: boolean = false;
 
   histories: History[] = [];
   current_item: number = 1;
@@ -63,6 +65,7 @@ export class ExamComponent implements OnInit {
         itemNo: resp.itemNo,
         choosenAnswer: resp.choosenAnswer,
       });
+      this.isShowExplanation = true;
       if (this.questionnaires.length === this.histories.length)
         this.openDialog(ScoreComponent, this.histories);
     });
@@ -73,9 +76,8 @@ export class ExamComponent implements OnInit {
   next() {
     if (this.questionnaires.length == this.histories.length) this.isEnd = true;
     if (this.current_item > this.histories.length && !this.isPrompted) {
-      console.log('prompt');
       this.isPrompted = true;
-      this.openDialog(SkipPromptComponent, null);
+      // this.openDialog(SkipPromptComponent, null);
     }
     this.getQuestion(this.current_item + 1);
   }
@@ -103,6 +105,7 @@ export class ExamComponent implements OnInit {
     this.current_item = itemNo;
     this.current = this.questionnaires[this.current_item - 1];
     this.history = this.getHistory();
+    this.isShowExplanation = this.history ? true : false;
   }
 
   getExamQuestionnaires() {
@@ -125,13 +128,20 @@ export class ExamComponent implements OnInit {
     this._bottomSheet.open(ExamFilterComponent);
   }
 
+  openExplainDialog() {
+    this.openDialog(ExplainPromptComponent, this.current.explanation);
+  }
+
   openReportQuestionDialog() {
     this.openDialog(ReportQuestionComponent, this.current);
   }
 
   openDialog(
     component: Type<
-      ScoreComponent | SkipPromptComponent | ReportQuestionComponent
+      | ScoreComponent
+      | SkipPromptComponent
+      | ReportQuestionComponent
+      | ExplainPromptComponent
     >,
     data: any
   ) {
@@ -154,21 +164,19 @@ export class ExamComponent implements OnInit {
   }
 
   queryParamsHandling(params: Params) {
-    this.filter.category =
-      params['category'] && Array.isArray(params['category'])
+    this.filter.category = params['category']
+      ? Array.isArray(params['category'])
         ? params['category']
-        : params['category']
-        ? [params['category']]
-        : [];
+        : [params['category']]
+      : [];
     this.filter.items =
       params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
-    this.filter.programs =
-      params['programs'] && Array.isArray(params['programs'])
+    this.filter.programs = params['programs']
+      ? Array.isArray(params['programs'])
         ? params['programs']
-        : params['programs']
-        ? [params['programs']]
-        : [];
+        : [params['programs']]
+      : [];
     this.getExamQuestionnaires();
   }
 }

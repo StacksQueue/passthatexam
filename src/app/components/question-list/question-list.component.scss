@@ -1,0 +1,103 @@
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+  height: 50vh;
+
+  /* max-width: 800px; */
+  // position: absolute;
+  // margin: auto;
+  // width: 100%;
+  justify-content: center;
+  align-items: center;
+  // z-index: 1;
+}
+
+.no-display {
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+  justify-content: center;
+
+  mat-icon {
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.title {
+  font-size: 23px;
+  text-align: center;
+  font-family: "Bebas Neue";
+}
+
+p {
+  margin: 0;
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.action-wrapper {
+  display: flex;
+  // justify-content: flex-end;
+  padding: 0 0 20px 12px;
+  gap: 10px;
+  align-items: center;
+  // flex-direction: column;
+}
+
+mat-paginator,
+mat-button-toggle-group,
+mat-slide-toggle {
+  background: #e3f7ee;
+  font-size: 14px;
+}
+
+::ng-deep
+  .mat-button-toggle-appearance-standard
+  .mat-button-toggle-label-content {
+  line-height: 36px;
+}
+
+.mat-button-toggle-checked {
+  background-color: var(--header);
+  color: white;
+}
+
+// #display {
+//   min-height:calc(100vh - 60px);
+// }
+
+#pagination {
+  position: absolute;
+  width: 100%;
+  padding-top: 20px;
+}
+
+#actions {
+  padding: 20px 0;
+}
+
+@media screen and (max-width: 420px) {
+  .action-wrapper {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}

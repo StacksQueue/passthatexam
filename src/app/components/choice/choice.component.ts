@@ -30,13 +30,12 @@ export class ChoiceComponent implements OnInit {
       this.isFirstAnswer = true;
       this.isChoosen = true;
       this.isAnswer = this.answer === this.choice;
-    } else if (
-      this.hasAnsweredHistory() &&
-      this.answer === this.choice
-    ) {
+    } else if (this.hasAnsweredHistory() && this.answer === this.choice) {
       this.isFirstAnswer = true;
       this.isChoosen = true;
       this.isAnswer = this.answer === this.choice;
+    } else if (this.hasAnsweredHistory()) {
+      this.isFirstAnswer = true;
     }
   }
 

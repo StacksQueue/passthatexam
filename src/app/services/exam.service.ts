@@ -10,6 +10,7 @@ import { IQuestionFilter } from '../models/QuestionFilter';
 import { environment } from 'src/environments/environment';
 import { History } from '../models/History';
 import { IReport } from '../models/Report';
+import { Pagination } from '../models/Pagination';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,25 @@ export class ExamService {
     let params = new HttpParams();
     return this.https
       .get(environment.api_url + '/question/program', { params })
+      .pipe(catchError(this.handleError));
+  }
+
+  getQuestionList(
+    keyword: string,
+    programs: string[],
+    pagination: Pagination
+  ): Observable<any> {
+    let params = new HttpParams({
+      fromObject: {
+        keyword: keyword,
+        page: pagination.page,
+        limit: pagination.limit,
+        programs: programs,
+      },
+    });
+
+    return this.https
+      .get(environment.api_url + '/question/search', { params })
       .pipe(catchError(this.handleError));
   }
 

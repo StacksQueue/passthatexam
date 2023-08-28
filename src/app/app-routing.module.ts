@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExamComponent } from './components/exam/exam.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { HomeComponent } from './components/home/home.component';
+import { DonateComponent } from './components/donate/donate.component';
+import { QuestionListComponent } from './components/question-list/question-list.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,16 @@ const routes: Routes = [
     path:'policy',
     component: PolicyComponent,
     title: 'Pass That Board - Policy'
+  },
+  {
+    path:'donate',
+    component: DonateComponent,
+    title: 'Pass That Board - Donate to Us'
+  },
+  {
+    path:'questions',
+    component: QuestionListComponent,
+    title: 'Pass That Board - CSE & LET Questions'
   },
   {
     path: '**',
