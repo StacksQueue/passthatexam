@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./policy.component.scss']
 })
 export class PolicyComponent {
+ 
 
 }

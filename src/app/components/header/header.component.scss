@@ -1,5 +1,5 @@
 #header {
-  height: 64px;
+  // height: 64px;
   background-color: var(--header);
 }
 
@@ -15,8 +15,9 @@ a {
 
   display: flex;
   align-items: center;
-  height: inherit;
+  // height: inherit;
   gap: 20px;
+  box-sizing: content-box;
 }
 
 .spacer {
@@ -29,14 +30,56 @@ a {
   font-weight: 500;
   // color: wheat;
   color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
-
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
 }
 
-.menu {
+.menu,
+.menu-dd {
   font-family: "Bebas Neue";
   font-size: 20px;
   color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
   cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.slide-out {
+  display: none;
+  position: relative;
+  height: auto;
+  max-height: 1000px; /* Set a value that accommodates your content */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.slide-out.hidden {
+  max-height: 0;
+  opacity: 0;
+  // padding: 0;
+}
+
+@media screen and (max-width: 599px) {
+  .slide-out,
+  .menu-icon {
+    display: flex;
+  }
+  .menu {
+    display: none;
+  }
+
+  mat-toolbar-row:not(:first-child) {
+    height: 40px;
+    padding: 0 5%;
+  }
+
+  mat-toolbar-row:not(:first-child):focus,
+  mat-toolbar-row:not(:first-child):active,
+  mat-toolbar-row:not(:first-child):hover {
+    background-color: #b0bb9d;
+  }
 }
