@@ -1,5 +1,5 @@
 #header {
-  height: 64px;
+  // height: 64px;
   background-color: var(--header);
 }
 
@@ -39,4 +39,10 @@ a {
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .45);
   cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+  .toggle-icon {
+    display: block;
+  }
 }

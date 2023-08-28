@@ -5,19 +5,20 @@ import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  toolbarVisible = true;
 
-  constructor(
-    private _bottomSheet: MatBottomSheet
-  ) { }
+  constructor(private _bottomSheet: MatBottomSheet) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openBottomSheet(): void {
     this._bottomSheet.open(ExamFilterComponent);
   }
 
+  toggleToolbar() {
+    this.toolbarVisible = !this.toolbarVisible;
+  }
 }

@@ -1,10 +1,9 @@
-<section id="header">
+<!-- <section id="header">
   <div class="header-container">
     <a [routerLink]="['/']">
       <div class="logo">Pass That Board</div>
     </a>
     <span class="spacer"></span>
-    <!-- <div class="menu" (click)="openBottomSheet()">TAKE EXAM</div> -->
     <a [routerLink]="['/policy']">
       <div class="menu">POLICIES</div>
     </a>
@@ -12,4 +11,25 @@
       <div class="menu">DONATE</div>
     </a>
   </div>
+</section> -->
+<section id="header">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>This is a toolbar row.</span>
+
+      <span class="spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example heart icon"
+        >favorite</mat-icon
+      >
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span>This is a toolbar row.</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span>This is a toolbar row.</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </section>

@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./policy.component.scss']
 })
 export class PolicyComponent {
-  toolbarVisible = true;
-
-  toggleToolbar() {
-    this.toolbarVisible = !this.toolbarVisible;
-  }
+ 
 
 }
