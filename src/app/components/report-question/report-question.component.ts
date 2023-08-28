@@ -17,7 +17,12 @@ import { ExamService } from 'src/app/services/exam.service';
 })
 export class ReportQuestionComponent {
   reportForm: FormGroup;
-  issues: string[] = ['Incorrect Answer', 'Missing Content', 'Others'];
+  issues: string[] = [
+    'Incorrect Answer',
+    'Missing Content',
+    'Unclear Explanation',
+    'Others',
+  ];
 
   constructor(
     private formbuilder: FormBuilder,

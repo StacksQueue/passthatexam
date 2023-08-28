@@ -6,21 +6,21 @@
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .loader {
   align-items: center;
-  position: absolute;
   display: flex;
   height: 50vh;
 
   /* max-width: 800px; */
-  margin: auto;
-  width: 100%;
+  // position: absolute;
+  // margin: auto;
+  // width: 100%;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  // z-index: 1;
 }
 
 .no-display {
@@ -38,6 +38,17 @@
     width: 40px;
   }
 }
+
+.title {
+  font-size: 23px;
+  text-align: center;
+  font-family: "Bebas Neue";
+}
+
+p {
+  margin: 0;
+}
+
 
 .spacer {
   flex: 1 1 auto;
