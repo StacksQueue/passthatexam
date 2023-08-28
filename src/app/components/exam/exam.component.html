@@ -34,17 +34,24 @@
           mat-icon-button
           (click)="openExplainDialog()"
           [disabled]="!isShowExplanation"
+          aria-label="Show Explanation"
         >
           <mat-icon>question_answer</mat-icon>
         </button>
         <div class="spacer"></div>
-        <button mat-icon-button (click)="back()" [disabled]="current_item <= 1">
+        <button
+          mat-icon-button
+          (click)="back()"
+          [disabled]="current_item <= 1"
+          aria-label="Back"
+        >
           <mat-icon>arrow_back</mat-icon>
         </button>
         <button
           mat-icon-button
           [disabled]="!isPrompted"
           (click)="gotoSkippedQuestion()"
+          aria-label="Go to skipped question"
         >
           <mat-icon>move_up</mat-icon>
         </button>
@@ -52,6 +59,7 @@
           mat-icon-button
           (click)="next()"
           [disabled]="current_item + 1 > questionnaires.length"
+          aria-label="Next"
         >
           <mat-icon>arrow_forward</mat-icon>
         </button>
