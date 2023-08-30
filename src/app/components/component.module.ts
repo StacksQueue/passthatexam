@@ -32,7 +32,7 @@ import { QuestionSearchComponent } from './question-search/question-search.compo
     ScoreComponent,
     ExamFilterComponent,
     CategoryComponent,
-    PolicyComponent,
+    // PolicyComponent,
     HomeComponent,
     SliderComponent,
     FooterComponent,

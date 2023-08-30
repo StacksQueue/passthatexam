@@ -21,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'policy',
-    component: PolicyComponent,
+    loadChildren: () =>
+      import('./modules/policy/policy.module').then((m) => m.PolicyModule),
     title: 'Pass That Board - Policy',
   },
   {
