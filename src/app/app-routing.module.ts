@@ -12,32 +12,35 @@ const routes: Routes = [
     // redirectTo: 'exam',
     // pathMatch: 'full'
     component: HomeComponent,
-    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer'
+    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer',
   },
   {
-    path:'exam',
+    path: 'exam',
     component: ExamComponent,
-    title: 'Pass That Board - Exam'
+    title: 'Pass That Board - Exam',
   },
   {
-    path:'policy',
+    path: 'policy',
     component: PolicyComponent,
-    title: 'Pass That Board - Policy'
+    title: 'Pass That Board - Policy',
   },
   {
-    path:'donate',
+    path: 'donate',
     component: DonateComponent,
-    title: 'Pass That Board - Donate to Us'
+    title: 'Pass That Board - Donate to Us',
   },
   {
-    path:'questions',
-    component: QuestionListComponent,
-    title: 'Pass That Board - CSE & LET Questions'
+    path: 'questions',
+    loadChildren: () =>
+      import('./modules/question/question.module').then(
+        (m) => m.QuestionModule
+      ),
+    title: 'Pass That Board - CSE & LET Questions',
   },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 

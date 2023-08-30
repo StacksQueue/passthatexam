@@ -40,9 +40,6 @@ import { QuestionSearchComponent } from './question-search/question-search.compo
     ReportQuestionComponent,
     ExplainPromptComponent,
     DonateComponent,
-    QuestionListComponent,
-    QuestionTabComponent,
-    QuestionSearchComponent,
   ],
   imports: [
     CommonModule,
