@@ -22,17 +22,17 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionTabComponent } from './question-tab/question-tab.component';
 import { QuestionSearchComponent } from './question-search/question-search.component';
+import { ExamModule } from '../modules/exam/exam.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    ChoiceComponent,
-    QuestionComponent,
-    ExamComponent,
+    // ChoiceComponent,
+    // QuestionComponent,
+    // ExamComponent,
     ScoreComponent,
     ExamFilterComponent,
     CategoryComponent,
-    // PolicyComponent,
     HomeComponent,
     SliderComponent,
     FooterComponent,
@@ -48,7 +48,14 @@ import { QuestionSearchComponent } from './question-search/question-search.compo
     FormsModule,
     RouterModule,
     ClipboardModule,
+    ExamModule
   ],
-  exports: [HeaderComponent, ChoiceComponent, QuestionComponent, ExamComponent],
+  exports: [
+    HeaderComponent,
+    // ChoiceComponent,
+    // QuestionComponent,
+    //  ExamComponent
+
+  ],
 })
 export class ComponentModule {}

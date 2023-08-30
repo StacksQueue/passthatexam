@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'exam',
-    component: ExamComponent,
+    loadChildren: () =>
+      import('./modules/exam/exam.module').then((m) => m.ExamModule),
     title: 'Pass That Board - Exam',
   },
   {
