@@ -39,7 +39,7 @@ import { ExamModule } from '../modules/exam/exam.module';
     SkipPromptComponent,
     ReportQuestionComponent,
     ExplainPromptComponent,
-    DonateComponent,
+    // DonateComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +47,7 @@ import { ExamModule } from '../modules/exam/exam.module';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    ClipboardModule,
+    // ClipboardModule,
     ExamModule
   ],
   exports: [

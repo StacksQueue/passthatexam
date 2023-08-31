@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'donate',
-    component: DonateComponent,
+    loadChildren: ()=> import('./modules/donate/donate.module').then(m => m.DonateModule),
     title: 'Pass That Board - Donate to Us',
   },
   {
