@@ -9,35 +9,40 @@ import { QuestionListComponent } from './components/question-list/question-list.
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: 'exam',
-    // pathMatch: 'full'
-    component: HomeComponent,
-    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer'
+    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path:'exam',
-    component: ExamComponent,
-    title: 'Pass That Board - Exam'
+    path: 'exam',
+    title: 'Pass That Board - Exam',
+    loadChildren: () =>
+      import('./modules/exam/exam.module').then((m) => m.ExamModule),
   },
   {
-    path:'policy',
-    component: PolicyComponent,
-    title: 'Pass That Board - Policy'
+    path: 'policy',
+    title: 'Pass That Board - Policy',
+    loadChildren: () =>
+      import('./modules/policy/policy.module').then((m) => m.PolicyModule),
   },
   {
-    path:'donate',
-    component: DonateComponent,
-    title: 'Pass That Board - Donate to Us'
+    path: 'donate',
+    title: 'Pass That Board - Donate to Us',
+    loadChildren: () =>
+      import('./modules/donate/donate.module').then((m) => m.DonateModule),
   },
   {
-    path:'questions',
-    component: QuestionListComponent,
-    title: 'Pass That Board - CSE & LET Questions'
+    path: 'questions',
+    title: 'Pass That Board - CSE & LET Questions',
+    loadChildren: () =>
+      import('./modules/question/question.module').then(
+        (m) => m.QuestionModule
+      ),
   },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 
