@@ -11,7 +11,9 @@ const routes: Routes = [
     path: '',
     // redirectTo: 'exam',
     // pathMatch: 'full'
-    component: HomeComponent,
+    // component: HomeComponent,
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
     title: 'Pass That Board - Free LET and Civil Service Exam Reviewer',
   },
   {
@@ -28,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'donate',
-    loadChildren: ()=> import('./modules/donate/donate.module').then(m => m.DonateModule),
+    loadChildren: () =>
+      import('./modules/donate/donate.module').then((m) => m.DonateModule),
     title: 'Pass That Board - Donate to Us',
   },
   {
