@@ -13,8 +13,8 @@ import { ExamModule } from '../exam/exam.module';
     HomeComponent,
     SliderComponent,
     FooterComponent,
-    
   ],
   imports: [CommonModule, HomeRoutingModule, MaterialModule, ExamModule],
+  exports: [FooterComponent]
 })
 export class HomeModule {}

@@ -9,38 +9,35 @@ import { QuestionListComponent } from './components/question-list/question-list.
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: 'exam',
-    // pathMatch: 'full'
-    // component: HomeComponent,
+    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer',
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
-    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer',
   },
   {
     path: 'exam',
+    title: 'Pass That Board - Exam',
     loadChildren: () =>
       import('./modules/exam/exam.module').then((m) => m.ExamModule),
-    title: 'Pass That Board - Exam',
   },
   {
     path: 'policy',
+    title: 'Pass That Board - Policy',
     loadChildren: () =>
       import('./modules/policy/policy.module').then((m) => m.PolicyModule),
-    title: 'Pass That Board - Policy',
   },
   {
     path: 'donate',
+    title: 'Pass That Board - Donate to Us',
     loadChildren: () =>
       import('./modules/donate/donate.module').then((m) => m.DonateModule),
-    title: 'Pass That Board - Donate to Us',
   },
   {
     path: 'questions',
+    title: 'Pass That Board - CSE & LET Questions',
     loadChildren: () =>
       import('./modules/question/question.module').then(
         (m) => m.QuestionModule
       ),
-    title: 'Pass That Board - CSE & LET Questions',
   },
   {
     path: '**',
