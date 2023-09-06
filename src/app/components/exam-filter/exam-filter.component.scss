@@ -83,7 +83,7 @@ mat-hint {
 //   --mdc-chip-label-text-color: wheat;
 // }
 
-.mat-mdc-standard-chip {    
+.mat-mdc-standard-chip {
   height: var(--mdc-chip-container-height, 28px);
   /* height: 24px; */
   font-size: 14px;
@@ -92,6 +92,12 @@ mat-hint {
 .mat-button-toggle-checked {
   background-color: var(--header);
   color: white;
+}
+
+::ng-deep
+  .mat-button-toggle-appearance-standard
+  .mat-button-toggle-label-content {
+  line-height: 30px;
 }
 
 @media screen and (max-width: 420px) {

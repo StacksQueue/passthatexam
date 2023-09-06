@@ -39,6 +39,14 @@ export class ExamService {
       .pipe(catchError(this.handleError));
   }
 
+  getExamCoverage(program: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('program', program);
+    return this.https
+      .get(environment.api_url + '/question/coverage', { params })
+      .pipe(catchError(this.handleError));
+  }
+
   getQuestionList(
     keyword: string,
     programs: string[],

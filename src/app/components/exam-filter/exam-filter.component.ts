@@ -47,6 +47,10 @@ export class ExamFilterComponent implements OnInit {
       this.programs = resp['data'];
     });
 
+    // this.examService.getExamCoverage(this.selectedPrograms[0]).subscribe(resp => {
+    //   this.programs = 
+    // })
+
     this.searchControl.valueChanges
       .pipe(
         debounceTime(600),
