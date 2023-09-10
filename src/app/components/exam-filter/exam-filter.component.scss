@@ -15,7 +15,7 @@
   }
 }
 
-.program-wrapper {
+.wrapper {
   padding: 0 10px;
   display: inline-grid;
   mat-label {
@@ -98,6 +98,10 @@ mat-hint {
   .mat-button-toggle-appearance-standard
   .mat-button-toggle-label-content {
   line-height: 30px;
+}
+
+mat-button-toggle-group {
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 420px) {

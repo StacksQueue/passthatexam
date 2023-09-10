@@ -9,6 +9,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { NavigationExtras, Router } from '@angular/router';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { Filter } from 'src/app/models/Filter';
 
 @Component({
   selector: 'app-exam-filter',
@@ -16,17 +17,20 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
   styleUrls: ['./exam-filter.component.scss'],
 })
 export class ExamFilterComponent implements OnInit {
-  searchControl = new FormControl('');
   item = 50;
   timer = 0;
   categories: string[];
-  categoryTags: string[] = ['eng'];
-  selectedCategories: string[] = [];
-  defaultCategories = ['English', 'Mathematics'];
-  name: string = '';
 
   programs: string[] = [];
-  selectedPrograms: string[] = ['Civil Service'];
+  majors: string[] = [];
+
+  selectedProgram: string = 'Civil Service';
+  selectedMajor: string = 'Civil Service';
+
+  coverages: string[] = [];
+
+  filters: Filter[];
+
 
   constructor(
     private examService: ExamService,
@@ -35,90 +39,55 @@ export class ExamFilterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.examService
-      .getExamCategories(this.searchControl.value!, this.selectedPrograms)
-      .subscribe((resp) => {
-        this.categories = resp['data'];
-        this.defaultCategories = this.categories;
-        this.addDefaultCategories();
-      });
-
-    this.examService.getExamPrograms().subscribe((resp) => {
-      this.programs = resp['data'];
-    });
-
-    // this.examService.getExamCoverage(this.selectedPrograms[0]).subscribe(resp => {
-    //   this.programs = 
-    // })
-
-    this.searchControl.valueChanges
-      .pipe(
-        debounceTime(600),
-        switchMap(() =>
-          this.examService.getExamCategories(
-            this.searchControl.value!,
-            this.selectedPrograms
-          )
-        )
-      )
-      .subscribe((resp) => {
-        this.categories = resp['data'];
-        console.log(this.categories);
-      });
-  }
-
-  selected(event: MatAutocompleteSelectedEvent) {
-    this.selectedCategories.push(event.option.value);
-    this.selectedCategories = this.selectedCategories.filter(
-      (val, ndx, arr) => arr.findIndex((val2) => val2 == val) === ndx
-    );
-    this.searchControl.setValue('');
-  }
-
-  addDefaultCategories() {
-    this.selectedCategories = this.categories.filter((categ) =>
-      this.defaultCategories.includes(categ)
-    );
-  }
-
-  removeChips(removed: string) {
-    this.selectedCategories = this.selectedCategories.filter(
-      (categ) => categ != removed
-    );
-  }
-
-  removeFromAutocomplete() {
-    this.categories = this.categories.filter((categ) => {
-      return this.selectedCategories.some((x) => x == categ);
+    this.examService.getExamCoverage().subscribe((resp) => {
+      this.initializeFilters(resp['data']);
     });
   }
 
-  onButtonToggleChange(event: MatButtonToggleChange) {
-    this.selectedPrograms = [event.value];
-    this.examService
-      .getExamCategories(this.searchControl.value!, this.selectedPrograms)
-      .subscribe((resp) => {
-        this.categories = resp['data'];
-        this.defaultCategories = this.categories;
-        this.addDefaultCategories();
-      });
+  initializeFilters(data: Filter[]) {
+    this.filters = data;
+    this.programs = [...new Set(this.filters.map((x) => x.program))];
+    this.majors = this.filters
+      .filter((x) => this.selectedProgram === x.program)
+      .map((y) => y.major);
+    this.coverages = this.filters
+      .filter((x) => x.major === this.selectedMajor)
+      .map((y) => y.coverage)
+      .flat(1);
+  }
+
+  onExamTypeChange(event: MatButtonToggleChange) {
+    this.selectedProgram = event.value;
+    this.majors = this.filters
+      .filter((x) => this.selectedProgram === x.program)
+      .map((y) => y.major);
+    this.selectedMajor = this.majors[0];
+
+    this.coverages = this.filters
+      .filter((x) => x.major === this.selectedMajor)
+      .map((y) => y.coverage)
+      .flat(1);
+  }
+
+  onMajorChange(event: MatButtonToggleChange) {
+    this.selectedMajor = event.value;
+    this.coverages = this.filters
+      .filter((x) => x.major === this.selectedMajor)
+      .map((y) => y.coverage)
+      .flat(1);
   }
 
   navigate() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        category: this.selectedCategories.map((val) => val),
+        // category: this.selectedCategories.map((val) => val),
         items: this.item,
         timer: this.timer,
-        programs: this.selectedPrograms,
+        programs: this.selectedProgram,
       },
       queryParamsHandling: 'merge',
     };
     this.router.navigate(['/exam'], navigationExtras);
     this._bottomSheetRef.dismiss();
-  }
-
-  displayFn(categ: Category): string {
-    return categ && categ.tagName ? categ.tagName : '';
   }
 }
