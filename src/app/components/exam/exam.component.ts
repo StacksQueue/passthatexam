@@ -125,7 +125,10 @@ export class ExamComponent implements OnInit {
   }
 
   openBottomSheet(): void {
-    this._bottomSheet.open(ExamFilterComponent);
+    this._bottomSheet.open(ExamFilterComponent, {
+      ariaLabel: "Exam Filter",
+      panelClass: 'custom-bottom-sheet',
+    });
   }
 
   openExplainDialog() {

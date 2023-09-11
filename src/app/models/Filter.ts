@@ -1,5 +1,5 @@
 export interface Filter {
-    program: string;
-    major: string;
-    coverage: string[];
+  program: string;
+  major: string;
+  coverage: string[];
 }

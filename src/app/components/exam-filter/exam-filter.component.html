@@ -1,48 +1,50 @@
 <section id="exam-filter">
-  <div class="wrapper">
-    <mat-label>Exam Type</mat-label>
-    <mat-button-toggle-group
-      [multiple]="false"
-      [value]="selectedProgram"
-      (change)="onExamTypeChange($event)"
-    >
-      <mat-button-toggle *ngFor="let program of programs" [value]="program">
-        {{ program }}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
+  <div class="filter-container">
+    <mat-label class="label">Click the filters you want to choose</mat-label>
+    <div class="wrapper">
+      <mat-label>Exam Type</mat-label>
+      <mat-button-toggle-group
+        [multiple]="false"
+        [value]="selectedProgram"
+        (change)="onExamTypeChange($event)"
+      >
+        <mat-button-toggle *ngFor="let program of programs" [value]="program">
+          {{ program }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="wrapper">
+      <mat-label>Major</mat-label>
+      <mat-button-toggle-group
+        [multiple]="false"
+        [value]="selectedMajor"
+        (change)="onMajorChange($event)"
+      >
+        <mat-button-toggle *ngFor="let major of majors" [value]="major">
+          {{ major }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="wrapper">
+      <mat-label>Coverage</mat-label>
+      <mat-button-toggle-group [multiple]="true">
+        <mat-button-toggle *ngFor="let c of coverages" [value]="c">
+          {{ c }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
   </div>
-  <div class="wrapper">
-    <mat-label>Major</mat-label>
-    <mat-button-toggle-group
-      [multiple]="false"
-      [value]="selectedMajor"
-      (change)="onMajorChange($event)"
-    >
-      <mat-button-toggle *ngFor="let major of majors" [value]="major">
-        {{ major }}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
-
-  <!-- <div class="wrapper">
-    <mat-label>Coverage</mat-label>
-    <mat-button-toggle-group [multiple]="true">
-      <mat-button-toggle *ngFor="let c of coverages" [value]="c">
-        {{ c }}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </div> -->
   <div class="timer-item-wrapper">
     <div class="item-wrapper">
       <mat-form-field>
         <mat-label>Number of Items</mat-label>
         <input matInput type="number" [(ngModel)]="item" />
       </mat-form-field>
-      <mat-slider min="10" max="100">
+      <mat-slider min="10" max="200">
         <input matSliderThumb [(ngModel)]="item" />
       </mat-slider>
     </div>
-    <div class="timer-wrapper">
+    <!-- <div class="timer-wrapper">
       <mat-form-field>
         <mat-label>Timer</mat-label>
         <input
@@ -54,7 +56,7 @@
         />
         <mat-hint>Timer disabled for now</mat-hint>
       </mat-form-field>
-    </div>
+    </div> -->
   </div>
   <div class="action-wrapper">
     <button mat-flat-button color="primary" type="button" (click)="navigate()">

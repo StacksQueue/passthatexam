@@ -17,20 +17,19 @@ import { Filter } from 'src/app/models/Filter';
   styleUrls: ['./exam-filter.component.scss'],
 })
 export class ExamFilterComponent implements OnInit {
-  item = 50;
+  item = 80;
   timer = 0;
   categories: string[];
 
   programs: string[] = [];
   majors: string[] = [];
 
-  selectedProgram: string = 'Civil Service';
-  selectedMajor: string = 'Civil Service';
+  selectedProgram: string = 'Education';
+  selectedMajor: string = 'General Education';
 
   coverages: string[] = [];
 
   filters: Filter[];
-
 
   constructor(
     private examService: ExamService,
