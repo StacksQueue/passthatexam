@@ -9,7 +9,7 @@ import { QuestionListComponent } from './components/question-list/question-list.
 const routes: Routes = [
   {
     path: '',
-    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer',
+    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer and Drills',
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },

@@ -24,7 +24,7 @@ export class ExamService {
       fromObject: {
         limit: filter.items,
         major: filter.category,
-        programs: filter.programs,
+        program: filter.program,
       },
     });
     return this.https
@@ -36,6 +36,13 @@ export class ExamService {
     let params = new HttpParams();
     return this.https
       .get(environment.api_url + '/question/program', { params })
+      .pipe(catchError(this.handleError));
+  }
+
+  getExamCoverage(): Observable<any> {
+    let params = new HttpParams();
+    return this.https
+      .get(environment.api_url + '/question/coverage', { params })
       .pipe(catchError(this.handleError));
   }
 

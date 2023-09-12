@@ -30,7 +30,7 @@ export class ExamComponent implements OnInit {
     category: [],
     items: 50,
     timer: 0,
-    programs: [],
+    program: "",
   };
 
   isloading: boolean = false;
@@ -125,7 +125,10 @@ export class ExamComponent implements OnInit {
   }
 
   openBottomSheet(): void {
-    this._bottomSheet.open(ExamFilterComponent);
+    this._bottomSheet.open(ExamFilterComponent, {
+      ariaLabel: "Exam Filter",
+      panelClass: 'custom-bottom-sheet',
+    });
   }
 
   openExplainDialog() {
@@ -172,11 +175,8 @@ export class ExamComponent implements OnInit {
     this.filter.items =
       params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
-    this.filter.programs = params['programs']
-      ? Array.isArray(params['programs'])
-        ? params['programs']
-        : [params['programs']]
-      : [];
+    this.filter.program = params['program']
+      ? params['program'] : "Education"
     this.getExamQuestionnaires();
   }
 }

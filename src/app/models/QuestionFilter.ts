@@ -2,5 +2,5 @@ export interface IQuestionFilter {
     category: string[];
     items: number;
     timer: number;
-    programs: string[];
+    program: string;
 }
