@@ -24,7 +24,7 @@ export class ExamService {
       fromObject: {
         limit: filter.items,
         major: filter.category,
-        programs: filter.programs,
+        program: filter.program,
       },
     });
     return this.https

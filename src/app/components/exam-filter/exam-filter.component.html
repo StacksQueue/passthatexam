@@ -27,7 +27,11 @@
     </div>
     <div class="wrapper">
       <mat-label>Coverage</mat-label>
-      <mat-button-toggle-group [multiple]="true">
+      <mat-button-toggle-group
+        [multiple]="true"
+        [value]="selectedCoverage"
+        (change)="selectedCoverage = $event.value"
+      >
         <mat-button-toggle *ngFor="let c of coverages" [value]="c">
           {{ c }}
         </mat-button-toggle>

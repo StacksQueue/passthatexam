@@ -28,6 +28,7 @@ export class ExamFilterComponent implements OnInit {
   selectedMajor: string = 'General Education';
 
   coverages: string[] = [];
+  selectedCoverage: string[]=[];
 
   filters: Filter[];
 
@@ -77,12 +78,14 @@ export class ExamFilterComponent implements OnInit {
   }
 
   navigate() {
+    console.log(this.selectedCoverage)
     const navigationExtras: NavigationExtras = {
       queryParams: {
         // category: this.selectedCategories.map((val) => val),
+        category: this.selectedCoverage,
         items: this.item,
         timer: this.timer,
-        programs: this.selectedProgram,
+        program: this.selectedProgram,
       },
       queryParamsHandling: 'merge',
     };
