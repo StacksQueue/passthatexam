@@ -1,42 +1,26 @@
 <section id="header">
   <mat-toolbar color="primary">
     <mat-toolbar-row class="header-container">
-      <a [routerLink]="['/']">
+      <a [routerLink]="['/']" aria-label="Home">
         <div class="logo">Pass That Board</div>
       </a>
       <span class="spacer"></span>
-      <a [routerLink]="['/questions']">
+      <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
         <div class="menu">QUESTIONS</div>
       </a>
-      <a [routerLink]="['/exam']">
+      <a [routerLink]="['/exam']" aria-label="CSE and LET Exam Drills">
         <div class="menu">TAKE EXAM</div>
       </a>
-      <a [routerLink]="['/policy']">
-        <div class="menu">POLICIES</div>
-      </a>
-      <a [routerLink]="['/donate']">
-        <div class="menu">DONATE</div>
-      </a>
-      <mat-icon class="menu-icon" (click)="toggleToolbar()">menu</mat-icon>
+      <mat-icon class="menu-icon" (click)="toggleToolbar()" aria-label="menu icon">menu</mat-icon>
     </mat-toolbar-row>
     <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
-      <a [routerLink]="['/questions']">
+      <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
         <div class="menu-dd">QUESTIONS</div>
       </a>
     </mat-toolbar-row>
     <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
-      <a [routerLink]="['/exam']">
+      <a [routerLink]="['/exam']" aria-label="CSE and LET Exam Drills">
         <div class="menu-dd">TAKE EXAM</div>
-      </a>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
-      <a [routerLink]="['/policy']">
-        <div class="menu-dd">POLICIES</div>
-      </a>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
-      <a [routerLink]="['/donate']">
-        <div class="menu-dd">DONATE</div>
       </a>
     </mat-toolbar-row>
   </mat-toolbar>

@@ -9,19 +9,18 @@ import { QuestionListComponent } from './components/question-list/question-list.
 const routes: Routes = [
   {
     path: '',
-    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer and Drills',
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'exam',
-    title: 'Pass That Board - Exam',
+    title: 'Pass That Board - CSE and LET Exam Drills',
     loadChildren: () =>
       import('./modules/exam/exam.module').then((m) => m.ExamModule),
   },
   {
-    path: 'policy',
-    title: 'Pass That Board - Policy',
+    path: 'copyright-policy',
+    title: 'Pass That Board - Copyright Policy And Disclaimer',
     loadChildren: () =>
       import('./modules/policy/policy.module').then((m) => m.PolicyModule),
   },
