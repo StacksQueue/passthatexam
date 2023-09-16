@@ -12,6 +12,7 @@ import { ExplainPromptComponent } from 'src/app/components/explain-prompt/explai
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExamFilterComponent } from 'src/app/components/exam-filter/exam-filter.component';
 import { ScoreComponent } from 'src/app/components/score/score.component';
+import { DescWelcomeComponent } from 'src/app/components/desc-welcome/desc-welcome.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ScoreComponent } from 'src/app/components/score/score.component';
     ExplainPromptComponent,
     ExamFilterComponent,
     ScoreComponent,
+    DescWelcomeComponent
   ],
   imports: [
     CommonModule,
