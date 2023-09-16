@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExamFilterComponent } from 'src/app/components/exam-filter/exam-filter.component';
 import { ScoreComponent } from 'src/app/components/score/score.component';
 import { DescWelcomeComponent } from 'src/app/components/desc-welcome/desc-welcome.component';
+import { DescDrillsComponent } from 'src/app/components/desc-drills/desc-drills.component';
+import { DescCoverageComponent } from 'src/app/components/desc-coverage/desc-coverage.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DescWelcomeComponent } from 'src/app/components/desc-welcome/desc-welco
     ExplainPromptComponent,
     ExamFilterComponent,
     ScoreComponent,
-    DescWelcomeComponent
+    DescWelcomeComponent,
+    DescDrillsComponent,
+    DescCoverageComponent
   ],
   imports: [
     CommonModule,
