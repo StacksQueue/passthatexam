@@ -76,6 +76,10 @@ button.mat-warn {
   --mdc-snackbar-container-color: var(--header);
 }
 
+mat-expansion-panel {
+  background-color: #e3f7ee;
+}
+
 .mat-expansion-panel-header {
   padding: 20px 24px;
   height: max-content;

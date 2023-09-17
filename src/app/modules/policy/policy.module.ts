@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { PolicyRoutingModule } from './policy-routing.module';
 import { PolicyComponent } from 'src/app/components/policy/policy.component';
 import { HomeModule } from '../home/home.module';
+import { ExamModule } from '../exam/exam.module';
 
 @NgModule({
   declarations: [PolicyComponent],
-  imports: [CommonModule, PolicyRoutingModule, HomeModule],
+  imports: [CommonModule, PolicyRoutingModule, ExamModule],
 })
 export class PolicyModule {}
