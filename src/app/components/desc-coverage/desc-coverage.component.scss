@@ -1,0 +1,40 @@
+#cse-coverage,
+#let-coverage {
+  padding: 20px 0;
+}
+
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  font-family: "Bebas Neue";
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  text-align: start;
+}
+
+.content {
+  padding: 15px 0;
+  font-size: 16px;
+  line-height: 2;
+  text-align: start;
+}
+
+.logo-title,
+.logo-desc {
+  font-family: "Caveat";
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--header);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.logo-desc {
+  font-size: 20px;
+}

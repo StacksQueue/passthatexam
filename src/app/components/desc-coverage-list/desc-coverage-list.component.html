@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <div class="subtitle">{{ major }} Coverage</div>
+  <mat-chip-listbox aria-label="civil service coverage">
+    <mat-chip-option
+      *ngFor="let coverage of coverages | coveragefilter : major"
+      highlighted
+    >
+      {{ coverage }}
+    </mat-chip-option>
+  </mat-chip-listbox>
+</div>

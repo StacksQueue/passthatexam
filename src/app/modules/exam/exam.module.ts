@@ -15,6 +15,8 @@ import { ScoreComponent } from 'src/app/components/score/score.component';
 import { DescWelcomeComponent } from 'src/app/components/desc-welcome/desc-welcome.component';
 import { DescDrillsComponent } from 'src/app/components/desc-drills/desc-drills.component';
 import { DescCoverageComponent } from 'src/app/components/desc-coverage/desc-coverage.component';
+import { CoveragefilterPipe } from 'src/app/pipes/coveragefilter.pipe';
+import { DescCoverageListComponent } from 'src/app/components/desc-coverage-list/desc-coverage-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DescCoverageComponent } from 'src/app/components/desc-coverage/desc-cov
     ScoreComponent,
     DescWelcomeComponent,
     DescDrillsComponent,
-    DescCoverageComponent
+    DescCoverageComponent,
+    CoveragefilterPipe,
+    DescCoverageListComponent
   ],
   imports: [
     CommonModule,

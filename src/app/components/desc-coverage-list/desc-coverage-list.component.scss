@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.mat-mdc-standard-chip {
+  height: var(--mdc-chip-container-height, 28px);
+  font-size: 14px;
+}
+.subtitle {
+  display: flex;
+  padding-bottom: 10px;
+  font-style: italic;
+}
