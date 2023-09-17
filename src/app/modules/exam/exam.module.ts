@@ -17,7 +17,7 @@ import { DescDrillsComponent } from 'src/app/components/desc-drills/desc-drills.
 import { DescCoverageComponent } from 'src/app/components/desc-coverage/desc-coverage.component';
 import { CoveragefilterPipe } from 'src/app/pipes/coveragefilter.pipe';
 import { DescCoverageListComponent } from 'src/app/components/desc-coverage-list/desc-coverage-list.component';
-import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     DescCoverageComponent,
     CoveragefilterPipe,
     DescCoverageListComponent,
-    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +41,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     ExamRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule
   ],
-  exports: [QuestionComponent, ChoiceComponent, ExamComponent, FooterComponent],
+  exports: [QuestionComponent, ChoiceComponent, ExamComponent],
 })
 export class ExamModule {}
