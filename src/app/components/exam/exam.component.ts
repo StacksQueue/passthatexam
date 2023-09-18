@@ -164,6 +164,7 @@ export class ExamComponent implements OnInit {
   resetValues() {
     this.histories = [];
     this.current_item = 1;
+    this.isShowExplanation = false;
   }
 
   queryParamsHandling(params: Params) {

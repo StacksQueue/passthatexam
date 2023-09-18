@@ -8,12 +8,28 @@
       at any of this link.
     </div>
     <div class="icon-wrapper">
-      <a href="https://facebook.com/100089951889952" aria-label="Follow us on facebook">
+      <a
+        href="https://facebook.com/100089951889952"
+        aria-label="Follow us on facebook"
+      >
         <i class="icon-facebook"></i>
       </a>
       <!-- <a href="#">
         <i class="icon-gmail"></i>
       </a> -->
+    </div>
+    <div class="link-wrapper">
+      <a [routerLink]="['/']" aria-label="Home">Home</a>
+      <span>&nbsp;|&nbsp;</span>
+      <a [routerLink]="['/privacy-policy']" aria-label="Privacy Policy">
+        Privacy
+      </a>
+      <span>&nbsp;|&nbsp;</span>
+      <a [routerLink]="['/copyright-policy']" aria-label="Copyright Policy">
+        Copyright
+      </a>
+      <span>&nbsp;|&nbsp;</span>
+      <a [routerLink]="['/donate']" aria-label="Donate To Us">Donate</a>
     </div>
   </div>
 </div>

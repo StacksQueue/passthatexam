@@ -1,14 +1,8 @@
-.card-container {
-  padding: 10px;
-}
-
 mat-card {
   cursor: pointer;
   padding: 25px 16px;
   background-color: #c9e4d9;
 }
-
-
 
 mat-icon {
   margin-right: 10px;
@@ -44,9 +38,10 @@ mat-card:hover {
 }
 
 .home {
-  padding: 15px 8px;
+  padding: 12px;
 
   .choice {
     font-size: 16px;
   }
 }
+

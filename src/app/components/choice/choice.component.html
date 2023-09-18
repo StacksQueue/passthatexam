@@ -1,8 +1,8 @@
 <div class="card-container" (click)="chooseAnswer()">
   <mat-card
+    class="home"
     [class.correct]="isAnswer"
     [class.wrong]="isChoosen && isFirstAnswer && !isAnswer"
-    [class.home]="ishome"
   >
     <div class="choice-container">
       <div class="letter">

@@ -1,29 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExamComponent } from './components/exam/exam.component';
-import { PolicyComponent } from './components/policy/policy.component';
-import { HomeComponent } from './components/home/home.component';
-import { DonateComponent } from './components/donate/donate.component';
-import { QuestionListComponent } from './components/question-list/question-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    title: 'Pass That Board - Free LET and Civil Service Exam Reviewer and Drills',
-    loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
-  },
-  {
-    path: 'exam',
-    title: 'Pass That Board - Exam',
     loadChildren: () =>
       import('./modules/exam/exam.module').then((m) => m.ExamModule),
   },
   {
-    path: 'policy',
-    title: 'Pass That Board - Policy',
+    path: 'copyright-policy',
+    title: 'Pass That Board - Copyright Policy And Disclaimer',
     loadChildren: () =>
       import('./modules/policy/policy.module').then((m) => m.PolicyModule),
+  },
+  {
+    path: 'privacy-policy',
+    title: 'Pass That Board - Privacy Policy',
+    loadChildren: () =>
+      import('./modules/privacy/privacy.module').then((m) => m.PrivacyModule),
   },
   {
     path: 'donate',
@@ -47,7 +41,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      onSameUrlNavigation: 'reload',
+      scrollOffset: [0, 50],
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

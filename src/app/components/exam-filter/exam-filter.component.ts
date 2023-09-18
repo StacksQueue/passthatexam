@@ -89,7 +89,7 @@ export class ExamFilterComponent implements OnInit {
       },
       queryParamsHandling: 'merge',
     };
-    this.router.navigate(['/exam'], navigationExtras);
+    this.router.navigate(['/'], navigationExtras);
     this._bottomSheetRef.dismiss();
   }
 }

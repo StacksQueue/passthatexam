@@ -12,6 +12,12 @@ import { ExplainPromptComponent } from 'src/app/components/explain-prompt/explai
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExamFilterComponent } from 'src/app/components/exam-filter/exam-filter.component';
 import { ScoreComponent } from 'src/app/components/score/score.component';
+import { DescWelcomeComponent } from 'src/app/components/desc-welcome/desc-welcome.component';
+import { DescDrillsComponent } from 'src/app/components/desc-drills/desc-drills.component';
+import { DescCoverageComponent } from 'src/app/components/desc-coverage/desc-coverage.component';
+import { CoveragefilterPipe } from 'src/app/pipes/coveragefilter.pipe';
+import { DescCoverageListComponent } from 'src/app/components/desc-coverage-list/desc-coverage-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,11 @@ import { ScoreComponent } from 'src/app/components/score/score.component';
     ExplainPromptComponent,
     ExamFilterComponent,
     ScoreComponent,
+    DescWelcomeComponent,
+    DescDrillsComponent,
+    DescCoverageComponent,
+    CoveragefilterPipe,
+    DescCoverageListComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +41,7 @@ import { ScoreComponent } from 'src/app/components/score/score.component';
     ExamRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule
   ],
   exports: [QuestionComponent, ChoiceComponent, ExamComponent],
 })

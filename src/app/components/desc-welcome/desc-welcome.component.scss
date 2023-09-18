@@ -1,0 +1,41 @@
+#description {
+  padding: 10px 0 50px 0;
+}
+
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+  text-align: center;
+}
+
+.divider {
+  font-family: "Bebas Neue";
+  font-size: 24px;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  padding: 25px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.logo-title,
+.logo-desc {
+  font-family: "Caveat";
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--header);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.logo-desc {
+  font-size: 20px;
+}
