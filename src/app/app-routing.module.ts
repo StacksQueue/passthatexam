@@ -14,6 +14,12 @@ const routes: Routes = [
       import('./modules/policy/policy.module').then((m) => m.PolicyModule),
   },
   {
+    path: 'privacy-policy',
+    title: 'Pass That Board - Privacy Policy',
+    loadChildren: () =>
+      import('./modules/privacy/privacy.module').then((m) => m.PrivacyModule),
+  },
+  {
     path: 'donate',
     title: 'Pass That Board - Donate to Us',
     loadChildren: () =>
