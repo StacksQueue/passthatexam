@@ -129,6 +129,14 @@ body {
   width: 600px;
 }
 
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+  text-align: justify;
+}
+
 :root {
   // --bg: #dedfda;
   --text: #030c08;

@@ -1,9 +1,4 @@
 .sec-container {
-  max-width: 800px;
-  width: 90%;
-  padding: 0 5%;
-  margin: auto;
-
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -48,7 +43,6 @@
 p {
   margin: 0;
 }
-
 
 .spacer {
   flex: 1 1 auto;
