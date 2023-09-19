@@ -6,7 +6,7 @@
       <button mat-flat-button color="primary" (click)="openBottomSheet()">
         SELECT CATEGORIES
       </button>
-      <div class="chip">{{ current.major[1] }}</div>
+      <div class="chip" *ngIf="current">{{ current.major[1] }}</div>
       <span class="spacer"></span>
       <span>{{ current_item }}/{{ questionnaires.length }}</span>
     </div>
