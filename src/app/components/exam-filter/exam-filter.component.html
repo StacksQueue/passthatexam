@@ -6,7 +6,7 @@
       <mat-button-toggle-group
         [multiple]="false"
         [value]="selectedProgram"
-        (change)="onExamTypeChange($event)"
+        (change)="onProgramChanged($event)"
       >
         <mat-button-toggle *ngFor="let program of programs" [value]="program">
           {{ program }}
@@ -16,11 +16,15 @@
     <div class="wrapper">
       <mat-label>Major</mat-label>
       <mat-button-toggle-group
+        *ngIf="filters.length"
         [multiple]="false"
         [value]="selectedMajor"
-        (change)="onMajorChange($event)"
+        (change)="selectedMajor = $event.value"
       >
-        <mat-button-toggle *ngFor="let major of majors" [value]="major">
+        <mat-button-toggle
+          *ngFor="let major of filters | majorfilter : selectedProgram"
+          [value]="major"
+        >
           {{ major }}
         </mat-button-toggle>
       </mat-button-toggle-group>
@@ -28,12 +32,16 @@
     <div class="wrapper">
       <mat-label>Coverage</mat-label>
       <mat-button-toggle-group
+        *ngIf="filters.length"
         [multiple]="true"
         [value]="selectedCoverage"
         (change)="selectedCoverage = $event.value"
       >
-        <mat-button-toggle *ngFor="let c of coverages" [value]="c">
-          {{ c }}
+        <mat-button-toggle
+          *ngFor="let coverage of filters | coveragefilter : selectedMajor"
+          [value]="coverage"
+        >
+          {{ coverage }}
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
@@ -48,19 +56,6 @@
         <input matSliderThumb [(ngModel)]="item" />
       </mat-slider>
     </div>
-    <!-- <div class="timer-wrapper">
-      <mat-form-field>
-        <mat-label>Timer</mat-label>
-        <input
-          matInput
-          placeholder=""
-          type="number"
-          [(ngModel)]="timer"
-          disabled
-        />
-        <mat-hint>Timer disabled for now</mat-hint>
-      </mat-form-field>
-    </div> -->
   </div>
   <div class="action-wrapper">
     <button mat-flat-button color="primary" type="button" (click)="navigate()">

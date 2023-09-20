@@ -1,8 +1,6 @@
 <div class="qtab-wrapper">
   <div class="qtab-actions">
-    <div class="chip">{{ question.major[1] }}</div>
-
-    <!-- <mat-chip color="warn">{{question.major[1]}}</mat-chip> -->
+    <div class="chip" *ngIf="question.major[1]">{{ question.major[1] }}</div>
     <span class="spacer"></span>
     <mat-slide-toggle [(ngModel)]="isShow" color="primary"></mat-slide-toggle>
     <mat-icon
@@ -21,7 +19,6 @@
       (closed)="isExpand = false"
     >
       <mat-expansion-panel-header>
-        <!-- <mat-panel-title> Self aware panel </mat-panel-title> -->
         <mat-panel-description>
           {{ isExpand ? question.question : question_shortened }}
         </mat-panel-description>
@@ -33,6 +30,7 @@
       >
         {{ choice }}
       </div>
+      <span *ngIf="watermark == true" class="watermark">passthatboard.com</span>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

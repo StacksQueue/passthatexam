@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import {
   ActivatedRoute,
   NavigationExtras,
@@ -11,6 +9,7 @@ import {
 import { Pagination } from 'src/app/models/Pagination';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-question-list',
@@ -31,15 +30,18 @@ export class QuestionListComponent implements OnInit {
     limit: 10,
     pageSizeOption: [5, 10, 25, 100],
   };
+  watermark: boolean = false;
 
   constructor(
     private router: Router,
     private examService: ExamService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private seoService: SeoService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
+      this.seoService.createLinkForCanonicalURL('/questions', params);
       this.queryParamsHandling(params);
     });
     this.examService.getExamPrograms().subscribe((resp) => {
@@ -79,7 +81,7 @@ export class QuestionListComponent implements OnInit {
         ? params['programs']
         : [params['programs']]
       : [];
-
+    this.watermark = params['watermark'] ? params['watermark'] : false;
     this.getQuestionList();
   }
 }

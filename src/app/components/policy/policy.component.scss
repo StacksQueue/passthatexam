@@ -29,21 +29,6 @@
   // }
 }
 
-.sec-container {
-  max-width: 800px;
-  width: 90%;
-  padding: 0 5%;
-  margin: auto;
-  text-align: justify;
-}
-
-.content {
-  padding: 25px 0;
-  font-size: 16px;
-  line-height: 2;
-  display: inline-block;
-}
-
 .subtitle {
   font-family: "Bebas Neue";
   font-size: 23px;
@@ -61,7 +46,6 @@
   padding: 25px 0;
 }
 
-
 //
 .spacer {
   flex: 1 1 auto;
@@ -70,4 +54,3 @@
 .example-icon {
   display: none;
 }
-

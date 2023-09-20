@@ -121,12 +121,31 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  // background-color: #e3f7ee;
-  background-color: #ebefec;
+  background-color: #e3f7ee;
+  // background-color: #ebefec;
 }
 
 .custom-bottom-sheet {
   width: 600px;
+}
+
+.sec-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 0 5%;
+  margin: auto;
+  text-align: justify;
+}
+
+.content {
+  padding: 15px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.subtitle {
+  font-family: "Bebas Neue";
+  font-size: 23px;
 }
 
 :root {

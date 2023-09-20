@@ -6,14 +6,7 @@
       <button mat-flat-button color="primary" (click)="openBottomSheet()">
         SELECT CATEGORIES
       </button>
-      <mat-icon
-        aria-hidden="false"
-        aria-label="report button"
-        fontIcon="flag"
-        class="report"
-        color="warn"
-        (click)="openReportQuestionDialog()"
-      ></mat-icon>
+      <div class="chip" *ngIf="current">{{ current.major[1] }}</div>
       <span class="spacer"></span>
       <span>{{ current_item }}/{{ questionnaires.length }}</span>
     </div>
@@ -53,6 +46,14 @@
       >
         <mat-icon>question_answer</mat-icon>
       </button>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="report button"
+        fontIcon="flag"
+        class="report"
+        color="warn"
+        (click)="openReportQuestionDialog()"
+      ></mat-icon>
       <div class="spacer"></div>
       <button
         mat-icon-button

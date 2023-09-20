@@ -20,6 +20,14 @@ const routes: Routes = [
       import('./modules/privacy/privacy.module').then((m) => m.PrivacyModule),
   },
   {
+    path: 'advertising-policy',
+    title: 'Pass That Board - Advertising Policy',
+    loadChildren: () =>
+      import('./modules/advertising/advertising.module').then(
+        (m) => m.AdvertisingModule
+      ),
+  },
+  {
     path: 'donate',
     title: 'Pass That Board - Donate to Us',
     loadChildren: () =>

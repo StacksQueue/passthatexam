@@ -15,6 +15,7 @@ export class QuestionTabComponent implements OnInit {
   @Input() question: IQuestion;
   @Input() isShow: boolean;
   @Input() isExpand: boolean;
+  @Input() watermark: boolean;
   isChecked: boolean = false;
   question_shortened: string = '';
   panelOpenState: boolean = false;
