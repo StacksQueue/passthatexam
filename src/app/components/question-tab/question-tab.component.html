@@ -1,8 +1,6 @@
 <div class="qtab-wrapper">
   <div class="qtab-actions">
-    <div class="chip">{{ question.major[1] }}</div>
-
-    <!-- <mat-chip color="warn">{{question.major[1]}}</mat-chip> -->
+    <div class="chip" *ngIf="question.major[1]">{{ question.major[1] }}</div>
     <span class="spacer"></span>
     <mat-slide-toggle [(ngModel)]="isShow" color="primary"></mat-slide-toggle>
     <mat-icon
