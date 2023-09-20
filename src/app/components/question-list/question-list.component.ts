@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import {
   ActivatedRoute,
   NavigationExtras,
@@ -31,6 +29,7 @@ export class QuestionListComponent implements OnInit {
     limit: 10,
     pageSizeOption: [5, 10, 25, 100],
   };
+  watermark: boolean = false;
 
   constructor(
     private router: Router,
@@ -79,7 +78,7 @@ export class QuestionListComponent implements OnInit {
         ? params['programs']
         : [params['programs']]
       : [];
-
+    this.watermark = params['watermark'] ? params['watermark'] : false;
     this.getQuestionList();
   }
 }

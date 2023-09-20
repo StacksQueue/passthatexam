@@ -41,6 +41,15 @@ mat-icon {
   gap: 10px;
 }
 
+.watermark {
+  font-size: 11px;
+  text-align: end;
+  font-style: italic;
+  position: absolute;
+  right: 24px;
+  bottom: 0;
+}
+
 .qtab-actions {
   display: flex;
   align-items: center;
