@@ -81,7 +81,9 @@ export class QuestionListComponent implements OnInit {
         ? params['programs']
         : [params['programs']]
       : [];
-    this.watermark = params['watermark'] ? params['watermark'] : false;
+    this.watermark = params['watermark']
+      ? JSON.parse(params['watermark'])
+      : false;
     this.getQuestionList();
   }
 }
