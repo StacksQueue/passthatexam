@@ -9,6 +9,7 @@ import {
 import { Pagination } from 'src/app/models/Pagination';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
+import { SeoService } from 'src/app/services/seo.service';
 
 @Component({
   selector: 'app-question-list',
@@ -34,11 +35,13 @@ export class QuestionListComponent implements OnInit {
   constructor(
     private router: Router,
     private examService: ExamService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private seoService: SeoService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
+      this.seoService.createLinkForCanonicalURL('/questions', params);
       this.queryParamsHandling(params);
     });
     this.examService.getExamPrograms().subscribe((resp) => {
