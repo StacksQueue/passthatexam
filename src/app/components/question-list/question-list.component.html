@@ -1,46 +1,42 @@
 <section id="actions">
-  <div class="sec-container">
-    <app-question-search [programs]="selectedPrograms"></app-question-search>
-    <div class="action-wrapper">
-      <mat-slide-toggle (change)="isExpand = $event.checked" color="primary"
-        >Expand All Question Tabs</mat-slide-toggle
-      >
-      <mat-slide-toggle (change)="isShow = $event.checked" color="primary"
-        >Show All Answers</mat-slide-toggle
-      >
-      <div class="spacer"></div>
-      <mat-button-toggle-group
-        [value]="selectedPrograms"
-        (change)="selectedPrograms = $event.value"
-        multiple
-      >
-        <mat-button-toggle *ngFor="let program of programs" [value]="program">
-          {{ program }}
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
+  <app-question-search [programs]="selectedPrograms"></app-question-search>
+  <div class="action-wrapper">
+    <mat-slide-toggle (change)="isExpand = $event.checked" color="primary"
+      >Expand All Question Tabs</mat-slide-toggle
+    >
+    <mat-slide-toggle (change)="isShow = $event.checked" color="primary"
+      >Show All Answers</mat-slide-toggle
+    >
+    <div class="spacer"></div>
+    <mat-button-toggle-group
+      [value]="selectedPrograms"
+      (change)="selectedPrograms = $event.value"
+      multiple
+    >
+      <mat-button-toggle *ngFor="let program of programs" [value]="program">
+        {{ program }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
 </section>
 
 <section id="description">
-  <div class="sec-container">
-    <div class="title">CSE & LET Question List</div>
-    <p>
-      Explore a wealth of knowledge with access to a comprehensive collection of
-      1000+ questions sourced from trusted materials, specifically tailored for
-      the Civil Service Exam (CSE) and the Licensure Exam for Teachers (LET).
-      These questions are meticulously categorized across various subjects,
-      offering you a structured approach to your preparation.
-    </p>
+  <div class="title">CSE & LET Question List</div>
+  <div class="content">
+    Explore a wealth of knowledge with access to a comprehensive collection of
+    1000+ questions sourced from trusted materials, specifically tailored for
+    the Civil Service Exam (CSE) and the Licensure Exam for Teachers (LET).
+    These questions are meticulously categorized across various subjects,
+    offering you a structured approach to your preparation.
   </div>
 </section>
 
 <section id="display">
-  <div class="loader" *ngIf="isloading else display;">
+  <div class="loader" *ngIf="isloading; else display">
     <mat-spinner></mat-spinner>
   </div>
   <ng-template #display>
-    <div class="sec-container" *ngIf="questionnaires.length; else nodisplay">
+    <div class="q-wrapper" *ngIf="questionnaires.length; else nodisplay">
       <app-question-tab
         *ngFor="let question of questionnaires"
         [question]="question"
@@ -59,17 +55,15 @@
 </section>
 
 <section id="pagination">
-  <div class="sec-container">
-    <mat-paginator
-      [length]="pagination.length"
-      [pageSize]="pagination.limit"
-      [pageIndex]="pagination.page - 1"
-      [pageSizeOptions]="pagination.pageSizeOption"
-      [showFirstLastButtons]="true"
-      (page)="paginate($event)"
-    >
-    </mat-paginator>
-  </div>
+  <mat-paginator
+    [length]="pagination.length"
+    [pageSize]="pagination.limit"
+    [pageIndex]="pagination.page - 1"
+    [pageSizeOptions]="pagination.pageSizeOption"
+    [showFirstLastButtons]="true"
+    (page)="paginate($event)"
+  >
+  </mat-paginator>
 </section>
 <section id="footer">
   <app-footer></app-footer>
