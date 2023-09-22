@@ -1,9 +1,10 @@
-.subtitle {
-  font-family: "Bebas Neue";
-  font-size: 23px;
-  font-weight: 500;
-  display: flex;
-  text-align: start;
+#privacy-policy,
+#data-collection,
+#cookies-and-tracking,
+#external-links,
+#ads,
+#policy-changes {
+  padding: 25px 0;
 }
 
 .logo {
@@ -11,8 +12,4 @@
   font-size: 18px;
   font-weight: 600;
   color: var(--header);
-}
-
-#privacy-policy {
-  padding: 25px 0;
 }
