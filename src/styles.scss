@@ -143,9 +143,25 @@ body {
   line-height: 2;
 }
 
+.title {
+  font-family: "Bebas Neue";
+  font-size: 26px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  padding: 10px 0;
+}
+
 .subtitle {
   font-family: "Bebas Neue";
-  font-size: 23px;
+  font-size: 21px;
+  padding: 5px 0;
+}
+
+.logo {
+  font-family: "Caveat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--header);
 }
 
 :root {
