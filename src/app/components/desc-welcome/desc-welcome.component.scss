@@ -1,16 +1,17 @@
 #description {
-  padding: 10px 0 50px 0;
+  padding: 25px 0;
 }
 
-.logo-title,
-.logo-desc {
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-title {
   font-family: "Caveat", sans-serif;
   font-size: 28px;
   font-weight: 500;
   color: var(--header);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
-}
-
-.logo-desc {
-  font-size: 20px;
 }
