@@ -1,41 +1,37 @@
 <section id="cse-coverage">
-  <div class="sec-container">
-    <div class="title">CIVIL SERVICE EXAM</div>
-    <div class="content">
-      The Civil Service Exam (CSE) in the Philippines is a comprehensive
-      examination administered by the Civil Service Commission (CSC) to assess
-      the qualifications of individuals aspiring to work in the civil service or
-      government positions. The CSE consists of two levels: the Career Service
-      Professional Examination (CSE-PPT) and the Career Service Subprofessional
-      Examination (CSE-SPE)
-    </div>
-    <app-desc-coverage-list
-      *ngIf="coverages.length"
-      [coverages]="coverages"
-      [major]="'Civil Service'"
-    ></app-desc-coverage-list>
+  <div class="title">CIVIL SERVICE EXAM</div>
+  <div class="content">
+    The Civil Service Exam (CSE) in the Philippines is a comprehensive
+    examination administered by the Civil Service Commission (CSC) to assess the
+    qualifications of individuals aspiring to work in the civil service or
+    government positions. The CSE consists of two levels: the Career Service
+    Professional Examination (CSE-PPT) and the Career Service Subprofessional
+    Examination (CSE-SPE)
   </div>
+  <app-desc-coverage-list
+    *ngIf="coverages.length"
+    [coverages]="coverages"
+    [major]="'Civil Service'"
+  ></app-desc-coverage-list>
 </section>
 <section id="let-coverage">
-  <div class="sec-container">
-    <div class="title">LICENSURE EXAM FOR TEACHERS</div>
-    <div class="content">
-      The Licensure Exam for Teachers (LET) in the Philippines is a
-      comprehensive examination that assesses the knowledge and competencies of
-      individuals aspiring to become professional teachers. The LET is
-      administered by the Professional Regulation Commission (PRC) in the
-      Philippines and consists of two parts: the General Education (GenEd) and
-      the Professional Education (ProfEd) components.
-    </div>
-    <app-desc-coverage-list
-      *ngIf="coverages.length"
-      [coverages]="coverages"
-      [major]="'General Education'"
-    ></app-desc-coverage-list>
-    <app-desc-coverage-list
-      *ngIf="coverages.length"
-      [coverages]="coverages"
-      [major]="'Professional Education'"
-    ></app-desc-coverage-list>
+  <div class="title">LICENSURE EXAM FOR TEACHERS</div>
+  <div class="content">
+    The Licensure Exam for Teachers (LET) in the Philippines is a comprehensive
+    examination that assesses the knowledge and competencies of individuals
+    aspiring to become professional teachers. The LET is administered by the
+    Professional Regulation Commission (PRC) in the Philippines and consists of
+    two parts: the General Education (GenEd) and the Professional Education
+    (ProfEd) components.
   </div>
+  <app-desc-coverage-list
+    *ngIf="coverages.length"
+    [coverages]="coverages"
+    [major]="'General Education'"
+  ></app-desc-coverage-list>
+  <app-desc-coverage-list
+    *ngIf="coverages.length"
+    [coverages]="coverages"
+    [major]="'Professional Education'"
+  ></app-desc-coverage-list>
 </section>
