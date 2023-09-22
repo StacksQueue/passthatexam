@@ -157,6 +157,13 @@ body {
   padding: 5px 0;
 }
 
+.logo {
+  font-family: "Caveat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--header);
+}
+
 :root {
   // --bg: #dedfda;
   --text: #030c08;
