@@ -41,7 +41,7 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.seoService.createLinkForCanonicalURL('/questions', params);
+      this.seoService.createLinkForCanonicalURL('https://passthatboard.com/questions', params);
       this.queryParamsHandling(params);
     });
     this.examService.getExamPrograms().subscribe((resp) => {
