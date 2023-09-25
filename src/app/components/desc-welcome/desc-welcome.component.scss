@@ -8,10 +8,28 @@
   align-items: center;
 }
 
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo-title {
-  font-family: "Caveat", sans-serif;
-  font-size: 28px;
-  font-weight: 500;
+  font-family: "Permanent Marker", sans-serif;
+  font-size: 50px;
   color: var(--header);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.logo-subtitle {
+  position: absolute;
+  font-family: "Satisfy", sans-serif;
+  font-size: 20px;
+  bottom: 0;
+}
+
+@media screen and (max-width: 420px) {
+  .logo-title {
+    font-size: 40px;
+  }
 }
