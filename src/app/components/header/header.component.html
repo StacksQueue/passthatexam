@@ -1,6 +1,12 @@
 <section id="header">
   <mat-toolbar color="primary">
     <mat-toolbar-row class="header-container">
+      <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
+        <div class="menu">COVERAGES</div>
+      </a>
+      <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
+        <div class="menu">QUESTIONS</div>
+      </a>
       <a
         [routerLink]="['/']"
         fragment="drills"
@@ -8,15 +14,11 @@
       >
         <div class="menu">EXAM DRILL</div>
       </a>
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
-        <div class="menu">QUESTIONS</div>
-      </a>
+
       <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
         <div class="menu">NOTES</div>
       </a>
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
-        <div class="menu">COVERAGES</div>
-      </a>
+
       <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
         <div class="menu">BlOGS</div>
       </a>
