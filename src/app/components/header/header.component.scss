@@ -1,5 +1,4 @@
 #header {
-  // height: 64px;
   background-color: var(--header);
 }
 
@@ -8,15 +7,15 @@ a {
 }
 
 .header-container {
-  max-width: 1400px;
+  max-width: 1000px;
   width: 90%;
   padding: 0 5%;
   margin: auto;
 
   display: flex;
   align-items: center;
-  // height: inherit;
-  gap: 20px;
+  justify-content: space-between;
+  // gap: 20px;
   box-sizing: content-box;
 }
 
@@ -30,6 +29,11 @@ a {
   font-weight: 500;
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.mat-toolbar-multiple-rows {
+  min-height: 0;
+  max-height: 36px;
 }
 
 .menu,
@@ -69,6 +73,15 @@ a {
   }
   .menu {
     display: none;
+  }
+
+  .mat-toolbar-multiple-rows {
+    max-height: max-content;
+  }
+
+  mat-toolbar-row:first-child {
+    height: 36px;
+    padding: 0 5%;
   }
 
   mat-toolbar-row:not(:first-child) {
