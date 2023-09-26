@@ -23,14 +23,6 @@ a {
   flex: 1 1 auto;
 }
 
-.logo {
-  font-family: "Caveat", sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
-}
-
 .mat-toolbar-multiple-rows {
   min-height: 0;
   max-height: 36px;
@@ -41,7 +33,7 @@ a {
   font-family: "Bebas Neue";
   font-size: 20px;
   color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
   cursor: pointer;
 }
 
@@ -64,6 +56,28 @@ a {
   max-height: 0;
   opacity: 0;
   // padding: 0;
+}
+
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
+  border-radius: 0;
+}
+
+::ng-deep .mat-mdc-menu-content {
+  background-color: #387a5c;
+}
+
+.mat-mdc-menu-item {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 20px;
+  min-height: 36px;
+}
+
+::ng-deep .mdc-list-item__primary-text {
+  color: #ffffff;
+}
+
+.mat-mdc-menu-item:hover {
+  background-color: var(--primary);
 }
 
 @media screen and (max-width: 599px) {

@@ -1,9 +1,19 @@
 <section id="header">
   <mat-toolbar color="primary">
     <mat-toolbar-row class="header-container">
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
-        <div class="menu">COVERAGES</div>
-      </a>
+      <button mat-button [matMenuTriggerFor]="coverage" class="menu">
+        COVERAGES
+      </button>
+      <mat-menu #coverage="matMenu">
+        <button mat-menu-item>General Education</button>
+        <button mat-menu-item>Professional Education</button>
+        <button mat-menu-item [matMenuTriggerFor]="major">
+          Specialization
+        </button>
+      </mat-menu>
+      <mat-menu #major="matMenu">
+        <button mat-menu-item *ngFor="let m of majors">{{ m }}</button>
+      </mat-menu>
       <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
         <div class="menu">QUESTIONS</div>
       </a>
@@ -15,9 +25,11 @@
         <div class="menu">EXAM DRILL</div>
       </a>
 
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
-        <div class="menu">NOTES</div>
-      </a>
+      <button mat-button [matMenuTriggerFor]="notes" class="menu">NOTES</button>
+      <mat-menu #notes="matMenu">
+        <button mat-menu-item [routerLink]="['/questions']">Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
 
       <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
         <div class="menu">BlOGS</div>
@@ -32,6 +44,19 @@
       </mat-icon>
     </mat-toolbar-row>
     <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
+      <button mat-button [matMenuTriggerFor]="coverage" class="menu">
+        COVERAGES
+      </button>
+      <mat-menu #coverage="matMenu">
+        <button mat-menu-item>General Education</button>
+        <button mat-menu-item>Professional Education</button>
+        <button mat-menu-item [matMenuTriggerFor]="major">
+          Specialization
+        </button>
+      </mat-menu>
+      <mat-menu #major="matMenu">
+        <button mat-menu-item *ngFor="let m of majors">{{ m }}</button>
+      </mat-menu>
       <a
         [routerLink]="['/']"
         fragment="drills"

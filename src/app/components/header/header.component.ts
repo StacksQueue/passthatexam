@@ -9,6 +9,18 @@ import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
 })
 export class HeaderComponent implements OnInit {
   toolbarVisible = false;
+  majors: string[] = [
+    'English',
+    'Filipino',
+    'Biological Science',
+    'Physical Science',
+    'Mathematics',
+    'Social Sciences',
+    'Values Education',
+    'MAPEH',
+    'Agriculture and Fishery Arts',
+    'TLE',
+  ];
 
   constructor(private _bottomSheet: MatBottomSheet) {}
 
