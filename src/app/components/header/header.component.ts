@@ -22,15 +22,11 @@ export class HeaderComponent implements OnInit {
     'TLE',
   ];
 
-  constructor(private _bottomSheet: MatBottomSheet) {}
+  isMenuOpen = true;
 
   ngOnInit(): void {}
 
-  openBottomSheet(): void {
-    this._bottomSheet.open(ExamFilterComponent);
-  }
-
-  toggleToolbar() {
-    this.toolbarVisible = !this.toolbarVisible;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

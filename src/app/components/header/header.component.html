@@ -1,74 +1,22 @@
 <section id="header">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row class="header-container">
-      <button mat-button [matMenuTriggerFor]="coverage" class="menu">
-        COVERAGES
-      </button>
-      <mat-menu #coverage="matMenu">
-        <button mat-menu-item>General Education</button>
-        <button mat-menu-item>Professional Education</button>
-        <button mat-menu-item [matMenuTriggerFor]="major">
-          Specialization
-        </button>
-      </mat-menu>
-      <mat-menu #major="matMenu">
-        <button mat-menu-item *ngFor="let m of majors">{{ m }}</button>
-      </mat-menu>
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
-        <div class="menu">QUESTIONS</div>
-      </a>
-      <a
-        [routerLink]="['/']"
-        fragment="drills"
-        aria-label="CSE and LET Exam Drills"
-      >
-        <div class="menu">EXAM DRILL</div>
-      </a>
-
-      <button mat-button [matMenuTriggerFor]="notes" class="menu">NOTES</button>
-      <mat-menu #notes="matMenu">
-        <button mat-menu-item [routerLink]="['/questions']">Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Notes">
-        <div class="menu">BlOGS</div>
-      </a>
-
-      <mat-icon
-        class="menu-icon"
-        (click)="toggleToolbar()"
-        aria-label="menu icon"
-      >
-        menu
-      </mat-icon>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
-      <button mat-button [matMenuTriggerFor]="coverage" class="menu">
-        COVERAGES
-      </button>
-      <mat-menu #coverage="matMenu">
-        <button mat-menu-item>General Education</button>
-        <button mat-menu-item>Professional Education</button>
-        <button mat-menu-item [matMenuTriggerFor]="major">
-          Specialization
-        </button>
-      </mat-menu>
-      <mat-menu #major="matMenu">
-        <button mat-menu-item *ngFor="let m of majors">{{ m }}</button>
-      </mat-menu>
-      <a
-        [routerLink]="['/']"
-        fragment="drills"
-        aria-label="CSE and LET Exam Drills"
-      >
-        <div class="menu-dd">EXAM DRILL</div>
-      </a>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="slide-out" [class.hidden]="!toolbarVisible">
-      <a [routerLink]="['/questions']" aria-label="CSE and LET Questions">
-        <div class="menu-dd">QUESTIONS</div>
-      </a>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <div class="icon-container">
+    <mat-icon class="menu-icon" (click)="toggleMenu()" aria-label="menu icon">
+      menu
+    </mat-icon>
+  </div>
+  <div class="header-container" [class.hidden]="isMenuOpen">
+    <button mat-button [matMenuTriggerFor]="coverage" class="menu">
+      COVERAGES
+    </button>
+    <mat-menu #coverage="matMenu">
+      <button mat-menu-item>General Education</button>
+      <button mat-menu-item>Professional Education</button>
+      <button mat-menu-item [matMenuTriggerFor]="major">Specialization</button>
+    </mat-menu>
+    <mat-menu #major="matMenu" yPosition="below" xPosition="before">
+      <button mat-menu-item *ngFor="let m of majors">{{ m }}</button>
+    </mat-menu>
+    <button mat-button class="menu">QUESTIONS</button>
+    <button mat-button class="menu">EXAM DRILL</button>
+  </div>
 </section>

@@ -2,11 +2,8 @@
   background-color: var(--header);
 }
 
-a {
-  text-decoration: none;
-}
-
-.header-container {
+.header-container,
+.icon-container {
   max-width: 1000px;
   width: 90%;
   padding: 0 5%;
@@ -15,51 +12,34 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // gap: 20px;
-  box-sizing: content-box;
+}
+
+.icon-container {
+  justify-content: flex-end;
+  min-height: 36px;
+  display: none;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.mat-toolbar-multiple-rows {
-  min-height: 0;
-  max-height: 36px;
-}
-
-.menu,
-.menu-dd {
+.menu {
   font-family: "Bebas Neue";
   font-size: 20px;
-  color: white;
-  // text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  color: white !important;
   cursor: pointer;
 }
 
 .menu-icon {
-  display: none;
   cursor: pointer;
+  color: #ffffff;
 }
 
-.slide-out {
-  display: none;
-  position: relative;
-  height: auto;
-  max-height: 1000px; /* Set a value that accommodates your content */
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 1;
-}
-
-.slide-out.hidden {
-  max-height: 0;
-  opacity: 0;
-  // padding: 0;
-}
-
+/** mat menu */
 ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
   border-radius: 0;
+  width: 100vw;
 }
 
 ::ng-deep .mat-mdc-menu-content {
@@ -81,31 +61,23 @@ a {
 }
 
 @media screen and (max-width: 599px) {
-  .slide-out,
-  .menu-icon {
+  .icon-container {
     display: flex;
   }
-  .menu {
-    display: none;
+
+  .header-container {
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    max-height: 1000px; /* Set a value that accommodates your content */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+    align-items: start;
   }
 
-  .mat-toolbar-multiple-rows {
-    max-height: max-content;
-  }
-
-  mat-toolbar-row:first-child {
-    height: 36px;
-    padding: 0 5%;
-  }
-
-  mat-toolbar-row:not(:first-child) {
-    height: 40px;
-    padding: 0 5%;
-  }
-
-  mat-toolbar-row:not(:first-child):focus,
-  mat-toolbar-row:not(:first-child):active,
-  mat-toolbar-row:not(:first-child):hover {
-    background-color: #b0bb9d;
+  .header-container.hidden {
+    max-height: 0;
+    opacity: 0;
   }
 }
