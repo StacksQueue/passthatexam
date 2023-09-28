@@ -8,6 +8,7 @@ import { CoverageMapehComponent } from 'src/app/components/coverage-mapeh/covera
 import { CoverageMathematicsComponent } from 'src/app/components/coverage-mathematics/coverage-mathematics.component';
 import { CoveragePhysicalScienceComponent } from 'src/app/components/coverage-physical-science/coverage-physical-science.component';
 import { CoverageSocialSciencesComponent } from 'src/app/components/coverage-social-sciences/coverage-social-sciences.component';
+import { CoverageTleComponent } from 'src/app/components/coverage-tle/coverage-tle.component';
 import { CoverageValuesEducationComponent } from 'src/app/components/coverage-values-education/coverage-values-education.component';
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'values-education', component: CoverageValuesEducationComponent },
   { path: 'mapeh', component: CoverageMapehComponent },
   { path: 'agri-fishery-arts', component: CoverageAgriFisheryComponent },
-
+  { path: 'tle', component: CoverageTleComponent },
 ];
 
 @NgModule({
