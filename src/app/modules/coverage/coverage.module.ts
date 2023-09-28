@@ -12,6 +12,7 @@ import { CoverageValuesEducationComponent } from '../../components/coverage-valu
 import { CoverageMapehComponent } from '../../components/coverage-mapeh/coverage-mapeh.component';
 import { CoverageAgriFisheryComponent } from '../../components/coverage-agri-fishery/coverage-agri-fishery.component';
 import { CoverageTleComponent } from '../../components/coverage-tle/coverage-tle.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,6 @@ import { CoverageTleComponent } from '../../components/coverage-tle/coverage-tle
     CoverageAgriFisheryComponent,
     CoverageTleComponent,
   ],
-  imports: [CommonModule, CoverageRoutingModule],
+  imports: [CommonModule, CoverageRoutingModule, SharedModule],
 })
 export class CoverageModule {}
