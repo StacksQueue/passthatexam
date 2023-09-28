@@ -8,6 +8,7 @@ import { CoverageFilipinoComponent } from 'src/app/components/coverage-filipino/
 import { CoveragePhysicalScienceComponent } from '../../components/coverage-physical-science/coverage-physical-science.component';
 import { CoverageMathematicsComponent } from '../../components/coverage-mathematics/coverage-mathematics.component';
 import { CoverageSocialSciencesComponent } from '../../components/coverage-social-sciences/coverage-social-sciences.component';
+import { CoverageValuesEducationComponent } from '../../components/coverage-values-education/coverage-values-education.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CoverageSocialSciencesComponent } from '../../components/coverage-socia
     CoveragePhysicalScienceComponent,
     CoverageMathematicsComponent,
     CoverageSocialSciencesComponent,
+    CoverageValuesEducationComponent,
   ],
   imports: [CommonModule, CoverageRoutingModule],
 })

@@ -6,6 +6,7 @@ import { CoverageFilipinoComponent } from 'src/app/components/coverage-filipino/
 import { CoverageMathematicsComponent } from 'src/app/components/coverage-mathematics/coverage-mathematics.component';
 import { CoveragePhysicalScienceComponent } from 'src/app/components/coverage-physical-science/coverage-physical-science.component';
 import { CoverageSocialSciencesComponent } from 'src/app/components/coverage-social-sciences/coverage-social-sciences.component';
+import { CoverageValuesEducationComponent } from 'src/app/components/coverage-values-education/coverage-values-education.component';
 
 const routes: Routes = [
   { path: 'english', component: CoverageEnglishComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'physical-science', component: CoveragePhysicalScienceComponent },
   { path: 'mathematics', component: CoverageMathematicsComponent },
   { path: 'social-science', component: CoverageSocialSciencesComponent },
+  { path: 'values-education', component: CoverageValuesEducationComponent },
+
 ];
 
 @NgModule({
