@@ -9,6 +9,7 @@ import { CoveragePhysicalScienceComponent } from '../../components/coverage-phys
 import { CoverageMathematicsComponent } from '../../components/coverage-mathematics/coverage-mathematics.component';
 import { CoverageSocialSciencesComponent } from '../../components/coverage-social-sciences/coverage-social-sciences.component';
 import { CoverageValuesEducationComponent } from '../../components/coverage-values-education/coverage-values-education.component';
+import { CoverageMapehComponent } from '../../components/coverage-mapeh/coverage-mapeh.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CoverageValuesEducationComponent } from '../../components/coverage-valu
     CoverageMathematicsComponent,
     CoverageSocialSciencesComponent,
     CoverageValuesEducationComponent,
+    CoverageMapehComponent,
   ],
   imports: [CommonModule, CoverageRoutingModule],
 })
