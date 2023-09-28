@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CoverageBiologicalScienceComponent } from 'src/app/components/coverage-biological-science/coverage-biological-science.component';
 import { CoverageEnglishComponent } from 'src/app/components/coverage-english/coverage-english.component';
 import { CoverageFilipinoComponent } from 'src/app/components/coverage-filipino/coverage-filipino.component';
+import { CoverageMathematicsComponent } from 'src/app/components/coverage-mathematics/coverage-mathematics.component';
 import { CoveragePhysicalScienceComponent } from 'src/app/components/coverage-physical-science/coverage-physical-science.component';
 
 const routes: Routes = [
@@ -10,6 +11,8 @@ const routes: Routes = [
   { path: 'filipino', component: CoverageFilipinoComponent },
   { path: 'biological-science', component: CoverageBiologicalScienceComponent },
   { path: 'physical-science', component: CoveragePhysicalScienceComponent },
+  { path: 'mathematics', component: CoverageMathematicsComponent },
+
 ];
 
 @NgModule({
