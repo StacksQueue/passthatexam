@@ -214,6 +214,12 @@ body {
   font-weight: 600;
 }
 
+@media screen and (max-width: 420px) {
+  .content-title {
+    font-size: 40px;
+  }
+}
+
 :root {
   // --bg: #dedfda;
   --text: #030c08;
