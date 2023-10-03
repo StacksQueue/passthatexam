@@ -12,13 +12,10 @@
       <button mat-menu-item>General Education</button>
       <button mat-menu-item>Professional Education</button>
       <button mat-menu-item [matMenuTriggerFor]="major">Specialization</button>
+      <a href=""><button mat-menu-item>Professional Education</button></a>
     </mat-menu>
     <mat-menu #major="matMenu" yPosition="below" xPosition="before">
-      <button
-        mat-menu-item
-        *ngFor="let m of majors"
-        [routerLink]="m.route"
-      >
+      <button mat-menu-item *ngFor="let m of majors" [routerLink]="m.route">
         {{ m.name }}
       </button>
     </mat-menu>

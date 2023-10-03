@@ -13,6 +13,9 @@ import { CoverageMapehComponent } from '../../components/coverage-mapeh/coverage
 import { CoverageAgriFisheryComponent } from '../../components/coverage-agri-fishery/coverage-agri-fishery.component';
 import { CoverageTleComponent } from '../../components/coverage-tle/coverage-tle.component';
 import { SharedModule } from '../shared/shared.module';
+import { CoverageGeneralEducationComponent } from '../../components/coverage-general-education/coverage-general-education.component';
+import { CoverageProfessionalEducationComponent } from '../../components/coverage-professional-education/coverage-professional-education.component';
+import { CoverageCivilServiceComponent } from '../../components/coverage-civil-service/coverage-civil-service.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { SharedModule } from '../shared/shared.module';
     CoverageMapehComponent,
     CoverageAgriFisheryComponent,
     CoverageTleComponent,
+    CoverageGeneralEducationComponent,
+    CoverageProfessionalEducationComponent,
+    CoverageCivilServiceComponent,
   ],
   imports: [CommonModule, CoverageRoutingModule, SharedModule],
 })
