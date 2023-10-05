@@ -2,16 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoverageAgriFisheryComponent } from 'src/app/components/coverage-agri-fishery/coverage-agri-fishery.component';
 import { CoverageBiologicalScienceComponent } from 'src/app/components/coverage-biological-science/coverage-biological-science.component';
+import { CoverageCivilServiceComponent } from 'src/app/components/coverage-civil-service/coverage-civil-service.component';
 import { CoverageEnglishComponent } from 'src/app/components/coverage-english/coverage-english.component';
 import { CoverageFilipinoComponent } from 'src/app/components/coverage-filipino/coverage-filipino.component';
+import { CoverageGeneralEducationComponent } from 'src/app/components/coverage-general-education/coverage-general-education.component';
 import { CoverageMapehComponent } from 'src/app/components/coverage-mapeh/coverage-mapeh.component';
 import { CoverageMathematicsComponent } from 'src/app/components/coverage-mathematics/coverage-mathematics.component';
 import { CoveragePhysicalScienceComponent } from 'src/app/components/coverage-physical-science/coverage-physical-science.component';
+import { CoverageProfessionalEducationComponent } from 'src/app/components/coverage-professional-education/coverage-professional-education.component';
 import { CoverageSocialSciencesComponent } from 'src/app/components/coverage-social-sciences/coverage-social-sciences.component';
 import { CoverageTleComponent } from 'src/app/components/coverage-tle/coverage-tle.component';
 import { CoverageValuesEducationComponent } from 'src/app/components/coverage-values-education/coverage-values-education.component';
 
 const routes: Routes = [
+  { path: 'general-education', component: CoverageGeneralEducationComponent },
+  { path: 'professional-education', component: CoverageProfessionalEducationComponent },
+  { path: 'civil-service', component: CoverageCivilServiceComponent },
   { path: 'english', component: CoverageEnglishComponent },
   { path: 'filipino', component: CoverageFilipinoComponent },
   { path: 'biological-science', component: CoverageBiologicalScienceComponent },

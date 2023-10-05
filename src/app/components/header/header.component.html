@@ -9,10 +9,16 @@
       COVERAGES
     </button>
     <mat-menu #coverage="matMenu">
-      <button mat-menu-item>General Education</button>
-      <button mat-menu-item>Professional Education</button>
+      <a [routerLink]="'/coverage/general-education'">
+        <button mat-menu-item>General Education</button>
+      </a>
+      <a [routerLink]="'/coverage/professional-education'">
+        <button mat-menu-item>Professional Education</button>
+      </a>
       <button mat-menu-item [matMenuTriggerFor]="major">Specialization</button>
-      <a href=""><button mat-menu-item>Professional Education</button></a>
+      <a [routerLink]="'/coverage/civil-service'">
+        <button mat-menu-item>Civil Service Exam</button>
+      </a>
     </mat-menu>
     <mat-menu #major="matMenu" yPosition="below" xPosition="before">
       <button mat-menu-item *ngFor="let m of majors" [routerLink]="m.route">
