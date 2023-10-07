@@ -47,6 +47,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'notes',
+    loadChildren: () =>
+      import('./modules/notes/notes.module').then(
+        (m) => m.NotesModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',
