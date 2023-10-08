@@ -1,22 +1,26 @@
 <section id="header">
   <div class="header" [class.responsive]="isMenuOpen">
     <mat-icon aria-label="menu icon" (click)="toggleMenu()">menu</mat-icon>
-    <a href="#">Home</a>
-    <a href="#">News</a>
+    <a [routerLink]="['/']">Home</a>
+    <a [routerLink]="['/']" fragment="drills">Practice Test</a>
     <div class="dropdown">
       <button class="droptbn">Coverage</button>
       <div class="dropdown-content">
-        <a href="#">General Education</a>
-        <a href="#">Professional Education</a>
+        <a [routerLink]="['/coverage/general-education']">General Education</a>
+        <a [routerLink]="['/coverage/profesional-education']">
+          Professional Education
+        </a>
         <div class="subdropdown">
           <button class="subdroptbn">Specialization</button>
           <div class="subdropdown-content">
-            <a href="#" *ngFor="let major of majors">{{ major.name }}</a>
+            <a *ngFor="let major of majors" [routerLink]="major.route">
+              {{ major.name }}
+            </a>
           </div>
         </div>
-        <a href="#">Civil Service Exam</a>
+        <a [routerLink]="['/coverage/civil-service']">Civil Service Exam</a>
       </div>
     </div>
-    <a href="#">Notes</a>
+    <a [routerLink]="['/notes']">Notes</a>
   </div>
 </section>
