@@ -1,31 +1,22 @@
 <section id="header">
-  <div class="icon-container">
-    <mat-icon class="menu-icon" (click)="toggleMenu()" aria-label="menu icon">
-      menu
-    </mat-icon>
-  </div>
-  <div class="header-container" [class.hidden]="isMenuOpen">
-    <button mat-button [matMenuTriggerFor]="coverage" class="menu">
-      COVERAGES
-    </button>
-    <mat-menu #coverage="matMenu">
-      <a [routerLink]="'/coverage/general-education'">
-        <button mat-menu-item>General Education</button>
-      </a>
-      <a [routerLink]="'/coverage/professional-education'">
-        <button mat-menu-item>Professional Education</button>
-      </a>
-      <button mat-menu-item [matMenuTriggerFor]="major">Specialization</button>
-      <a [routerLink]="'/coverage/civil-service'">
-        <button mat-menu-item>Civil Service Exam</button>
-      </a>
-    </mat-menu>
-    <mat-menu #major="matMenu" yPosition="below" xPosition="before">
-      <button mat-menu-item *ngFor="let m of majors" [routerLink]="m.route">
-        {{ m.name }}
-      </button>
-    </mat-menu>
-    <button mat-button class="menu">QUESTIONS</button>
-    <button mat-button class="menu">EXAM DRILL</button>
+  <div class="header" [class.responsive]="isMenuOpen">
+    <mat-icon aria-label="menu icon" (click)="toggleMenu()">menu</mat-icon>
+    <a href="#">Home</a>
+    <a href="#">News</a>
+    <div class="dropdown">
+      <button class="droptbn">Coverage</button>
+      <div class="dropdown-content">
+        <a href="#">General Education</a>
+        <a href="#">Professional Education</a>
+        <div class="subdropdown">
+          <button class="subdroptbn">Specialization</button>
+          <div class="subdropdown-content">
+            <a href="#" *ngFor="let major of majors">{{ major.name }}</a>
+          </div>
+        </div>
+        <a href="#">Civil Service Exam</a>
+      </div>
+    </div>
+    <a href="#">Notes</a>
   </div>
 </section>
