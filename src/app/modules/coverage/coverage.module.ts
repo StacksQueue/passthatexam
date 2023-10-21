@@ -15,6 +15,7 @@ import { CoverageTleComponent } from '../../components/coverage-tle/coverage-tle
 import { CoverageGeneralEducationComponent } from '../../components/coverage-general-education/coverage-general-education.component';
 import { CoverageProfessionalEducationComponent } from '../../components/coverage-professional-education/coverage-professional-education.component';
 import { CoverageCivilServiceComponent } from '../../components/coverage-civil-service/coverage-civil-service.component';
+import { CoverageSourceComponent } from 'src/app/coverage-source/coverage-source.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CoverageCivilServiceComponent } from '../../components/coverage-civil-s
     CoverageGeneralEducationComponent,
     CoverageProfessionalEducationComponent,
     CoverageCivilServiceComponent,
+    CoverageSourceComponent
   ],
   imports: [CommonModule, CoverageRoutingModule],
 })
