@@ -1,19 +1,17 @@
 <section id="header">
   <div class="header" [class.responsive]="isMenuOpen">
     <mat-icon aria-label="menu icon" (click)="toggleMenu()">menu</mat-icon>
-    <a [routerLink]="['/']">Home</a>
-    <a [routerLink]="['/']" fragment="drills">Practice Test</a>
+    <a (click)="toggleMenu()" [routerLink]="['/']">Home</a>
+    <a (click)="toggleMenu()" [routerLink]="['/']" fragment="drills"> Practice Test </a>
     <div class="dropdown">
       <button class="droptbn">Coverage</button>
       <div class="dropdown-content">
-        <a [routerLink]="['/coverage/general-education']">General Education</a>
-        <a [routerLink]="['/coverage/profesional-education']">
-          Professional Education
-        </a>
+        <a (click)="toggleMenu()" [routerLink]="['/coverage/general-education']"> General Education </a>
+        <a [routerLink]="['/coverage/professional-education']"> Professional Education </a>
         <div class="subdropdown">
           <button class="subdroptbn">Specialization</button>
           <div class="subdropdown-content">
-            <a *ngFor="let major of majors" [routerLink]="major.route">
+            <a *ngFor="let major of majors" (click)="toggleMenu()" [routerLink]="major.route">
               {{ major.name }}
             </a>
           </div>

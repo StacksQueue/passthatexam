@@ -29,9 +29,9 @@ export class HeaderComponent implements OnInit {
     { name: 'TLE', route: ['/coverage/tle'] },
   ];
 
-  isMenuOpen = true;
+  isMenuOpen = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
