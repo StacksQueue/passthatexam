@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { ExamFilterComponent } from '../exam-filter/exam-filter.component';
 
-export interface Majors {
+export interface Route {
   name: string;
   route: string[];
 }
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,7 +12,7 @@ export interface Majors {
 })
 export class HeaderComponent implements OnInit {
   toolbarVisible = false;
-  majors: Majors[] = [
+  majors: Route[] = [
     { name: 'English', route: ['/coverage/english'] },
     { name: 'Filipino', route: ['/coverage/filipino'] },
     { name: 'Biological Science', route: ['/coverage/biological-science'] },
@@ -28,6 +27,13 @@ export class HeaderComponent implements OnInit {
     },
     { name: 'TLE', route: ['/coverage/tle'] },
   ];
+
+  notes: Route[] = [
+    { name: 'Rizal', route: ['/notes/rizal'] },
+
+  ]
+
+
 
   isMenuOpen = false;
 

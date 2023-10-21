@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotesRizalComponent } from 'src/app/components/notes-rizal/notes-rizal.component';
 
 const routes: Routes = [
-  { path: '', title: 'LET Rizal Notes', component: NotesRizalComponent },
+  { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
 ];
 
 @NgModule({

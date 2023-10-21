@@ -96,6 +96,7 @@ mat-icon {
 .dropdown {
   .dropdown-content {
     background-color: var(--primary);
+    min-width: 200px;
   }
 }
 

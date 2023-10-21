@@ -19,6 +19,11 @@
         <a [routerLink]="['/coverage/civil-service']">Civil Service Exam</a>
       </div>
     </div>
-    <a [routerLink]="['/notes']">Notes</a>
+    <div class="dropdown">
+      <button class="droptbn">Notes</button>
+      <div class="dropdown-content">
+        <a *ngFor="let note of notes" (click)="toggleMenu()" [routerLink]="note.route">{{note.name}}</a>
+      </div>
+    </div>
   </div>
 </section>
