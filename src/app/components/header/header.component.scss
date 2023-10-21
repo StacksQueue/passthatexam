@@ -59,7 +59,8 @@ mat-icon {
   }
 
   .header {
-    flex-direction: column;
+    // flex-direction: column;
+    display: block;
   }
 
   .header a,
@@ -88,6 +89,7 @@ mat-icon {
   a {
     text-decoration: none;
     color: #fff;
+    padding: 0 12px;
   }
 }
 
@@ -99,7 +101,7 @@ mat-icon {
 
 .subdropdown {
   .subdropdown-content {
-    background-color: var(--secondary);
+    background-color: #cdbdd9;
   }
 }
 
@@ -110,22 +112,25 @@ mat-icon {
   font-family: inherit;
   font-size: inherit;
   background-color: inherit;
-  padding: 0;
+  padding: 0 12px;
   color: #fff;
 }
 
 .header a:hover,
-.header .dropdown:hover {
-  background-color: var(--accent);
+.header .dropdown:hover,
+.header .subdropdown:hover {
+  background-color: #ac8dc7;
 }
 
 @media screen and (max-width: 600px) {
-  .header { 
+  .header {
     width: 100%;
     padding: 0;
+
   }
   mat-icon {
     color: #fff;
     width: 100%;
+    padding: 0 12px;
   }
 }
