@@ -15,23 +15,23 @@ import { CoverageTleComponent } from 'src/app/components/coverage-tle/coverage-t
 import { CoverageValuesEducationComponent } from 'src/app/components/coverage-values-education/coverage-values-education.component';
 
 const routes: Routes = [
-  { path: 'general-education', component: CoverageGeneralEducationComponent },
-  { path: 'professional-education', component: CoverageProfessionalEducationComponent },
-  { path: 'civil-service', component: CoverageCivilServiceComponent },
-  { path: 'english', component: CoverageEnglishComponent },
-  { path: 'filipino', component: CoverageFilipinoComponent },
-  { path: 'biological-science', component: CoverageBiologicalScienceComponent },
-  { path: 'physical-science', component: CoveragePhysicalScienceComponent },
-  { path: 'mathematics', component: CoverageMathematicsComponent },
-  { path: 'social-science', component: CoverageSocialSciencesComponent },
-  { path: 'values-education', component: CoverageValuesEducationComponent },
-  { path: 'mapeh', component: CoverageMapehComponent },
-  { path: 'agri-fishery-arts', component: CoverageAgriFisheryComponent },
-  { path: 'tle', component: CoverageTleComponent },
+  { path: 'general-education', title: 'LET General Education Coverage of Examination', component: CoverageGeneralEducationComponent },
+  { path: 'professional-education', title: 'LET Professional Education Coverage of Examination', component: CoverageProfessionalEducationComponent },
+  { path: 'civil-service', title: 'Civil Service Coverage of Examination', component: CoverageCivilServiceComponent },
+  { path: 'english', title: 'LET English Major Coverage of Examination', component: CoverageEnglishComponent },
+  { path: 'filipino', title: 'LET Filipino Major Coverage of Examination', component: CoverageFilipinoComponent },
+  { path: 'biological-science', title: 'LET Biological Science Major Coverage of Examination', component: CoverageBiologicalScienceComponent },
+  { path: 'physical-science', title: 'LET Physical Science Major Coverage of Examination', component: CoveragePhysicalScienceComponent },
+  { path: 'mathematics', title: 'LET Mathematics Major Coverage of Examination', component: CoverageMathematicsComponent },
+  { path: 'social-science', title: 'LET Social Science Major Coverage of Examination', component: CoverageSocialSciencesComponent },
+  { path: 'values-education', title: 'LET Values Education Major Coverage of Examination', component: CoverageValuesEducationComponent },
+  { path: 'mapeh', title: 'LET MAPEH Major Coverage of Examination', component: CoverageMapehComponent },
+  { path: 'agri-fishery-arts', title: 'LET Agriculture and Fishery Arts Major Coverage of Examination', component: CoverageAgriFisheryComponent },
+  { path: 'tle', title: 'LET TLE Major Coverage of Examination', component: CoverageTleComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CoverageRoutingModule {}
+export class CoverageRoutingModule { }
