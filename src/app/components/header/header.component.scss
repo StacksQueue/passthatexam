@@ -36,22 +36,7 @@ mat-icon {
 }
 
 /** subdropdown **/
-.subdropdown {
-  position: relative;
-  .subdropdown-content {
-    display: none;
-    position: relative;
-    z-index: 1;
-  }
 
-  .dropdown-content a {
-    display: block;
-  }
-}
-
-.subdropdown:hover .subdropdown-content {
-  display: block;
-}
 
 @media screen and (max-width: 600px) {
   mat-icon {
@@ -127,7 +112,6 @@ mat-icon {
   .header {
     width: 100%;
     padding: 0;
-
   }
   mat-icon {
     color: #fff;
