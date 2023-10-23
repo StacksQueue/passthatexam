@@ -1,18 +1,10 @@
 <section id="actions">
   <app-question-search [programs]="selectedPrograms"></app-question-search>
   <div class="action-wrapper">
-    <mat-slide-toggle (change)="isExpand = $event.checked" color="primary"
-      >Expand All Question Tabs</mat-slide-toggle
-    >
-    <mat-slide-toggle (change)="isShow = $event.checked" color="primary"
-      >Show All Answers</mat-slide-toggle
-    >
+    <mat-slide-toggle (change)="isExpand = $event.checked" color="primary">Expand All Question Tabs</mat-slide-toggle>
+    <mat-slide-toggle (change)="isShow = $event.checked" color="primary">Show All Answers</mat-slide-toggle>
     <div class="spacer"></div>
-    <mat-button-toggle-group
-      [value]="selectedPrograms"
-      (change)="selectedPrograms = $event.value"
-      multiple
-    >
+    <mat-button-toggle-group [value]="selectedPrograms" (change)="selectedPrograms = $event.value" multiple>
       <mat-button-toggle *ngFor="let program of programs" [value]="program">
         {{ program }}
       </mat-button-toggle>
@@ -23,11 +15,10 @@
 <section id="description">
   <div class="title">CSE & LET Question List</div>
   <div class="content">
-    Explore a wealth of knowledge with access to a comprehensive collection of
-    1000+ questions sourced from trusted materials, specifically tailored for
-    the Civil Service Exam (CSE) and the Licensure Exam for Teachers (LET).
-    These questions are meticulously categorized across various subjects,
-    offering you a structured approach to your preparation.
+    Explore a wealth of knowledge with access to a comprehensive collection of 1000+ questions sourced from trusted
+    materials, specifically tailored for the Civil Service Exam (CSE) and the Licensure Exam for Teachers (LET). These
+    questions are meticulously categorized across various subjects, offering you a structured approach to your
+    preparation.
   </div>
 </section>
 
@@ -64,7 +55,4 @@
     (page)="paginate($event)"
   >
   </mat-paginator>
-</section>
-<section id="footer">
-  <app-footer></app-footer>
 </section>

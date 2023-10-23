@@ -120,7 +120,8 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #e3f7ee;
   // background-color: #ebefec;
 }
@@ -130,11 +131,11 @@ body {
 }
 
 .sec-container {
-  max-width: 800px;
+  max-width: 1000px;
   width: 90%;
   padding: 0 5%;
   margin: auto;
-  text-align: justify;
+  text-align: start;
 }
 
 .content {
@@ -144,7 +145,7 @@ body {
 }
 
 .title {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", sans-serif;
   font-size: 26px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
   text-align: center;
@@ -152,16 +153,71 @@ body {
 }
 
 .subtitle {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", sans-serif;
   font-size: 21px;
   padding: 5px 0;
 }
 
 .logo {
-  font-family: "Caveat", sans-serif;
+  font-family: "Permanent Marker", sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: var(--header);
+}
+
+.subcontent {
+  padding: 0 3%;
+}
+
+.subtopic {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 21px;
+  padding: 5px 0;
+  font-weight: 600;
+}
+
+.content-card {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  // padding: 3em;
+  padding: 3%;
+  //   gap: 20px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.content-title {
+  font-size: var(--h2);
+  letter-spacing: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.topic,
+.minitopic {
+  font-weight: 400;
+  font-size: 24px;
+  -webkit-text-decoration: underline rgba(187, 53, 180, 0.3) solid 4px;
+  text-decoration: underline rgba(187, 53, 180, 0.3) solid 0.5em;
+  text-underline-offset: 1px;
+  text-decoration-skip-ink: none;
+}
+
+.minitopic {
+  font-size: inherit;
+  text-decoration: underline #b0bb9d solid 0.3em;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 420px) {
+  .content-title {
+    font-size: 40px;
+  }
 }
 
 :root {
@@ -175,5 +231,14 @@ body {
   --primary: #b0bb9d;
   // --accent: #c56a19;
   --warn: #f44336;
+
+  --font-scale: 1.333;
+  --p: 1rem;
+  --h5: calc(var(--p) * var(--font-scale));
+  --h4: calc(var(--h5) * var(--font-scale));
+  --h3: calc(var(--h4) * var(--font-scale));
+  --h2: calc(var(--h3) * var(--font-scale));
+  --h1: calc(var(--h2) * var(--font-scale));
+  --small: calc(var(--p) / var(--font-scale));
   // https://realtimecolors.com/?colors=030c08-e3f7ee-387a5c-f0cdcb-bb35b4
 }

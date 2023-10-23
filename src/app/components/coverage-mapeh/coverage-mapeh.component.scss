@@ -1,0 +1,29 @@
+.section-cards {
+  display: flex;
+  //   flex-flow: wrap;
+  //   justify-content: center;
+  //   align-items: stretch;
+  gap: 20px;
+}
+
+.highlight {
+  //   width: max-content;
+  font-weight: 400;
+  font-size: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.highlight::before {
+  content: "";
+  height: 50%;
+  width: 100%;
+  display: block;
+  opacity: 30%;
+  position: absolute;
+  transition: all 0.3s ease;
+  background: linear-gradient(180deg, transparent 50%, var(--accent) 50%);
+}

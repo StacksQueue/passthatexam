@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./modules/exam/exam.module').then((m) => m.ExamModule),
   },
   {
+    path: 'coverage',
+    loadChildren: () =>
+      import('./modules/coverage/coverage.module').then((m) => m.CoverageModule),
+  },
+  {
     path: 'copyright-policy',
     title: 'Pass That Board - Copyright Policy And Disclaimer',
     loadChildren: () =>
@@ -39,6 +44,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/question/question.module').then(
         (m) => m.QuestionModule
+      ),
+  },
+  {
+    path: 'notes',
+    loadChildren: () =>
+      import('./modules/notes/notes.module').then(
+        (m) => m.NotesModule
       ),
   },
   {

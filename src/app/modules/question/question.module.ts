@@ -6,7 +6,6 @@ import { QuestionTabComponent } from 'src/app/components/question-tab/question-t
 import { QuestionSearchComponent } from 'src/app/components/question-search/question-search.component';
 import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { SharedModule } from '../shared/shared.module';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
   ],
 })
 export class QuestionModule {}
