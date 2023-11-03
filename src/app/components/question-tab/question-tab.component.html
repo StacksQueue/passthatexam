@@ -1,4 +1,4 @@
-<div class="qtab-wrapper">
+<!-- <div class="qtab-wrapper">
   <div class="qtab-actions">
     <div class="chip" *ngIf="question.major[1]">{{ question.major[1] }}</div>
     <span class="spacer"></span>
@@ -33,4 +33,16 @@
       <span *ngIf="watermark" class="watermark">passthatboard.com</span>
     </mat-expansion-panel>
   </mat-accordion>
+</div> -->
+
+<!-- this line will be for PDF purposes -->
+
+<div class="q-content">
+  <p>{{ question.question }}</p>
+  <div class="q-choices">
+    <p *ngFor="let choice of question.choices | choicefilter : 'a'" [class.correct]="isShow && choice === question.answer">
+      {{ choice }}
+    </p>
+  </div>
+  <p>Explanation: {{question.explanation}}</p>
 </div>

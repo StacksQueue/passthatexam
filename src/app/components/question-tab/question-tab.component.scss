@@ -83,3 +83,14 @@ mat-icon {
     background-color: #c9e4d9;
   }
 }
+
+
+/** questions for pdf **/
+.q-content,
+.q-choices {
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+  }
+}
