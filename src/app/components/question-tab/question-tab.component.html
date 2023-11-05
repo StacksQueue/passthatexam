@@ -38,11 +38,11 @@
 <!-- this line will be for PDF purposes -->
 
 <div class="q-content">
-  <p>{{ question.question }}</p>
+  <p>{{number + 1}}. {{ question.question }}</p>
   <div class="q-choices">
-    <p *ngFor="let choice of question.choices | choicefilter : 'a'" [class.correct]="isShow && choice === question.answer">
-      {{ choice }}
+    <p [class.q-correct]="choice === question.answer" *ngFor="let choice of question.choices; index as i">
+      {{ getAlphabeticalCount(i) }} {{ choice }}
     </p>
   </div>
-  <p>Explanation: {{question.explanation}}</p>
+  <p class="q-explain">Explanation: {{ question.explanation }}</p>
 </div>

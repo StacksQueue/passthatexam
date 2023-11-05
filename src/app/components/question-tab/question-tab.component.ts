@@ -16,6 +16,8 @@ export class QuestionTabComponent implements OnInit {
   @Input() isShow: boolean;
   @Input() isExpand: boolean;
   @Input() watermark: boolean;
+  @Input() number: number;
+
   isChecked: boolean = false;
   question_shortened: string = '';
   panelOpenState: boolean = false;
@@ -52,5 +54,10 @@ export class QuestionTabComponent implements OnInit {
           duration: 3000,
         });
     });
+  }
+
+  getAlphabeticalCount(index: number): string {
+    const letter = String.fromCharCode(65 + index);
+    return letter + '.';
   }
 }

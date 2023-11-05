@@ -78,19 +78,31 @@ mat-icon {
 }
 
 @media screen and (max-width: 420px) {
-  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
-    .mat-expansion-panel-header:hover {
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"]) .mat-expansion-panel-header:hover {
     background-color: #c9e4d9;
   }
 }
 
-
 /** questions for pdf **/
-.q-content,
+.q-content {
+  font-size: 14px;
+  padding: 5px;
+  font-family: "Roboto", sans-serif;
+}
 .q-choices {
   p {
     margin: 0;
-    font-size: 14px;
-    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
   }
+}
+
+.q-correct {
+  -webkit-text-decoration: underline rgba(187, 53, 180, 0.3) solid 4px;
+  text-decoration: underline rgba(187, 53, 180, 0.3) solid 4px;
+  text-underline-offset: 2px;
+  text-decoration-skip-ink: none;
+}
+
+.q-explain {
+  margin-bottom: 0;
 }

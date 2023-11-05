@@ -1,4 +1,4 @@
-<section id="actions">
+<!-- <section id="actions">
   <app-question-search [programs]="selectedPrograms"></app-question-search>
   <div class="action-wrapper">
     <mat-slide-toggle (change)="isExpand = $event.checked" color="primary">Expand All Question Tabs</mat-slide-toggle>
@@ -55,4 +55,17 @@
     (page)="paginate($event)"
   >
   </mat-paginator>
+</section> -->
+
+<section id="display">
+  <div class="q-wrapper">
+    <app-question-tab
+      *ngFor="let question of questionnaires; index as i"
+      [number]="i"
+      [question]="question"
+      [isShow]="isShow"
+      [isExpand]="isExpand"
+      [watermark]="watermark"
+    ></app-question-tab>
+  </div>
 </section>
