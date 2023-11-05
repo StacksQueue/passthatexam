@@ -17,7 +17,7 @@ import { Pagination } from '../models/Pagination';
 })
 export class ExamService {
   firstChoiceSubject: Subject<History> = new Subject<History>();
-  constructor(private https: HttpClient) {}
+  constructor(private https: HttpClient) { }
 
   getExams(filter: IQuestionFilter): Observable<IQuestion[]> {
     let params = new HttpParams({
@@ -62,6 +62,21 @@ export class ExamService {
 
     return this.https
       .get(environment.api_url + '/question/search', { params })
+      .pipe(catchError(this.handleError));
+  }
+
+  getQuestionListByCategory(pagination: Pagination, majors: string[]): Observable<any> {
+
+    let params = new HttpParams({
+      fromObject: {
+        page: pagination.page,
+        limit: pagination.limit,
+        major: majors,
+      },
+    });
+
+    return this.https
+      .get(environment.api_url + '/question/groupbycategory', {params})
       .pipe(catchError(this.handleError));
   }
 

@@ -57,15 +57,19 @@
   </mat-paginator>
 </section> -->
 
-<section id="display">
-  <div class="q-wrapper">
-    <app-question-tab
-      *ngFor="let question of questionnaires; index as i"
-      [number]="i"
-      [question]="question"
-      [isShow]="isShow"
-      [isExpand]="isExpand"
-      [watermark]="watermark"
-    ></app-question-tab>
+<section id="display" *ngIf="questionsbycoverage.length">
+
+  <div class="coverage-wrapper" *ngFor="let coverage of questionsbycoverage">
+    <h4 class="topic">{{coverage['coverage']}}</h4>
+    <div class="q-wrapper">
+      <app-question-tab
+        *ngFor="let question of coverage['data']; index as i"
+        [number]="i"
+        [question]="question"
+        [isShow]="isShow"
+        [isExpand]="isExpand"
+        [watermark]="watermark"
+      ></app-question-tab>
+    </div>
   </div>
 </section>

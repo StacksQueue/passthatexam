@@ -21,6 +21,7 @@ export class QuestionListComponent implements OnInit {
   questionnaires: IQuestion[] = [];
   programs: string[] = [];
   selectedPrograms: string[] = [];
+  selectedCoverage: string[] = [];
   isloading: boolean = false;
   isShow: boolean = false;
   isExpand: boolean = false;
@@ -32,12 +33,14 @@ export class QuestionListComponent implements OnInit {
   };
   watermark: boolean = false;
 
+  questionsbycoverage = []
+
   constructor(
     private router: Router,
     private examService: ExamService,
     private activatedRoute: ActivatedRoute,
     private seoService: SeoService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -61,6 +64,18 @@ export class QuestionListComponent implements OnInit {
       });
   }
 
+  getQuestionListByCategory() {
+    this.examService.getQuestionListByCategory(this.pagination, this.selectedCoverage).subscribe(
+      resp => {
+        this.questionsbycoverage = resp['data'];
+        console.log(this.questionsbycoverage)
+
+      }
+
+    )
+
+  }
+
   paginate(event: PageEvent) {
     const navigationExtras: NavigationExtras = {
       queryParams: {
@@ -81,9 +96,15 @@ export class QuestionListComponent implements OnInit {
         ? params['programs']
         : [params['programs']]
       : [];
+    this.selectedCoverage = params['coverage']
+      ? Array.isArray(params['coverage'])
+        ? params['coverage']
+        : [params['coverage']]
+      : [];
     this.watermark = params['watermark']
       ? JSON.parse(params['watermark'])
       : false;
     this.getQuestionList();
+    this.getQuestionListByCategory()
   }
 }
