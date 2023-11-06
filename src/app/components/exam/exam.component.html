@@ -1,23 +1,17 @@
 <app-desc-welcome></app-desc-welcome>
 <app-desc-drills></app-desc-drills>
-<script
-  async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6202000492749464"
-  crossorigin="anonymous"
-></script>
 <!-- horizontal-display-resp -->
-<ins
-  class="adsbygoogle"
-  style="display: block"
-  data-ad-client="ca-pub-6202000492749464"
-  data-ad-slot="7364693588"
-  data-ad-format="auto"
-  data-ad-channel="3051658459"
-  data-full-width-responsive="true"
-></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<div class="display-ads">
+  <ins
+    class="adsbygoogle"
+    style="display: block"
+    data-ad-client="ca-pub-6202000492749464"
+    data-ad-slot="7364693588"
+    data-ad-format="auto"
+    data-ad-channel="3051658459"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
 <section id="drills">
   <div class="score-container">
     <button mat-flat-button color="primary" (click)="openBottomSheet()">SELECT CATEGORIES</button>
@@ -48,26 +42,6 @@
       </mat-expansion-panel>
     </mat-accordion>
   </ng-template>
-  <div class="display-ads">
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6202000492749464"
-      crossorigin="anonymous"
-    ></script>
-    <!-- horizontal-display-resp -->
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-6202000492749464"
-      data-ad-slot="7364693588"
-      data-ad-format="auto"
-      data-ad-channel="3051658459"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
   <div class="actions">
     <button mat-icon-button (click)="openExplainDialog()" [disabled]="!isShowExplanation" aria-label="Show Explanation">
       <mat-icon>question_answer</mat-icon>
