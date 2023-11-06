@@ -13,6 +13,13 @@ import { ReportQuestionComponent } from '../report-question/report-question.comp
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExplainPromptComponent } from '../explain-prompt/explain-prompt.component';
 
+declare global {
+  interface Window {
+    adsbygoogle: any[];
+  }
+}
+export var adsbygoogle: any[];
+
 export interface Score {
   score: number;
   total: number;
@@ -23,7 +30,7 @@ export interface Score {
   templateUrl: './exam.component.html',
   styleUrls: ['./exam.component.scss'],
 })
-export class ExamComponent implements OnInit {
+export class ExamComponent implements OnInit, AfterViewInit {
   questionnaires: IQuestion[] = [];
   current: IQuestion;
   filter: IQuestionFilter = {
@@ -51,7 +58,7 @@ export class ExamComponent implements OnInit {
     private _bottomSheet: MatBottomSheet,
     private _snackBar: MatSnackBar,
     public dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -71,6 +78,14 @@ export class ExamComponent implements OnInit {
     });
 
     this.ishome = this.router.url === '/';
+  }
+
+  ngAfterViewInit(): void {
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("error");
+    }
   }
 
   next() {
