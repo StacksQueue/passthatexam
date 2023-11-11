@@ -1,5 +1,6 @@
 export interface IQuestionFilter {
-    category: string[];
+    coverage: string[];
+    major: string;
     items: number;
     timer: number;
     program: string;
