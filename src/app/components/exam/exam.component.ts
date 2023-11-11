@@ -34,7 +34,8 @@ export class ExamComponent implements OnInit, AfterViewInit {
   questionnaires: IQuestion[] = [];
   current: IQuestion;
   filter: IQuestionFilter = {
-    category: [],
+    major: '',
+    coverage: [],
     items: 50,
     timer: 0,
     program: "",
@@ -183,14 +184,15 @@ export class ExamComponent implements OnInit, AfterViewInit {
   }
 
   queryParamsHandling(params: Params) {
-    this.filter.category = params['category']
-      ? Array.isArray(params['category'])
-        ? params['category']
-        : [params['category']]
+    this.filter.coverage = params['coverage']
+      ? Array.isArray(params['coverage'])
+        ? params['coverage']
+        : [params['coverage']]
       : [];
     this.filter.items =
       params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
+    this.filter.major = params['major'] ? params['major'] : "";
     this.filter.program = params['program']
       ? params['program'] : "Education"
     this.getExamQuestionnaires();

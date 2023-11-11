@@ -51,9 +51,10 @@ export class ExamFilterComponent implements OnInit {
   navigate() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        category: this.selectedCoverage,
+        coverage: this.selectedCoverage,
         items: this.item,
         program: this.selectedProgram,
+        major: this.selectedMajor
       },
       queryParamsHandling: 'merge',
     };
