@@ -15,11 +15,13 @@ export var adsbygoogle: any[];
 export class HeaderAdsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("error");
-    }
+    setTimeout(() => {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.log(e);
+      }
+    }, 100);
   }
 
 }
