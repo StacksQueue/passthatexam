@@ -19,7 +19,7 @@ export class HeaderAdsComponent implements AfterViewInit {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        console.log(e);
+        console.error('ads err', e);
       }
     }, 100);
   }
