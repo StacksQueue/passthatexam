@@ -1,0 +1,15 @@
+/** ads **/
+.display-ads {
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #90afa1;
+  }
+  
+  @media screen and (max-width: 420px) {
+    .display-ads {
+      padding: 10px 0;
+    }
+  }
+  

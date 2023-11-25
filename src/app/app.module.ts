@@ -8,9 +8,10 @@ import { MaterialModule } from './modules/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { HeaderAdsComponent } from './components/header-ads/header-ads.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, HeaderAdsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
