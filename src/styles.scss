@@ -225,9 +225,18 @@ body {
   font-weight: 600;
 }
 
+.display-ads {
+  height: auto !important;
+  padding: 20px 0;
+}
+
 @media screen and (max-width: 420px) {
   .content-title {
     font-size: 40px;
+  }
+
+  .display-ads {
+    padding: 10px 0 20px 0;
   }
 }
 
