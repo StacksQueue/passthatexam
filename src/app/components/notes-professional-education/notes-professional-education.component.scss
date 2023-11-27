@@ -5,12 +5,17 @@
   li {
     padding: 10px 0;
   }
+  p {
+    margin: 0;
+    padding: 8px 0;
+  }
   .minitopic-description {
     font-size: 14px;
   }
 }
 
 b,
+li,
 .minitopic-description {
   // uncopyable
   -webkit-touch-callout: none;
