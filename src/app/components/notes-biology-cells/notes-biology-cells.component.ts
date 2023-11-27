@@ -13,11 +13,4 @@ export var adsbygoogle: any[];
   styleUrls: ['./notes-biology-cells.component.scss'],
 })
 export class NotesBiologyCellsComponent {
-  ngAfterViewInit(): void {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error('ads err', e);
-    }
-  }
 }
