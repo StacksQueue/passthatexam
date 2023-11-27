@@ -12,12 +12,6 @@ export var adsbygoogle: any[];
   templateUrl: './notes-rizal.component.html',
   styleUrls: ['./notes-rizal.component.scss'],
 })
-export class NotesRizalComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error('ads err', e);
-    }
-  }
+export class NotesRizalComponent {
+
 }
