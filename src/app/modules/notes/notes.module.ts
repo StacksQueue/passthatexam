@@ -8,6 +8,7 @@ import { NotesBiologyCellsComponent } from 'src/app/components/notes-biology-cel
 import { NotesProfessionalEducationComponent } from 'src/app/components/notes-professional-education/notes-professional-education.component';
 import { NotesProfessionalEducationStagesComponent } from 'src/app/components/notes-professional-education-stages/notes-professional-education-stages.component';
 import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
+import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipi
     NotesBiologyCellsComponent,
     NotesProfessionalEducationComponent,
     NotesProfessionalEducationStagesComponent,
-    NotesFilipinoPanitikanComponent
+    NotesFilipinoPanitikanComponent,
+    NotesSocialScienceEconomicsComponent
   ],
   imports: [CommonModule, NotesRoutingModule],
 })

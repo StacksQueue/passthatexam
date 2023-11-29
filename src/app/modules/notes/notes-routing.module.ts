@@ -6,10 +6,12 @@ import { NotesProfessionalEducationStagesComponent } from 'src/app/components/no
 import { NotesProfessionalEducationComponent } from 'src/app/components/notes-professional-education/notes-professional-education.component';
 import { NotesRizalComponent } from 'src/app/components/notes-rizal/notes-rizal.component';
 import { NotesScienceEarthSpaceAstronomyComponent } from 'src/app/components/notes-science-earth-space-astronomy/notes-science-earth-space-astronomy.component';
+import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 
 const routes: Routes = [
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
   { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
+  { path: 'socialscience-economics', title: 'Social Science', component: NotesSocialScienceEconomicsComponent },
   { path: 'professional-education', title: 'Professional Education Notes - 1', component: NotesProfessionalEducationComponent },
   { path: 'professional-education-2', title: 'Professional Education Notes - 2', component: NotesProfessionalEducationStagesComponent },
   { path: 'science-earth-space-astronomy', title: 'Science - Earth, Space and Astronomy', component: NotesScienceEarthSpaceAstronomyComponent },
