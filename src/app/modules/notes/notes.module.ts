@@ -10,6 +10,7 @@ import { NotesProfessionalEducationStagesComponent } from 'src/app/components/no
 import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
+import { NotesEnglishWorksAndAuthorsComponent } from 'src/app/components/notes-english-works-and-authors/notes-english-works-and-authors.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathema
     NotesProfessionalEducationStagesComponent,
     NotesFilipinoPanitikanComponent,
     NotesSocialScienceEconomicsComponent,
-    NotesMathematicsBasicComponent
+    NotesMathematicsBasicComponent,
+    NotesEnglishWorksAndAuthorsComponent
   ],
   imports: [CommonModule, NotesRoutingModule],
 })

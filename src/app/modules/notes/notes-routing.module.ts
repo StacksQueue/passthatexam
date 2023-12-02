@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotesBiologyCellsComponent } from 'src/app/components/notes-biology-cells/notes-biology-cells.component';
+import { NotesEnglishWorksAndAuthorsComponent } from 'src/app/components/notes-english-works-and-authors/notes-english-works-and-authors.component';
 import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
 import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
 import { NotesProfessionalEducationStagesComponent } from 'src/app/components/notes-professional-education-stages/notes-professional-education-stages.component';
@@ -10,6 +11,7 @@ import { NotesScienceEarthSpaceAstronomyComponent } from 'src/app/components/not
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 
 const routes: Routes = [
+  { path: 'english-works-and-authors', title: 'English - Literary Works and Their Authors', component: NotesEnglishWorksAndAuthorsComponent },
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
   { path: 'mathematics-arithmetic', title: 'Mathematics - Arithmetic', component: NotesMathematicsBasicComponent },
   { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
