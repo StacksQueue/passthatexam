@@ -65,10 +65,8 @@ mat-expansion-panel {
   white-space: pre-line;
 }
 
-.mat-expansion-panel-header[aria-disabled="true"]
-  .mat-expansion-panel-header-title,
-.mat-expansion-panel-header[aria-disabled="true"]
-  .mat-expansion-panel-header-description {
+.mat-expansion-panel-header[aria-disabled="true"] .mat-expansion-panel-header-title,
+.mat-expansion-panel-header[aria-disabled="true"] .mat-expansion-panel-header-description {
   color: #000000;
   padding: 0 12px;
 }
@@ -87,10 +85,21 @@ mat-expansion-panel {
   flex: 1 1 auto;
 }
 
+.logo-title {
+  font-family: "Permanent Marker", sans-serif;
+  font-size: 50px;
+  color: var(--header);
+  text-align: center;
+  padding: 20px 0 10px 0;
+}
 
 @media screen and (max-width: 420px) {
   button.mat-primary,
   button.mat-warn {
     font-size: 14px;
+  }
+  .logo-title {
+    font-size: 40px;
+    padding: 20px 0 0 0;
   }
 }
