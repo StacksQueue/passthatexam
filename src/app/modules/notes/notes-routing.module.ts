@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotesBiologyCellsComponent } from 'src/app/components/notes-biology-cells/notes-biology-cells.component';
 import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
+import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
 import { NotesProfessionalEducationStagesComponent } from 'src/app/components/notes-professional-education-stages/notes-professional-education-stages.component';
 import { NotesProfessionalEducationComponent } from 'src/app/components/notes-professional-education/notes-professional-education.component';
 import { NotesRizalComponent } from 'src/app/components/notes-rizal/notes-rizal.component';
@@ -10,6 +11,7 @@ import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-s
 
 const routes: Routes = [
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
+  { path: 'mathematics-arithmetic', title: 'Basic Mathematics', component: NotesMathematicsBasicComponent },
   { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
   { path: 'socialscience-economics', title: 'Social Science', component: NotesSocialScienceEconomicsComponent },
   { path: 'professional-education', title: 'Professional Education Notes - 1', component: NotesProfessionalEducationComponent },

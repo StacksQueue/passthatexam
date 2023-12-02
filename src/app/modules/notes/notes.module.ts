@@ -9,6 +9,7 @@ import { NotesProfessionalEducationComponent } from 'src/app/components/notes-pr
 import { NotesProfessionalEducationStagesComponent } from 'src/app/components/notes-professional-education-stages/notes-professional-education-stages.component';
 import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
+import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-s
     NotesProfessionalEducationComponent,
     NotesProfessionalEducationStagesComponent,
     NotesFilipinoPanitikanComponent,
-    NotesSocialScienceEconomicsComponent
+    NotesSocialScienceEconomicsComponent,
+    NotesMathematicsBasicComponent
   ],
   imports: [CommonModule, NotesRoutingModule],
 })
