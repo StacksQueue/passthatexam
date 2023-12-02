@@ -7,6 +7,9 @@ import { NotesScienceEarthSpaceAstronomyComponent } from 'src/app/components/not
 import { NotesBiologyCellsComponent } from 'src/app/components/notes-biology-cells/notes-biology-cells.component';
 import { NotesProfessionalEducationComponent } from 'src/app/components/notes-professional-education/notes-professional-education.component';
 import { NotesProfessionalEducationStagesComponent } from 'src/app/components/notes-professional-education-stages/notes-professional-education-stages.component';
+import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
+import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
+import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { NotesProfessionalEducationStagesComponent } from 'src/app/components/no
     NotesBiologyCellsComponent,
     NotesProfessionalEducationComponent,
     NotesProfessionalEducationStagesComponent,
+    NotesFilipinoPanitikanComponent,
+    NotesSocialScienceEconomicsComponent,
+    NotesMathematicsBasicComponent
   ],
   imports: [CommonModule, NotesRoutingModule],
 })

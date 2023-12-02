@@ -1,4 +1,5 @@
 <!-- horizontal-display-resp -->
+<div class="logo-title">Pass That Board</div>
 <section id="drills">
   <div class="score-container">
     <button mat-flat-button color="primary" (click)="openBottomSheet()">SELECT CATEGORIES</button>
@@ -45,12 +46,7 @@
     <button mat-icon-button (click)="back()" [disabled]="current_item <= 1" aria-label="Back">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <button
-      mat-icon-button
-      [disabled]="!isPrompted"
-      (click)="gotoSkippedQuestion()"
-      aria-label="Go to skipped question"
-    >
+    <button mat-icon-button [disabled]="!isPrompted" (click)="gotoSkippedQuestion()" aria-label="Go to skipped question">
       <mat-icon>move_up</mat-icon>
     </button>
     <button mat-icon-button (click)="next()" [disabled]="current_item + 1 > questionnaires.length" aria-label="Next">
