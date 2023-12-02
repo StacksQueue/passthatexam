@@ -11,7 +11,7 @@ import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-s
 
 const routes: Routes = [
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
-  { path: 'mathematics-arithmetic', title: 'Basic Mathematics', component: NotesMathematicsBasicComponent },
+  { path: 'mathematics-arithmetic', title: 'Mathematics - Arithmetic', component: NotesMathematicsBasicComponent },
   { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
   { path: 'socialscience-economics', title: 'Social Science', component: NotesSocialScienceEconomicsComponent },
   { path: 'professional-education', title: 'Professional Education Notes - 1', component: NotesProfessionalEducationComponent },
