@@ -69,7 +69,6 @@
   justify-content: center;
   align-items: center;
   padding: 0 10px 20px 0;
-  margin-bottom: 100px;
 }
 
 // mat-icon {
@@ -127,6 +126,9 @@ mat-button-toggle-group {
 }
 
 @media screen and (max-width: 420px) {
+  .action-wrapper {
+    margin-bottom: 100px;
+  }
   .program-title {
     padding: 0 0 20px 0;
   }
