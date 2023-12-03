@@ -11,6 +11,7 @@ import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipi
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
 import { NotesEnglishWorksAndAuthorsComponent } from 'src/app/components/notes-english-works-and-authors/notes-english-works-and-authors.component';
+import { NotesEnglishGrammarComponent } from 'src/app/components/notes-english-grammar/notes-english-grammar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NotesEnglishWorksAndAuthorsComponent } from 'src/app/components/notes-e
     NotesFilipinoPanitikanComponent,
     NotesSocialScienceEconomicsComponent,
     NotesMathematicsBasicComponent,
-    NotesEnglishWorksAndAuthorsComponent
+    NotesEnglishWorksAndAuthorsComponent,
+    NotesEnglishGrammarComponent
   ],
   imports: [CommonModule, NotesRoutingModule],
 })

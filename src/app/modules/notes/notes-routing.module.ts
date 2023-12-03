@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotesBiologyCellsComponent } from 'src/app/components/notes-biology-cells/notes-biology-cells.component';
+import { NotesEnglishGrammarComponent } from 'src/app/components/notes-english-grammar/notes-english-grammar.component';
 import { NotesEnglishWorksAndAuthorsComponent } from 'src/app/components/notes-english-works-and-authors/notes-english-works-and-authors.component';
 import { NotesFilipinoPanitikanComponent } from 'src/app/components/notes-filipino-panitikan/notes-filipino-panitikan.component';
 import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
@@ -12,7 +13,7 @@ import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-s
 
 const routes: Routes = [
   { path: 'english-works-and-authors', title: 'English - Literary Works and Their Authors', component: NotesEnglishWorksAndAuthorsComponent },
-  { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
+  { path: 'english-grammar', title: 'English - Grammar', component: NotesEnglishGrammarComponent },
   { path: 'mathematics-arithmetic', title: 'Mathematics - Arithmetic', component: NotesMathematicsBasicComponent },
   { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
   { path: 'socialscience-economics', title: 'Social Science', component: NotesSocialScienceEconomicsComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'professional-education-2', title: 'Professional Education Notes - 2', component: NotesProfessionalEducationStagesComponent },
   { path: 'science-earth-space-astronomy', title: 'Science - Earth, Space and Astronomy', component: NotesScienceEarthSpaceAstronomyComponent },
   { path: 'science-biology-cells', title: 'Biology - Cells', component: NotesBiologyCellsComponent },
+  { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
 ];
 
 @NgModule({
