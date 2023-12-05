@@ -12,7 +12,6 @@ import { NotesScienceEarthSpaceAstronomyComponent } from 'src/app/components/not
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 
 const routes: Routes = [
-  { path: 'english-works-and-authors', title: 'English - Literary Works and Their Authors', component: NotesEnglishWorksAndAuthorsComponent },
   { path: 'english-grammar', title: 'English - Grammar', component: NotesEnglishGrammarComponent },
   { path: 'mathematics-arithmetic', title: 'Mathematics - Arithmetic', component: NotesMathematicsBasicComponent },
   { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
