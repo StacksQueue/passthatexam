@@ -2,11 +2,12 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  margin: 15px 0;
 }
 
 td,
 th {
-  border: 1px solid #000;
+  border-bottom: 1px solid #818181;
   text-align: left;
   padding: 8px;
 }
@@ -61,5 +62,10 @@ li,
 @media screen and (max-width: 420px) {
   ol {
     padding-left: 5%;
+  }
+
+  .overflow-div {
+    width: -webkit-fill-available;
+    overflow-x: scroll;
   }
 }
