@@ -1,4 +1,17 @@
 /** ads **/
+.ad-container {
+  max-width: 2000px;
+  min-height: 300px;
+  width: 100%;
+  margin: auto;
+}
+
 section {
   background-color: #90afa1;
+  text-align: center;
+}
+
+.ad-label {
+  font-size: 14px;
+  padding: 5px 0;
 }
