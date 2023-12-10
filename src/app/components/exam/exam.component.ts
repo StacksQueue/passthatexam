@@ -13,7 +13,6 @@ import { ReportQuestionComponent } from '../report-question/report-question.comp
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExplainPromptComponent } from '../explain-prompt/explain-prompt.component';
 
-
 export interface Score {
   score: number;
   total: number;
@@ -32,7 +31,7 @@ export class ExamComponent implements OnInit {
     coverage: [],
     items: 50,
     timer: 0,
-    program: "",
+    program: '',
   };
 
   isloading: boolean = false;
@@ -53,7 +52,7 @@ export class ExamComponent implements OnInit {
     private _bottomSheet: MatBottomSheet,
     private _snackBar: MatSnackBar,
     public dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -68,8 +67,7 @@ export class ExamComponent implements OnInit {
         choosenAnswer: resp.choosenAnswer,
       });
       this.isShowExplanation = true;
-      if (this.questionnaires.length === this.histories.length)
-        this.openDialog(ScoreComponent, this.histories);
+      if (this.questionnaires.length === this.histories.length) this.openDialog(ScoreComponent, this.histories);
     });
 
     this.ishome = this.router.url === '/';
@@ -126,9 +124,23 @@ export class ExamComponent implements OnInit {
     return this.histories.filter((x) => x.itemNo == this.current_item)[0];
   }
 
+  openExamFilterDialog(): void {
+    console.log('haha');
+    const dialogref = this.dialog.open(ExamFilterComponent, {
+      ariaLabel: 'Exam Filter',
+      maxWidth: '100vw',
+      maxHeight: '80vh',
+      // width: '100vw',
+      // height: '80vh',
+      position: {
+        top: '5%',
+      },
+    });
+  }
+
   openBottomSheet(): void {
     this._bottomSheet.open(ExamFilterComponent, {
-      ariaLabel: "Exam Filter",
+      ariaLabel: 'Exam Filter',
       panelClass: 'custom-bottom-sheet',
     });
   }
@@ -141,15 +153,7 @@ export class ExamComponent implements OnInit {
     this.openDialog(ReportQuestionComponent, this.current);
   }
 
-  openDialog(
-    component: Type<
-      | ScoreComponent
-      | SkipPromptComponent
-      | ReportQuestionComponent
-      | ExplainPromptComponent
-    >,
-    data: any
-  ) {
+  openDialog(component: Type<ScoreComponent | SkipPromptComponent | ReportQuestionComponent | ExplainPromptComponent>, data: any) {
     const dialogref = this.dialog.open(component, {
       data: data,
       width: '400px',
@@ -170,17 +174,11 @@ export class ExamComponent implements OnInit {
   }
 
   queryParamsHandling(params: Params) {
-    this.filter.coverage = params['coverage']
-      ? Array.isArray(params['coverage'])
-        ? params['coverage']
-        : [params['coverage']]
-      : [];
-    this.filter.items =
-      params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
+    this.filter.coverage = params['coverage'] ? (Array.isArray(params['coverage']) ? params['coverage'] : [params['coverage']]) : [];
+    this.filter.items = params['items'] && parseInt(params['items']) > 0 ? params['items'] : 50;
     this.filter.timer = params['timer'] ? params['timer'] : 0;
-    this.filter.major = params['major'] ? params['major'] : "";
-    this.filter.program = params['program']
-      ? params['program'] : "Education"
+    this.filter.major = params['major'] ? params['major'] : '';
+    this.filter.program = params['program'] ? params['program'] : 'Education';
     this.getExamQuestionnaires();
   }
 }

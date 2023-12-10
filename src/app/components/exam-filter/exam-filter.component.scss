@@ -22,7 +22,7 @@
 }
 
 .wrapper {
-  padding: 0 10px;
+  padding: 0 20px;
   display: inline-grid;
   mat-label {
     font-size: 12px;
@@ -32,7 +32,7 @@
 }
 
 .label {
-  padding: 0 10px;
+  padding: 0 20px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 5px;
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px;
 
   .item-wrapper {
     width: 100%;
@@ -126,9 +126,6 @@ mat-button-toggle-group {
 }
 
 @media screen and (max-width: 420px) {
-  .action-wrapper {
-    margin-bottom: 100px;
-  }
   .program-title {
     padding: 0 0 20px 0;
   }
@@ -140,6 +137,7 @@ mat-button-toggle-group {
 
   .timer-item-wrapper {
     flex-direction: column;
+    padding: 20px 10px;
 
     .item-wrapper,
     .timer-wrapper {
