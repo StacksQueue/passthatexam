@@ -12,7 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./exam-filter.component.scss'],
 })
 export class ExamFilterComponent implements OnInit {
-  item = 80;
+  item = 50;
   programs: string[] = [];
   selectedProgram: string = 'Education';
   selectedMajor: string = 'General Education';
