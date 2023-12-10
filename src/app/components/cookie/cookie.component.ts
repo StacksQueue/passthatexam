@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgcCookieConsentService, NgcNoCookieLawEvent, NgcStatusChangeEvent } from 'ngx-cookieconsent';
 import { Subscription } from 'rxjs';
 
+export var adsbygoogle: any[];
+
 @Component({
   selector: 'app-cookie',
   templateUrl: './cookie.component.html',
@@ -19,35 +21,19 @@ export class CookieComponent implements OnInit, OnDestroy {
   constructor(private ccService: NgcCookieConsentService) {}
 
   ngOnInit() {
-    console.log(this.ccService.hasConsented());
-    this.popupOpenSubscription = this.ccService.popupOpen$.subscribe(() => {
-      // you can use this.ccService.getConfig() to do stuff...
-      console.log('pop up open');
-    });
-
-    this.popupCloseSubscription = this.ccService.popupClose$.subscribe(() => {
-      // you can use this.ccService.getConfig() to do stuff...
-      console.log('pop up close');
-    });
-
-    this.initializeSubscription = this.ccService.initialized$.subscribe((event: any) => {
-      // you can use this.ccService.getConfig() to do stuff...
-      console.log('pop up initilized');
-    });
+    if (this.ccService.hasAnswered()) {
+      (adsbygoogle = (window as any).adsbygoogle || []).pauseAdRequests = 0;
+    }
 
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe((event: NgcStatusChangeEvent) => {
-      // you can use this.ccService.getConfig() to do stuff...
-      console.log('pop up change subscription');
-    });
-
-    this.revokeChoiceSubscription = this.ccService.revokeChoice$.subscribe(() => {
-      // you can use this.ccService.getConfig() to do stuff...
-      console.log('pop up revoke subscription');
-    });
-
-    this.noCookieLawSubscription = this.ccService.noCookieLaw$.subscribe((event: NgcNoCookieLawEvent) => {
-      // you can use this.ccService.getConfig() to do stuff...
-      console.log('no cookie law');
+      try {
+        if (event.status === 'deny') {
+          (adsbygoogle = (window as any).adsbygoogle || []).requestNonPersonalizedAds = 1;
+        }
+        (adsbygoogle = (window as any).adsbygoogle || []).pauseAdRequests = 0;
+      } catch (e) {
+        console.error('ads err', e);
+      }
     });
   }
 
