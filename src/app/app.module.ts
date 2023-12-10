@@ -11,6 +11,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { HeaderAdsComponent } from './components/header-ads/header-ads.component';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { environment } from 'src/environments/environment';
+import { CookieComponent } from './components/cookie/cookie.component';
 const cookieConfig: NgcCookieConsentConfig = {
   cookie: {
     domain: environment.domain,
@@ -19,7 +20,7 @@ const cookieConfig: NgcCookieConsentConfig = {
   theme: 'edgeless',
   palette: {
     popup: {
-      background: '#013832',
+      background: '#387a5c',
       text: '#ffffff',
       link: '#ffffff',
     },
@@ -31,17 +32,12 @@ const cookieConfig: NgcCookieConsentConfig = {
   },
   type: 'opt-out',
   content: {
-    message: 'This website uses cookies to ensure you get the best experience on our website.',
-    dismiss: 'Got it!',
-    deny: 'Refuse cookies',
-    link: 'Learn more',
     href: 'https://passthatboard.com/privacy-policy',
-    policy: '😁',
   },
 };
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeaderAdsComponent],
+  declarations: [AppComponent, HeaderComponent, HeaderAdsComponent, CookieComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
