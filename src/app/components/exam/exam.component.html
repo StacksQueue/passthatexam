@@ -2,7 +2,7 @@
 <div class="logo-title">Pass That Board</div>
 <section id="drills">
   <div class="score-container">
-    <button mat-flat-button color="primary" (click)="openExamFilterDialog()">SELECT CATEGORIES</button>
+    <button mat-flat-button color="primary" (click)="openBottomSheet()">SELECT CATEGORIES</button>
     <div class="chip" *ngIf="current">{{ current.major[1] }}</div>
     <span class="spacer"></span>
     <span>{{ current_item }}/{{ questionnaires.length }}</span>

@@ -32,8 +32,8 @@ export class ExamFilterComponent implements OnInit {
   constructor(
     private examService: ExamService,
     private router: Router,
-    // private _bottomSheetRef: MatBottomSheetRef<ExamFilterComponent>,
-    public dialogRef: MatDialogRef<ExamFilterComponent>
+    private _bottomSheetRef: MatBottomSheetRef<ExamFilterComponent>,
+    // public dialogRef: MatDialogRef<ExamFilterComponent>
   ) {}
 
   ngOnInit(): void {
@@ -59,7 +59,7 @@ export class ExamFilterComponent implements OnInit {
       queryParamsHandling: 'merge',
     };
     this.router.navigate(['/'], navigationExtras);
-    // this._bottomSheetRef.dismiss();
-    this.dialogRef.close();
+    this._bottomSheetRef.dismiss();
+    // this.dialogRef.close();
   }
 }
