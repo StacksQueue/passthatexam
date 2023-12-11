@@ -33,7 +33,7 @@ const cookieConfig: NgcCookieConsentConfig = {
   type: 'opt-out',
   content: {
     href: 'https://passthatboard.com/privacy-policy',
-    policy: '🍪',
+    // policy: '🍪',
   },
 };
 
