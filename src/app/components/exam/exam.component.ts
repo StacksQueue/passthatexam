@@ -125,7 +125,6 @@ export class ExamComponent implements OnInit {
   }
 
   openExamFilterDialog(): void {
-    console.log('haha');
     const dialogref = this.dialog.open(ExamFilterComponent, {
       ariaLabel: 'Exam Filter',
       maxWidth: '100vw',

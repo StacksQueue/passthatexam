@@ -23,17 +23,18 @@ export class CookieComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (!this.ccService.hasConsented()) {
-      (adsbygoogle = (window as any).adsbygoogle || []).requestNonPersonalizedAds = 1;
+    if (this.ccService.hasAnswered()) {
+      if (!this.ccService.hasConsented()) {
+        (adsbygoogle = (window as any).adsbygoogle || []).requestNonPersonalizedAds = 1;
+      }
+      (adsbygoogle = (window as any).adsbygoogle || []).pauseAdRequests = 0;
     }
 
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe((event: NgcStatusChangeEvent) => {
       this.ccService.close(false);
       try {
-        if (event.status === 'deny') {
-          (adsbygoogle = (window as any).adsbygoogle || []).requestNonPersonalizedAds = 1;
-        }
-        // (adsbygoogle = (window as any).adsbygoogle || []).pauseAdRequests = 0;
+        if (event.status === 'deny') (adsbygoogle = (window as any).adsbygoogle || []).requestNonPersonalizedAds = 1;
+        (adsbygoogle = (window as any).adsbygoogle || []).pauseAdRequests = 0;
       } catch (e) {
         console.error('ads err', e);
       }
