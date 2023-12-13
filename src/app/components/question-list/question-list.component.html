@@ -63,7 +63,7 @@
     <h4 class="topic">{{coverage['coverage']}}</h4>
     <div class="q-wrapper">
       <app-question-tab
-        *ngFor="let question of coverage['data']; index as i"
+        *ngFor="let question of coverage['question']; index as i"
         [number]="i"
         [question]="question"
         [isShow]="isShow"

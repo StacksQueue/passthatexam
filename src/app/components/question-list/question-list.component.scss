@@ -1,7 +1,6 @@
 .q-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .loader {
@@ -14,7 +13,6 @@
   // width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
 .no-display {
@@ -32,7 +30,6 @@
     width: 40px;
   }
 }
-
 
 p {
   margin: 0;
@@ -56,9 +53,7 @@ mat-slide-toggle {
   font-size: 14px;
 }
 
-::ng-deep
-  .mat-button-toggle-appearance-standard
-  .mat-button-toggle-label-content {
+::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
   line-height: 36px;
 }
 
@@ -85,6 +80,5 @@ mat-slide-toggle {
     align-items: flex-start;
   }
 }
-
 
 /** for pdf purposes starts here **/
