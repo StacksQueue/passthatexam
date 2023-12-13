@@ -189,6 +189,17 @@ body {
   background-color: rgba(0, 0, 0, 0.03);
   border-radius: 10px;
   margin-bottom: 50px;
+  p,
+  .topic,
+  .minitopic {
+    // uncopyable
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 .content-title {
@@ -214,9 +225,25 @@ body {
   font-weight: 600;
 }
 
+.display-ads {
+  height: auto !important;
+  padding: 20px 0;
+}
+
+.inarticle-ads {
+  height: auto !important;
+  padding: 20px 5px;
+  min-width: 300px;
+  // width: 100%;
+}
+
 @media screen and (max-width: 420px) {
   .content-title {
     font-size: 40px;
+  }
+
+  .display-ads {
+    padding: 10px 10px 20px 10px;
   }
 }
 

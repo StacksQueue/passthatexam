@@ -23,8 +23,9 @@ export class ExamService {
     let params = new HttpParams({
       fromObject: {
         limit: filter.items,
-        major: filter.category,
+        major: filter.major,
         program: filter.program,
+        coverage: filter.coverage
       },
     });
     return this.https

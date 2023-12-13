@@ -50,10 +50,10 @@
     <div class="item-wrapper">
       <mat-form-field>
         <mat-label>Number of Items</mat-label>
-        <input matInput type="number" [(ngModel)]="item" />
+        <input matInput type="number" [(ngModel)]="item" readonly/>
       </mat-form-field>
-      <mat-slider min="10" max="200">
-        <input matSliderThumb [(ngModel)]="item" />
+      <mat-slider min="10" max="100" step="5">
+        <input matSliderThumb [(ngModel)]="item"/>
       </mat-slider>
     </div>
   </div>

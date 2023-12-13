@@ -22,7 +22,7 @@
 }
 
 .wrapper {
-  padding: 0 10px;
+  padding: 0 20px;
   display: inline-grid;
   mat-label {
     font-size: 12px;
@@ -32,10 +32,10 @@
 }
 
 .label {
-  padding: 0 10px;
+  padding: 0 20px;
   font-size: 12px;
-    color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 5px;
 }
 
 .major-filter {
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px;
 
   .item-wrapper {
     width: 100%;
@@ -68,7 +68,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 10px;
+  padding: 0 10px 20px 0;
 }
 
 // mat-icon {
@@ -107,9 +107,7 @@ mat-hint {
   color: white;
 }
 
-::ng-deep
-  .mat-button-toggle-appearance-standard
-  .mat-button-toggle-label-content {
+::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
   line-height: 30px;
 }
 
@@ -123,11 +121,9 @@ mat-button-toggle-group {
   // min-width: 100px;
 }
 
-
 #exam-filter {
   padding: 50px 0;
 }
-
 
 @media screen and (max-width: 420px) {
   .program-title {
@@ -141,6 +137,7 @@ mat-button-toggle-group {
 
   .timer-item-wrapper {
     flex-direction: column;
+    padding: 20px 10px;
 
     .item-wrapper,
     .timer-wrapper {

@@ -29,8 +29,8 @@ export class HeaderComponent implements OnInit {
   ];
 
   notes: Route[] = [
-    { name: 'Rizal', route: ['/notes/rizal'] },
-
+    { name: 'Earth, Space, and Astronomy', route: ['/notes/science-earth-space-astronomy'] },
+    { name: 'Biology - Cells', route: ['/notes/science-biology-cells'] },
   ]
 
 

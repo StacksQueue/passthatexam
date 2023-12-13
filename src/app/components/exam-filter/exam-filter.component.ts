@@ -4,6 +4,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Filter } from 'src/app/models/Filter';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-exam-filter',
@@ -11,7 +12,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
   styleUrls: ['./exam-filter.component.scss'],
 })
 export class ExamFilterComponent implements OnInit {
-  item = 80;
+  item = 50;
   programs: string[] = [];
   selectedProgram: string = 'Education';
   selectedMajor: string = 'General Education';
@@ -31,7 +32,8 @@ export class ExamFilterComponent implements OnInit {
   constructor(
     private examService: ExamService,
     private router: Router,
-    private _bottomSheetRef: MatBottomSheetRef<ExamFilterComponent>
+    // private _bottomSheetRef: MatBottomSheetRef<ExamFilterComponent>,
+    public dialogRef: MatDialogRef<ExamFilterComponent>
   ) {}
 
   ngOnInit(): void {
@@ -43,21 +45,21 @@ export class ExamFilterComponent implements OnInit {
 
   onProgramChanged(event: MatButtonToggleChange) {
     this.selectedProgram = event.value;
-    this.selectedMajor = this.defaults.filter(
-      (x) => x.program == this.selectedProgram
-    )[0].major;
+    this.selectedMajor = this.defaults.filter((x) => x.program == this.selectedProgram)[0].major;
   }
 
   navigate() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        category: this.selectedCoverage,
+        coverage: this.selectedCoverage,
         items: this.item,
         program: this.selectedProgram,
+        major: this.selectedMajor,
       },
       queryParamsHandling: 'merge',
     };
     this.router.navigate(['/'], navigationExtras);
-    this._bottomSheetRef.dismiss();
+    // this._bottomSheetRef.dismiss();
+    this.dialogRef.close();
   }
 }
