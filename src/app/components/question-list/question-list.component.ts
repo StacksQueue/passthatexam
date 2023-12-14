@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import {
-  ActivatedRoute,
-  NavigationExtras,
-  Params,
-  Router,
-} from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { Pagination } from 'src/app/models/Pagination';
 import { IQuestion } from 'src/app/models/Question';
 import { ExamService } from 'src/app/services/exam.service';
@@ -22,6 +17,7 @@ export class QuestionListComponent implements OnInit {
   programs: string[] = [];
   selectedPrograms: string[] = [];
   selectedCoverage: string[] = [];
+  selectedMain: string[] = [];
   isloading: boolean = false;
   isShow: boolean = false;
   isExpand: boolean = false;
@@ -33,14 +29,9 @@ export class QuestionListComponent implements OnInit {
   };
   watermark: boolean = false;
 
-  questionsbycoverage = []
+  questionsbycoverage = [];
 
-  constructor(
-    private router: Router,
-    private examService: ExamService,
-    private activatedRoute: ActivatedRoute,
-    private seoService: SeoService
-  ) { }
+  constructor(private router: Router, private examService: ExamService, private activatedRoute: ActivatedRoute, private seoService: SeoService) {}
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -55,25 +46,18 @@ export class QuestionListComponent implements OnInit {
 
   getQuestionList() {
     this.isloading = true;
-    this.examService
-      .getQuestionList(this.keyword, this.selectedPrograms, this.pagination)
-      .subscribe((resp) => {
-        this.questionnaires = resp['data'];
-        this.pagination.length = resp['total'];
-        this.isloading = false;
-      });
+    this.examService.getQuestionList(this.keyword, this.selectedPrograms, this.pagination).subscribe((resp) => {
+      this.questionnaires = resp['data'];
+      this.pagination.length = resp['total'];
+      this.isloading = false;
+    });
   }
 
   getQuestionListByCategory() {
-    this.examService.getQuestionListByCategory(this.pagination, this.selectedCoverage).subscribe(
-      resp => {
-        this.questionsbycoverage = resp['data'];
-        console.log(this.questionsbycoverage)
-
-      }
-
-    )
-
+    this.examService.getQuestionListByCategory(this.pagination, this.selectedCoverage, this.selectedMain).subscribe((resp) => {
+      this.questionsbycoverage = resp['data'];
+      console.log(this.questionsbycoverage);
+    });
   }
 
   paginate(event: PageEvent) {
@@ -91,20 +75,11 @@ export class QuestionListComponent implements OnInit {
     this.pagination.page = params['page'] ? params['page'] : 1;
     this.pagination.limit = params['limit'] ? params['limit'] : 25;
     this.keyword = params['keyword'] ? params['keyword'] : '';
-    this.selectedPrograms = params['programs']
-      ? Array.isArray(params['programs'])
-        ? params['programs']
-        : [params['programs']]
-      : [];
-    this.selectedCoverage = params['coverage']
-      ? Array.isArray(params['coverage'])
-        ? params['coverage']
-        : [params['coverage']]
-      : [];
-    this.watermark = params['watermark']
-      ? JSON.parse(params['watermark'])
-      : false;
+    this.selectedPrograms = params['programs'] ? (Array.isArray(params['programs']) ? params['programs'] : [params['programs']]) : [];
+    this.selectedCoverage = params['coverage'] ? (Array.isArray(params['coverage']) ? params['coverage'] : [params['coverage']]) : [];
+    this.selectedMain = params['main'] ? (Array.isArray(params['main']) ? params['main'] : [params['main']]) : [];
+    this.watermark = params['watermark'] ? JSON.parse(params['watermark']) : false;
     this.getQuestionList();
-    this.getQuestionListByCategory()
+    this.getQuestionListByCategory();
   }
 }

@@ -66,13 +66,14 @@ export class ExamService {
       .pipe(catchError(this.handleError));
   }
 
-  getQuestionListByCategory(pagination: Pagination, majors: string[]): Observable<any> {
+  getQuestionListByCategory(pagination: Pagination, majors: string[], main: string[]): Observable<any> {
 
     let params = new HttpParams({
       fromObject: {
         page: pagination.page,
         limit: pagination.limit,
         major: majors,
+        main: main
       },
     });
 
