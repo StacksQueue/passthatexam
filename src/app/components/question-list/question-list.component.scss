@@ -14,7 +14,6 @@
   // width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
 .no-display {
@@ -32,7 +31,6 @@
     width: 40px;
   }
 }
-
 
 p {
   margin: 0;
@@ -56,9 +54,7 @@ mat-slide-toggle {
   font-size: 14px;
 }
 
-::ng-deep
-  .mat-button-toggle-appearance-standard
-  .mat-button-toggle-label-content {
+::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
   line-height: 36px;
 }
 
@@ -80,6 +76,10 @@ mat-slide-toggle {
 }
 
 @media screen and (max-width: 420px) {
+  ::ng-deep.sec-container {
+    width: 100%;
+    padding: 0;
+  }
   .action-wrapper {
     flex-direction: column-reverse;
     align-items: flex-start;
