@@ -25,24 +25,6 @@
         </app-choice>
       </div>
     </div>
-    <!-- <mat-accordion>
-      <mat-expansion-panel [expanded]="true" [disabled]="true" [hideToggle]="true">
-        <mat-expansion-panel-header>
-          <mat-panel-description>
-            {{ current.question }}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <app-choice
-          *ngFor="let choice of current.choices"
-          [choice]="choice"
-          [answer]="current.answer"
-          [ishome]="ishome"
-          [itemNo]="current_item"
-          [history]="history"
-        >
-        </app-choice>
-      </mat-expansion-panel>
-    </mat-accordion> -->
   </ng-template>
   <div class="actions">
     <button mat-icon-button (click)="openExplainDialog()" [disabled]="!isShowExplanation" aria-label="Show Explanation">
@@ -70,4 +52,3 @@
 </section>
 <app-desc-welcome></app-desc-welcome>
 <app-desc-drills></app-desc-drills>
-<app-desc-coverage></app-desc-coverage>
