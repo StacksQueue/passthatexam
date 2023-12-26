@@ -2,7 +2,7 @@
   <div class="chip" *ngIf="question.major[0]">{{ question.major[0] }}</div>
   <p>{{ question.question }}</p>
   <div class="q-choices">
-    <div *ngFor="let choice of question.choices; index as i">
+    <div [class.correct]="isShow && choice === question.answer" *ngFor="let choice of question.choices; index as i">
       {{ choice }}
     </div>
   </div>
