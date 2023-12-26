@@ -1,36 +1,10 @@
-<div class="qtab-wrapper">
-  <div class="qtab-actions">
-    <div class="chip" *ngIf="question.major[1]">{{ question.major[1] }}</div>
-    <span class="spacer"></span>
-    <mat-slide-toggle [(ngModel)]="isShow" color="primary"></mat-slide-toggle>
-    <mat-icon
-      aria-hidden="false"
-      aria-label="report button"
-      fontIcon="flag"
-      class="report"
-      (click)="openReportQuestionDialog()"
-    ></mat-icon>
-    <mat-icon (click)="openExplainDialog()">question_answer</mat-icon>
+<div class="q-content">
+  <div class="chip" *ngIf="question.major[0]">{{ question.major[0] }}</div>
+  <p>{{ question.question }}</p>
+  <div class="q-choices">
+    <div [class.correct]="isShow && choice === question.answer" *ngFor="let choice of question.choices; index as i">
+      {{ choice }}
+    </div>
   </div>
-  <mat-accordion>
-    <mat-expansion-panel
-      [expanded]="isExpand"
-      (opened)="isExpand = true"
-      (closed)="isExpand = false"
-    >
-      <mat-expansion-panel-header>
-        <mat-panel-description>
-          {{ isExpand ? question.question : question_shortened }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div
-        class="choice"
-        *ngFor="let choice of question.choices"
-        [class.correct]="isShow && choice === question.answer"
-      >
-        {{ choice }}
-      </div>
-      <span *ngIf="watermark" class="watermark">passthatboard.com</span>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <div *ngIf="watermark" class="watermark">passthatboard.com</div>
 </div>
