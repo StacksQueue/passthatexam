@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
     { name: 'Social Science | Economics', route: ['/notes/socialscience-economics'] },
     { name: 'Science | Earth, Space, and Astronomy', route: ['/notes/science-earth-space-astronomy'] },
     { name: 'Science | Biology - Cells', route: ['/notes/science-biology-cells'] },
+    { name: 'Science | Basic Chemistry', route: ['/notes/science-basic-chemistry'] },
     { name: 'Professional Education Notes - 1', route: ['/notes/professional-education'] },
     { name: 'Professional Education Notes - 2', route: ['/notes/professional-education-2'] },
     { name: 'Rizal', route: ['/notes/rizal'] },
