@@ -29,15 +29,21 @@ export class HeaderComponent implements OnInit {
   ];
 
   notes: Route[] = [
-    { name: 'Earth, Space, and Astronomy', route: ['/notes/science-earth-space-astronomy'] },
-    { name: 'Biology - Cells', route: ['/notes/science-biology-cells'] },
-  ]
-
-
+    { name: 'English | Grammar', route: ['/notes/english-grammar'] },
+    { name: 'Mathematics | Arithmetic', route: ['/notes/mathematics-arithmetic'] },
+    { name: 'Filipino | Panitikan', route: ['/notes/filipino-panitikan'] },
+    { name: 'Social Science | Economics', route: ['/notes/socialscience-economics'] },
+    { name: 'Science | Earth, Space, and Astronomy', route: ['/notes/science-earth-space-astronomy'] },
+    { name: 'Science | Biology - Cells', route: ['/notes/science-biology-cells'] },
+    { name: 'Professional Education Notes - 1', route: ['/notes/professional-education'] },
+    { name: 'Professional Education Notes - 2', route: ['/notes/professional-education-2'] },
+    { name: 'Rizal', route: ['/notes/rizal'] },
+   
+  ];
 
   isMenuOpen = false;
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
