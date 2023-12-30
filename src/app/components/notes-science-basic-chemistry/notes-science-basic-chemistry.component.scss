@@ -1,0 +1,18 @@
+.keyword {
+  text-decoration: underline rgba(48, 12, 131, 0.4) solid 0.2em;
+  text-decoration-skip-ink: none;
+  font-weight: 600;
+}
+
+.examples {
+  padding: 10px 0;
+  li {
+    padding: 0;
+  }
+
+  li::marker {
+    font-weight: bold;
+  }
+}
+
+/* It's supposed to look like a tree diagram */
