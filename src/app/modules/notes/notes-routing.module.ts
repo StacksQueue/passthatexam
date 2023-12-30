@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'professional-education-2', title: 'Professional Education Notes - 2', component: NotesProfessionalEducationStagesComponent },
   { path: 'science-earth-space-astronomy', title: 'Science - Earth, Space and Astronomy', component: NotesScienceEarthSpaceAstronomyComponent },
   { path: 'science-biology-cells', title: 'Biology - Cells', component: NotesBiologyCellsComponent },
-  { path: 'science-basic-chemistry', title: 'Basic Chemistry', component: NotesScienceBasicChemistryComponent },
+  { path: 'science-basic-chemistry', title: 'Basic Chemistry (Matter)', component: NotesScienceBasicChemistryComponent },
   { path: 'scientific-methods', title: 'Scientific Methods', component: NotesScienceMethodsComponent },
 
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },

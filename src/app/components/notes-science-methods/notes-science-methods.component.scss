@@ -1,0 +1,49 @@
+.content-card {
+  li {
+    padding: 5px 0;
+  }
+  p {
+    margin: 0;
+    padding: 8px 0;
+  }
+  .minitopic-description {
+    // font-size: 14px;
+    padding: 10px 0;
+  }
+}
+
+b,
+li,
+.minitopic-description {
+  // uncopyable
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.keyword {
+  text-decoration: underline rgba(48, 12, 131, 0.4) solid 0.2em;
+  text-decoration-skip-ink: none;
+  font-weight: 600;
+}
+
+.examples {
+  padding: 10px 0;
+  li {
+    padding: 0;
+  }
+
+  li::marker {
+    font-weight: bold;
+  }
+}
+
+/* It's supposed to look like a tree diagram */
+@media screen and (max-width: 420px) {
+  ol {
+    padding-left: 5%;
+  }
+}
