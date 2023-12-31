@@ -35,12 +35,12 @@ mat-card:hover {
   background-color: rgba(197, 106, 25, 0.5);
 }
 
-.correct {
-  background-color: var(--header) !important;
-}
+// .correct {
+//   background-color: var(--header) !important;
+// }
 
 .wrong {
-  background-color: var(--warn) !important;
+  background-color: #df6c63 !important;
 }
 
 .home {
@@ -49,4 +49,20 @@ mat-card:hover {
   .choice {
     font-size: 16px;
   }
+}
+
+/*asdfasdf*/
+
+.choice {
+  margin: 0;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--primary);
+}
+
+.correct {
+  background-color: #b7a1c9 !important;
 }

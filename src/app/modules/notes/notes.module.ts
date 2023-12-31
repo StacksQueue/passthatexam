@@ -12,6 +12,8 @@ import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-s
 import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathematics-basic/notes-mathematics-basic.component';
 import { NotesEnglishWorksAndAuthorsComponent } from 'src/app/components/notes-english-works-and-authors/notes-english-works-and-authors.component';
 import { NotesEnglishGrammarComponent } from 'src/app/components/notes-english-grammar/notes-english-grammar.component';
+import { NotesScienceBasicChemistryComponent } from 'src/app/components/notes-science-basic-chemistry/notes-science-basic-chemistry.component';
+import { NotesScienceMethodsComponent } from 'src/app/components/notes-science-methods/notes-science-methods.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NotesEnglishGrammarComponent } from 'src/app/components/notes-english-g
     NotesSocialScienceEconomicsComponent,
     NotesMathematicsBasicComponent,
     NotesEnglishWorksAndAuthorsComponent,
-    NotesEnglishGrammarComponent
+    NotesEnglishGrammarComponent,
+    NotesScienceBasicChemistryComponent,
+    NotesScienceMethodsComponent
   ],
   imports: [CommonModule, NotesRoutingModule],
 })

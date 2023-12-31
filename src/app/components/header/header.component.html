@@ -22,13 +22,7 @@
     <div class="dropdown">
       <button class="droptbn">Notes</button>
       <div class="dropdown-content">
-        <a (click)="toggleMenu()" [routerLink]="['/notes/rizal']">Rizal</a>
-        <div class="subdropdown">
-          <button class="subdroptbn">Science</button>
-          <div class="subdropdown-content">
-            <a *ngFor="let note of notes" (click)="toggleMenu()" [routerLink]="note.route">{{ note.name }}</a>
-          </div>
-        </div>
+        <a *ngFor="let note of notes" (click)="toggleMenu()" [routerLink]="note.route">{{ note.name }}</a>
       </div>
     </div>
   </div>

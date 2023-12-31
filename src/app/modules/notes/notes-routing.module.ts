@@ -8,7 +8,9 @@ import { NotesMathematicsBasicComponent } from 'src/app/components/notes-mathema
 import { NotesProfessionalEducationStagesComponent } from 'src/app/components/notes-professional-education-stages/notes-professional-education-stages.component';
 import { NotesProfessionalEducationComponent } from 'src/app/components/notes-professional-education/notes-professional-education.component';
 import { NotesRizalComponent } from 'src/app/components/notes-rizal/notes-rizal.component';
+import { NotesScienceBasicChemistryComponent } from 'src/app/components/notes-science-basic-chemistry/notes-science-basic-chemistry.component';
 import { NotesScienceEarthSpaceAstronomyComponent } from 'src/app/components/notes-science-earth-space-astronomy/notes-science-earth-space-astronomy.component';
+import { NotesScienceMethodsComponent } from 'src/app/components/notes-science-methods/notes-science-methods.component';
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 
 const routes: Routes = [
@@ -20,6 +22,9 @@ const routes: Routes = [
   { path: 'professional-education-2', title: 'Professional Education Notes - 2', component: NotesProfessionalEducationStagesComponent },
   { path: 'science-earth-space-astronomy', title: 'Science - Earth, Space and Astronomy', component: NotesScienceEarthSpaceAstronomyComponent },
   { path: 'science-biology-cells', title: 'Biology - Cells', component: NotesBiologyCellsComponent },
+  { path: 'science-basic-chemistry', title: 'Basic Chemistry (Matter)', component: NotesScienceBasicChemistryComponent },
+  { path: 'scientific-methods', title: 'Scientific Methods', component: NotesScienceMethodsComponent },
+
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
 ];
 

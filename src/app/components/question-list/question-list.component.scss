@@ -75,6 +75,10 @@ mat-slide-toggle {
 }
 
 @media screen and (max-width: 420px) {
+  ::ng-deep.sec-container {
+    width: 100%;
+    padding: 0;
+  }
   .action-wrapper {
     flex-direction: column-reverse;
     align-items: flex-start;
