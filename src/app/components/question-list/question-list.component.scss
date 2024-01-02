@@ -86,3 +86,11 @@ mat-slide-toggle {
 }
 
 /** for pdf purposes starts here **/
+
+::ng-deep .header {
+  display: none !important;
+}
+
+::ng-deep .footer-container {
+  display: none !important;
+}

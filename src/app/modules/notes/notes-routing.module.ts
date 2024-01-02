@@ -14,16 +14,16 @@ import { NotesScienceMethodsComponent } from 'src/app/components/notes-science-m
 import { NotesSocialScienceEconomicsComponent } from 'src/app/components/notes-social-science-economics/notes-social-science-economics.component';
 
 const routes: Routes = [
-  { path: 'english-grammar', title: 'English - Grammar', component: NotesEnglishGrammarComponent },
-  { path: 'mathematics-arithmetic', title: 'Mathematics - Arithmetic', component: NotesMathematicsBasicComponent },
-  { path: 'filipino-panitikan', title: 'Filipino - Panitikan', component: NotesFilipinoPanitikanComponent },
-  { path: 'socialscience-economics', title: 'Social Science', component: NotesSocialScienceEconomicsComponent },
-  { path: 'professional-education', title: 'Professional Education Notes - 1', component: NotesProfessionalEducationComponent },
-  { path: 'professional-education-2', title: 'Professional Education Notes - 2', component: NotesProfessionalEducationStagesComponent },
-  { path: 'science-earth-space-astronomy', title: 'Science - Earth, Space and Astronomy', component: NotesScienceEarthSpaceAstronomyComponent },
-  { path: 'science-biology-cells', title: 'Biology - Cells', component: NotesBiologyCellsComponent },
-  { path: 'science-basic-chemistry', title: 'Basic Chemistry (Matter)', component: NotesScienceBasicChemistryComponent },
-  { path: 'scientific-methods', title: 'Scientific Methods', component: NotesScienceMethodsComponent },
+  { path: 'english-grammar', title: 'English - Grammar (Pass That Board Review Material)', component: NotesEnglishGrammarComponent },
+  { path: 'mathematics-arithmetic', title: 'Mathematics - Arithmetic (Pass That Board Review Material)', component: NotesMathematicsBasicComponent },
+  { path: 'filipino-panitikan', title: 'Filipino - Panitikan (Pass That Board Review Material)', component: NotesFilipinoPanitikanComponent },
+  { path: 'socialscience-economics', title: 'Social Science (Pass That Board Review Material)', component: NotesSocialScienceEconomicsComponent },
+  { path: 'professional-education', title: 'Professional Education Notes - 1 (Pass That Board Review Material)', component: NotesProfessionalEducationComponent },
+  { path: 'professional-education-2', title: 'Professional Education Notes - 2 (Pass That Board Review Material)', component: NotesProfessionalEducationStagesComponent },
+  { path: 'science-earth-space-astronomy', title: 'Science - Earth, Space and Astronomy (Pass That Board Review Material)', component: NotesScienceEarthSpaceAstronomyComponent },
+  { path: 'science-biology-cells', title: 'Biology - Cells (Pass That Board Review Material)', component: NotesBiologyCellsComponent },
+  { path: 'science-basic-chemistry', title: 'Basic Chemistry - Matter (Pass That Board Review Material)', component: NotesScienceBasicChemistryComponent },
+  { path: 'scientific-methods', title: 'Scientific Methods (Pass That Board Review Material)', component: NotesScienceMethodsComponent },
 
   { path: 'rizal', title: 'LET Rizal Notes', component: NotesRizalComponent },
 ];
