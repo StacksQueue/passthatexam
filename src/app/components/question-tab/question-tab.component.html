@@ -1,3 +1,6 @@
+<div class="qtab-actions">
+  <mat-slide-toggle [(ngModel)]="isShow" color="primary">show answer</mat-slide-toggle>
+</div>
 <div class="q-content">
   <div class="chip" *ngIf="question.major[0]">{{ question.major[0] }}</div>
   <p>{{ question.question }}</p>
